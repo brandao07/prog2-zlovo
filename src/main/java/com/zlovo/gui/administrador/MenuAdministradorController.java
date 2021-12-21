@@ -7,6 +7,10 @@ import javafx.event.ActionEvent;
 public class MenuAdministradorController {
     // TODO continuacao dos butoes
 
+    public void criarUser(ActionEvent event){
+        ControladorGlobal.chamaScene("administrador/SceneSelecionaTipoFuncionario.fxml", event);
+    }
+
     public void logout(ActionEvent event){
         UtilizadorBLL.setUserLog(null);
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);

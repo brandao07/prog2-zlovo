@@ -37,4 +37,13 @@ public class EmpresaBLL {
             return;
         }
     }
+
+    public static boolean checkEmpresaNome(String nome){
+        boolean checker = false;
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            for (Empresa keyEmpresa : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
+                if (Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).get(keyEmpresa.getId()).getNome().equals(nome))
+                    checker = true;
+        return checker;
+    }
 }

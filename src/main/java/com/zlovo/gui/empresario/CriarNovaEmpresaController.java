@@ -38,6 +38,10 @@ public class CriarNovaEmpresaController implements Initializable {
 
     public void confirmar(ActionEvent event){
         if(!nomeTF.getText().isEmpty() & !telefoneTF.getText().isEmpty() & !ruaTF.getText().isEmpty() & !portaTF.getText().isEmpty() & !localidadeCB.getValue().isEmpty()){
+            if(EmpresaBLL.checkEmpresaNome(nomeTF.getText())){
+                checkDados.setText("Username já registado!");
+                return;
+            }
             Empresa empresa = new Empresa();
             empresa.setNome(nomeTF.getText());
             empresa.setTelefone(telefoneTF.getText());

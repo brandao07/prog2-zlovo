@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.DadosAdminController">
    <children>
       <Label layoutX="182.0" layoutY="59.0" text="Criar Administrador">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="220.0" layoutY="188.0" />
-      <TextField fx:id="usernameField" layoutX="220.0" layoutY="149.0" />
+      <PasswordField fx:id="passwordTF" layoutX="220.0" layoutY="188.0" />
+      <TextField fx:id="usernameTF" layoutX="220.0" layoutY="149.0" />
       <Label layoutX="152.0" layoutY="154.0" text="username:" />
       <Label layoutX="153.0" layoutY="193.0" text="password:" />
-      <Button layoutX="273.0" layoutY="249.0" mnemonicParsing="false" text="Confirmar" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Cancelar" />
+      <Button layoutX="273.0" layoutY="249.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Label fx:id="invalidDados" layoutX="403.0" layoutY="154.0" prefHeight="17.0" prefWidth="183.0" textFill="#e42121" />
    </children>
 </AnchorPane>

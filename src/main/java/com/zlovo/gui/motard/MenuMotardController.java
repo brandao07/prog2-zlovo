@@ -4,9 +4,13 @@ import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-public class MenuMotardController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class MenuMotardController implements Initializable {
     @FXML
     private Label usernameMotard;
 
@@ -19,9 +23,9 @@ public class MenuMotardController {
         ControladorGlobal.chamaScene("motard/SceneListarOrdens.fxml", event);
     }
 
-    public void getUsernameMotard (ActionEvent event){
-        String username;
-        username = UtilizadorBLL.getUserLog().getUsername();
-        usernameMotard.setText("Bem-vindo " + username);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        usernameMotard.setText("Bem-vindo " + UtilizadorBLL.getUserLog().getUsername());
     }
 }

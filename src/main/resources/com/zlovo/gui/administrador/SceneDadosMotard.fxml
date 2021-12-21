@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.DadosMotardController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-6.0" layoutY="25.0" prefHeight="17.0" prefWidth="729.0" text="Criar Motard" textAlignment="CENTER">
             <font>
@@ -19,20 +19,21 @@
         <Label layoutX="55.0" layoutY="141.0" prefHeight="17.0" prefWidth="225.0" text="Nº de Identificação Fiscal:" />
         <Label layoutX="165.0" layoutY="250.0" text="Rua: " />
         <Label layoutX="140.0" layoutY="179.0" prefHeight="17.0" prefWidth="56.0" text="Telefone:" />
-        <TextField fx:id="nomeTextfield" layoutX="210.0" layoutY="67.0" />
-        <TextField fx:id="ccTextfield" layoutX="210.0" layoutY="101.0" />
-        <TextField fx:id="nifTextfield" layoutX="210.0" layoutY="136.0" />
-        <TextField fx:id="telefoneTextfield" layoutX="210.0" layoutY="174.0" prefHeight="26.0" prefWidth="159.0" />
-        <TextField fx:id="ruaTextfield" layoutX="210.0" layoutY="246.0" />
-        <TextField fx:id="portaTextfield" layoutX="210.0" layoutY="285.0" />
+        <TextField fx:id="nomeTF" layoutX="210.0" layoutY="67.0" />
+        <TextField fx:id="ccTF" layoutX="210.0" layoutY="101.0" />
+        <TextField fx:id="nifTF" layoutX="210.0" layoutY="136.0" />
+        <TextField fx:id="telefoneTF" layoutX="210.0" layoutY="174.0" prefHeight="26.0" prefWidth="159.0" />
+        <TextField fx:id="ruaTF" layoutX="210.0" layoutY="246.0" />
+        <TextField fx:id="portaTF" layoutX="210.0" layoutY="285.0" />
         <Label layoutX="126.0" layoutY="289.0" prefHeight="17.0" prefWidth="72.0" text="Nº da Porta:" />
         <Label layoutX="125.0" layoutY="213.0" prefHeight="17.0" prefWidth="87.0" text="Localidade:" />
         <ChoiceBox fx:id="localidadeBox" layoutX="210.0" layoutY="208.0" prefHeight="26.0" prefWidth="159.0" />
-        <Button layoutX="528.0" layoutY="174.0" mnemonicParsing="false" text="Confirmar" />
-      <PasswordField fx:id="passwordField" layoutX="494.0" layoutY="110.0" />
+        <Button layoutX="528.0" layoutY="174.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+      <PasswordField fx:id="passwordF" layoutX="494.0" layoutY="110.0" />
       <Label layoutX="427.0" layoutY="115.0" text="Password:" />
-      <TextField fx:id="usernameTextField" layoutX="494.0" layoutY="67.0" />
+      <TextField fx:id="usernameTF" layoutX="494.0" layoutY="67.0" />
       <Label layoutX="426.0" layoutY="72.0" text="Username:" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" text="Cancelar" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Label fx:id="invalidDados" layoutX="469.0" layoutY="251.0" textFill="#d72c2c" />
     </children>
 </AnchorPane>
