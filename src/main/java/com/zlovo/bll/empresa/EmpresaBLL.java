@@ -20,6 +20,7 @@ public class EmpresaBLL {
     }
 
     public static void criarEmpresa(@NotNull Empresa empresa) {
+        System.out.println("teste");
         System.out.println(empresa.getNome());
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
