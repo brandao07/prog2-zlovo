@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.MenuClienteController">
+   <children>
+      <Button layoutX="531.0" layoutY="361.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button layoutX="238.0" layoutY="108.0" mnemonicParsing="false" onAction="#efetuarEncomenda" prefHeight="25.0" prefWidth="124.0" text="Efetuar Encomenda" />
+      <Button layoutX="239.0" layoutY="154.0" mnemonicParsing="false" onAction="#efetuarPagamentos" prefHeight="25.0" prefWidth="124.0" text="Efetuar Pagamentos" />
+      <Button layoutX="242.0" layoutY="200.0" mnemonicParsing="false" onAction="#ListarEncomendas" prefHeight="25.0" prefWidth="124.0" text="Listar Encomendas" />
+      <Label fx:id="usernameCliente" alignment="CENTER" layoutY="39.0" prefHeight="17.0" prefWidth="600.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

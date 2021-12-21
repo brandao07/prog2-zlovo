@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.SelecionaTipoUserController">
+   <children>
+      <ChoiceBox fx:id="myChoiceBox" layoutX="225.0" layoutY="154.0" prefWidth="150.0" />
+      <Label layoutX="127.0" layoutY="60.0" text="Seleciona o tipo de utilizador">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Button layoutX="267.0" layoutY="219.0" mnemonicParsing="false" onAction="#submit" text="Seguinte" />
+      <Label fx:id="invalidOption" layoutX="163.0" layoutY="302.0" textFill="#2073e8">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="44.0" layoutY="341.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
+   </children>
+</AnchorPane>

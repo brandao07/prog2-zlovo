@@ -1,0 +1,4 @@
+— SceneLoginAdmin: perguntar ao sor se é necessário CRUD para cada tipo de utilizador exemplo remover, etc.
+— GERAL: Colocar butões retroceder/cancelar para voltar para trás caso se tenha enganado
+— Perguntar ao sor se é necessário full dados para o admin (morada etc...)
+— Dúvida! Para os produtos será melhor Listas ou Mapas...
