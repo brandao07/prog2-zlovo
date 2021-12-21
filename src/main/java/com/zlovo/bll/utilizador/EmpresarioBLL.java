@@ -1,6 +1,7 @@
 package com.zlovo.bll.utilizador;
 
 import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.utilizador.Empresario;
 
 public class EmpresarioBLL {
@@ -14,6 +15,16 @@ public class EmpresarioBLL {
                     System.out.println(Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername());
         } else
             System.out.println("Sem donos de empresas registados!");
+    }
+
+    public static boolean adicionarEmpresa(Empresa empresa){
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+            if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
+                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(UtilizadorBLL.getUserLog().getUsername())){
+                    ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().add(empresa.getId(), empresa);
+                    return true;
+                }
+        return false;
     }
 }
 

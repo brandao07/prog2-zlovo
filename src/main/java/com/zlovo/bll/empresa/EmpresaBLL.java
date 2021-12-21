@@ -1,12 +1,12 @@
 package com.zlovo.bll.empresa;
 
+import com.zlovo.bll.utilizador.EmpresarioBLL;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.List;
-//TODO Adicionar empresa ao empresario
+
 public class EmpresaBLL {
 
     private static Empresa empresaLog;
@@ -24,6 +24,8 @@ public class EmpresaBLL {
         System.out.println(empresa.getNome());
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
+        if(!EmpresarioBLL.adicionarEmpresa(empresa))
+            return;
         if (!Repositorio.getRepositorio().getLocalidadesEmpresasMap().containsKey(empresa.getMorada().getLocalidade())) {
             ArrayList<Empresa> empresas = new ArrayList<>();
             empresas.add(empresa);
