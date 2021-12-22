@@ -39,7 +39,7 @@ public class MenuCategoriaController implements Initializable {
 
     public void anterior (ActionEvent event){
         categoriaSelecionada = null;
-        ControladorGlobal.chamaScene("adiministrador/SceneMenuAdmin.fxml", event);
+        ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
     @Override
