@@ -27,4 +27,26 @@ public class AdministradorBLL {
                 return true;
         return false;
     }
+
+    public static boolean checkCategorias(String categoria) {
+        if (Repositorio.getRepositorio().getCategoriaSet().contains(categoria))
+            if (!Repositorio.getRepositorio().getCategoriasEmpresasMap().isEmpty())
+                return Repositorio.getRepositorio().getCategoriasEmpresasMap().containsKey(categoria);
+        return false;
+    }
+
+    public static void editarCategoria(String categoria) {
+        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet()){
+            if (key.equals(MenuCategoriaController.categoriaSelecionada)) {
+                ArrayList<Empresa> empresas = Repositorio.getRepositorio().getCategoriasEmpresasMap().remove(key);
+                Repositorio.getRepositorio().getCategoriasEmpresasMap().put(categoria, empresas);
+            }
+        }
+    }
+    public static void removerCategoria(String categoria) {
+        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
+            if (key.equals(categoria))
+                Repositorio.getRepositorio().getCategoriasEmpresasMap().remove(key);
+        Repositorio.getRepositorio().getCategoriaSet().remove(categoria);
+    }
 }

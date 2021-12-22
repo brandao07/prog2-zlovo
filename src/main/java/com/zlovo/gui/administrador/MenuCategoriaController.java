@@ -6,6 +6,7 @@ import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 import java.net.URL;
@@ -44,5 +45,10 @@ public class MenuCategoriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         categoriaList.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
+
+        categoriaList.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            currentCategoria = categoriaList.getSelectionModel().getSelectedItem();
+            myLabel.setText(currentCategoria);
+        });
     }
 }
