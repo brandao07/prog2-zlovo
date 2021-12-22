@@ -1,7 +1,12 @@
 package com.zlovo.bll.utilizador;
 
 import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.utilizador.Administrador;
+import com.zlovo.gui.administrador.EditarCategoriaController;
+import com.zlovo.gui.administrador.MenuCategoriaController;
+
+import java.util.ArrayList;
 
 public class AdministradorBLL {
 

@@ -1,5 +1,6 @@
 package com.zlovo.gui.administrador;
 
+import com.zlovo.bll.utilizador.AdministradorBLL;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -14,18 +15,24 @@ public class MenuCategoriaController implements Initializable {
 
     @FXML
     private ListView<String> categoriaList;
-    private static String categoriaSelecionada;
+    @FXML
+    private Label myLabel;
+
+    String currentCategoria;
+
+    public static String categoriaSelecionada;
 
     public void adicionar (ActionEvent event){
         categoriaSelecionada = null;
-        ControladorGlobal.chamaScene("", event);
+        ControladorGlobal.chamaScene("administrador/SceneAdicionarCategoria.fxml", event);
     }
     public void alterar (ActionEvent event){
         categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
-        ControladorGlobal.chamaScene("", event);
+        ControladorGlobal.chamaScene("administrador/SceneEditarCategorias.fxml", event);
     }
     public void remover (ActionEvent event) {
         categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
+        AdministradorBLL.removerCategoria(categoriaSelecionada);
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
