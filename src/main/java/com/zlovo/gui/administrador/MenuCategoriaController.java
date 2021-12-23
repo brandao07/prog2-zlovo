@@ -30,19 +30,21 @@ public class MenuCategoriaController implements Initializable {
     }
 
     public void alterar (ActionEvent event){
-        if(categoriaList.getSelectionModel().getSelectedItem() != null){
-            categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
-            ControladorGlobal.chamaScene("administrador/SceneEditarCategorias.fxml", event);
+        if(categoriaList.getSelectionModel().getSelectedItem() == null){
+            checkerror.setText("Selecione uma categoria");
+            return;
         }
-        checkerror.setText("Selecione uma categoria");
+        categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
+        ControladorGlobal.chamaScene("administrador/SceneEditarCategorias.fxml", event);
     }
     public void remover (ActionEvent event) {
-        if(categoriaList.getSelectionModel().getSelectedItem() != null){
-            categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
-            AdministradorBLL.removerCategoria(categoriaSelecionada);
-            ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
+        if(categoriaList.getSelectionModel().getSelectedItem() == null){
+            checkerror.setText("Selecione uma categoria");
+            return;
         }
-        checkerror.setText("Selecione uma categoria");
+        categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
+        AdministradorBLL.removerCategoria(categoriaSelecionada);
+        ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
     public void anterior (ActionEvent event){

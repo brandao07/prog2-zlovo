@@ -1,8 +1,10 @@
 package com.zlovo.bll.empresa;
 
 import com.zlovo.bll.utilizador.EmpresarioBLL;
+import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
+import com.zlovo.dal.utilizador.Empresario;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -22,6 +24,7 @@ public class EmpresaBLL {
     public static void criarEmpresa(@NotNull Empresa empresa) {
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
+        empresa.setEmpresarioID(UtilizadorBLL.getUserLog().getUsername());
         if(!EmpresarioBLL.adicionarEmpresa(empresa))
             return;
         if (!Repositorio.getRepositorio().getLocalidadesEmpresasMap().containsKey(empresa.getMorada().getLocalidade())) {
@@ -40,8 +43,32 @@ public class EmpresaBLL {
         boolean checker = false;
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             for (Empresa keyEmpresa : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
-                if (Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).get(keyEmpresa.getId()).getNome().equals(nome))
+                if (keyEmpresa.getNome().equals(nome)) {
                     checker = true;
+                    break;
+                }
         return checker;
+    }
+    // Método que remove a empresa do mapa LocalidadeEmpresa e tambem do mapa CategoriaEmpresa e do mapa utilizadores
+    public static void removerEmpresa(Empresa empresa, Empresario empresario){
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.equals(empresa));
+        for(String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
+            Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.equals(empresa));
+
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+            if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
+                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).equals(empresario))
+                    for (Empresa e : ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList())
+                        if (e.equals(empresa))
+                            ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().remove(empresa);
+    }
+    // Método que remove a empresa do mapa LocalidadeEmpresa e tambem do mapa CategoriaEmpresa
+    public static void removerEmpresaALL(String empresario){
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
+
+        for(String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
+            Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
     }
 }

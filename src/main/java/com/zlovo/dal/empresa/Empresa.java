@@ -12,6 +12,7 @@ import java.util.function.IntFunction;
 public class Empresa implements Serializable {
 //    Atributos
     private int id;
+    private String empresarioID;
     private String nome;
     private Morada morada;
     private String telefone;
@@ -28,6 +29,14 @@ public class Empresa implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEmpresarioID() {
+        return empresarioID;
+    }
+
+    public void setEmpresarioID(String empresarioID) {
+        this.empresarioID = empresarioID;
     }
 
     public String getNome() {

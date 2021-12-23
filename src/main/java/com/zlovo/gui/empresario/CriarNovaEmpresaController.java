@@ -16,7 +16,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CriarNovaEmpresaController implements Initializable {
-    //TODO nao da para criar 2 empresas para o mesmo empresario
     @FXML
     private TextField nomeTF;
     @FXML
