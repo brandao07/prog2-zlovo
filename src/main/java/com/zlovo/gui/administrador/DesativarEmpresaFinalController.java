@@ -21,9 +21,9 @@ public class DesativarEmpresaFinalController implements Initializable {
     @FXML
     private Label checkerror;
 
-    public static Empresa empresaSelecionada;
 
     public void remover (ActionEvent event){
+        Empresa empresaSelecionada;
         if(empresaList.getSelectionModel().getSelectedItem() == null){
             checkerror.setText("Selecione uma empresa");
             return;

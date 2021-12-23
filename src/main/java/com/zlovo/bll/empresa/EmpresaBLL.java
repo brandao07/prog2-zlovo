@@ -60,8 +60,10 @@ public class EmpresaBLL {
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
                 if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).equals(empresario))
                     for (Empresa e : ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList())
-                        if (e.equals(empresa))
+                        if (e.equals(empresa)) {
                             ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().remove(empresa);
+                            return;
+                        }
     }
     // Método que remove a empresa do mapa LocalidadeEmpresa e tambem do mapa CategoriaEmpresa
     public static void removerEmpresaALL(String empresario){

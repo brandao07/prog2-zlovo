@@ -66,7 +66,6 @@ public class AdministradorBLL {
     }
 
     public static void changeCellValueEmpresarioNome(@NotNull ListView<Empresario> listView){
-        listView.getItems().addAll(AdministradorBLL.getEmpresarios());
         listView.setCellFactory(new Callback<>() {
             public ListCell<Empresario> call(ListView<Empresario> param) {
                 return new ListCell<>() {
