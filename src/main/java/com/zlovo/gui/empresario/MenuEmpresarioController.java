@@ -20,13 +20,12 @@ import java.util.ResourceBundle;
 public class MenuEmpresarioController implements Initializable {
     @FXML
     private ListView<Empresa> myListView;
-
     @FXML
     private Label myLabel;
     @FXML
     private Label empresarioLabel;
-
-    String currentEmpresa;
+    @FXML
+    private Label checkerror;
 
     public void logout(ActionEvent event){
         UtilizadorBLL.setUserLog(null);
@@ -34,6 +33,10 @@ public class MenuEmpresarioController implements Initializable {
     }
 
     public void seguinte(ActionEvent event){
+        if(myListView.getSelectionModel().getSelectedItem() == null){
+            checkerror.setText("Crie uma empresa");
+            return;
+        }
         ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
     }
 

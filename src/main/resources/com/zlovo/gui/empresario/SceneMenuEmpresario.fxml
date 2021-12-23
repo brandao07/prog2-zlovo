@@ -10,17 +10,22 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.MenuEmpresarioController">
     <children>
       <Button layoutX="531.0" layoutY="361.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Label fx:id="myLabel" alignment="CENTER" layoutY="71.0" prefHeight="17.0" prefWidth="600.0" text="Selecione a empresa">
+      <Label fx:id="myLabel" alignment="CENTER" layoutY="52.0" prefHeight="17.0" prefWidth="600.0" text="Selecione a empresa">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button layoutX="269.0" layoutY="313.0" mnemonicParsing="false" onAction="#seguinte" text="Seguinte" />
       <Hyperlink layoutX="211.0" layoutY="350.0" onAction="#criaEmpresa" text="Deseja criar uma nova empresa?" />
-      <ListView fx:id="myListView" layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="empresarioLabel" layoutX="52.0" layoutY="23.0" prefHeight="31.0" prefWidth="496.0" text="Bem-vindo ">
+      <ListView fx:id="myListView" layoutX="200.0" layoutY="79.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="empresarioLabel" layoutX="53.0" layoutY="14.0" prefHeight="31.0" prefWidth="496.0" text="Bem-vindo ">
          <font>
             <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="checkerror" alignment="CENTER" layoutX="1.0" layoutY="286.0" prefHeight="17.0" prefWidth="600.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
     </children>
