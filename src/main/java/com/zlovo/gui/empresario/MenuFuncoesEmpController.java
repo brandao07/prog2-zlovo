@@ -15,6 +15,7 @@ public class MenuFuncoesEmpController {
 
     public void DadosEmpresa (ActionEvent event){
         ControladorGlobal.chamaScene("empresario/SceneDadosEmpresa.fxml", event);
+        System.out.println("teste");
     }
 
     public void MenuProdutos (ActionEvent event){
