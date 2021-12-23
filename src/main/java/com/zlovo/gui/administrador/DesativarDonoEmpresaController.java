@@ -10,6 +10,7 @@ public class DesativarDonoEmpresaController {
     private ListView myListView;
 
     public void anterior(ActionEvent event){
+        System.out.println("commit");
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 }
