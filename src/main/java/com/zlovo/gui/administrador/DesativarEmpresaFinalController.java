@@ -39,4 +39,8 @@ public class DesativarEmpresaFinalController implements Initializable {
         EmpresarioBLL.changeCellValueEmpresaNome(empresaList);
         EmpresarioBLL.updateNomeEmpresaLabel(empresaList, myLabel);
     }
+
+    public void anterior(ActionEvent event){
+        ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
+    }
 }
