@@ -21,20 +21,21 @@ public class AdministradorBLL {
             System.out.println("Sem administradores registados!");
     }
 
+    // Método que verifica se o utilizador é do tipo Addministrador
     public static boolean checkAdministrador() {
         for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if(Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Administrador)
                 return true;
         return false;
     }
-
+    // Método que verifica se a categoria existe
     public static boolean checkCategorias(String categoria) {
         if (Repositorio.getRepositorio().getCategoriaSet().contains(categoria))
             if (!Repositorio.getRepositorio().getCategoriasEmpresasMap().isEmpty())
                 return Repositorio.getRepositorio().getCategoriasEmpresasMap().containsKey(categoria);
         return false;
     }
-
+    // Método que altera o nome de uma categoria
     public static void editarCategoria(String categoria) {
         for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet()){
             if (key.equals(MenuCategoriaController.categoriaSelecionada)) {
@@ -43,6 +44,7 @@ public class AdministradorBLL {
             }
         }
     }
+    // Método que remove uma categoria
     public static void removerCategoria(String categoria) {
         for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             if (key.equals(categoria))

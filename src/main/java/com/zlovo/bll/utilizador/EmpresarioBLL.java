@@ -16,7 +16,7 @@ public class EmpresarioBLL {
         } else
             System.out.println("Sem donos de empresas registados!");
     }
-
+    // Método que adiciona uma empresa
     public static boolean adicionarEmpresa(Empresa empresa){
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)

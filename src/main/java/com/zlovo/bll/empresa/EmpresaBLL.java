@@ -18,7 +18,7 @@ public class EmpresaBLL {
     public static void setEmpresaLog(Empresa empresaLog) {
         EmpresaBLL.empresaLog = empresaLog;
     }
-
+    // Método que cria empresa
     public static void criarEmpresa(@NotNull Empresa empresa) {
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
@@ -35,7 +35,7 @@ public class EmpresaBLL {
             return;
         }
     }
-
+    //Método que verifica se o nome da empresa é repetido
     public static boolean checkEmpresaNome(String nome){
         boolean checker = false;
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())

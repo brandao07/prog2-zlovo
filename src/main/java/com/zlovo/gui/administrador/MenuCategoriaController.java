@@ -18,7 +18,8 @@ public class MenuCategoriaController implements Initializable {
     private ListView<String> categoriaList;
     @FXML
     private Label myLabel;
-
+    @FXML
+    private Label checkerror;
     String currentCategoria;
 
     public static String categoriaSelecionada;
@@ -27,19 +28,26 @@ public class MenuCategoriaController implements Initializable {
         categoriaSelecionada = null;
         ControladorGlobal.chamaScene("administrador/SceneAdicionarCategoria.fxml", event);
     }
+
     public void alterar (ActionEvent event){
-        categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
-        ControladorGlobal.chamaScene("administrador/SceneEditarCategorias.fxml", event);
+        if(categoriaList.getSelectionModel().getSelectedItem() != null){
+            categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
+            ControladorGlobal.chamaScene("administrador/SceneEditarCategorias.fxml", event);
+        }
+        checkerror.setText("Selecione uma categoria");
     }
     public void remover (ActionEvent event) {
-        categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
-        AdministradorBLL.removerCategoria(categoriaSelecionada);
-        ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
+        if(categoriaList.getSelectionModel().getSelectedItem() != null){
+            categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
+            AdministradorBLL.removerCategoria(categoriaSelecionada);
+            ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
+        }
+        checkerror.setText("Selecione uma categoria");
     }
 
     public void anterior (ActionEvent event){
         categoriaSelecionada = null;
-        ControladorGlobal.chamaScene("adiministrador/SceneMenuAdmin.fxml", event);
+        ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
     @Override
