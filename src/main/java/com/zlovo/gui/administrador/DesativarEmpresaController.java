@@ -1,14 +1,32 @@
 package com.zlovo.gui.administrador;
 
+import com.zlovo.bll.utilizador.AdministradorBLL;
+import com.zlovo.bll.utilizador.EmpresarioBLL;
+import com.zlovo.bll.utilizador.UtilizadorBLL;
+import com.zlovo.dal.empresa.Empresa;
+import com.zlovo.dal.utilizador.Empresario;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class DesativarEmpresaController {
+
+public class DesativarEmpresaController implements Initializable {
+
     @FXML
-    private ListView myListView;
+    private ListView<Empresario> empresarioList;
+    @FXML
+    private Label myLabel;
+    @FXML
+    private Label checkerror;
+
+    public static Empresario empresarioSelecionado;
 
     public void anterior(ActionEvent event){
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);

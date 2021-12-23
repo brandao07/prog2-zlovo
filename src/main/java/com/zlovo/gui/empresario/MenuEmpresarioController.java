@@ -1,5 +1,6 @@
 package com.zlovo.gui.empresario;
 
+import com.zlovo.bll.utilizador.EmpresarioBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.utilizador.Empresario;
@@ -41,24 +42,8 @@ public class MenuEmpresarioController implements Initializable {
         empresarioLabel.setText("Bem-vindo: " + UtilizadorBLL.getUserLog().getUsername());
         if (UtilizadorBLL.getUserLog() instanceof Empresario)
             myListView.getItems().addAll(((Empresario) UtilizadorBLL.getUserLog()).getEmpresasList());
-        myListView.setCellFactory(new Callback<>() {
-            public ListCell<Empresa> call(ListView<Empresa> param) {
-                return new ListCell<>() {
-                    @Override
-                    public void updateItem(Empresa item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (item != null) {
-                            setText(item.getNome());
-                        }
-                    }
-                };
-            }
-        });
-        //mudar o conteudo da label
-        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            currentEmpresa = myListView.getSelectionModel().getSelectedItem().getNome();
-            myLabel.setText(currentEmpresa);
-        });
+        EmpresarioBLL.changeCellValueEmpresaNome(myListView);
+        EmpresarioBLL.updateNomeEmpresaLabel(myListView, myLabel);
     }
 
     public void criaEmpresa(ActionEvent event){
