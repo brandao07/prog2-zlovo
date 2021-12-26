@@ -1,5 +1,6 @@
 package com.zlovo.gui.empresario;
 
+import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.utilizador.EmpresarioBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.empresa.Empresa;
@@ -37,6 +38,7 @@ public class MenuEmpresarioController implements Initializable {
             checkerror.setText("Crie uma empresa");
             return;
         }
+        EmpresaBLL.setEmpresaLog(myListView.getSelectionModel().getSelectedItem());
         ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
     }
 

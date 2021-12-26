@@ -33,10 +33,7 @@ public class EmpresaBLL {
             Repositorio.getRepositorio().getLocalidadesEmpresasMap().put(empresa.getMorada().getLocalidade(), empresas);
             return;
         }
-        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet()){
-            Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).add(empresa);
-            return;
-        }
+        Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(empresa.getMorada().getLocalidade()).add(empresa);
     }
     //Método que verifica se o nome da empresa é repetido
     public static boolean checkEmpresaNome(String nome){
@@ -72,5 +69,53 @@ public class EmpresaBLL {
 
         for(String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
+    }
+    // Método que altera os dados de uma empresa
+    public static void alteraEmpresa(@NotNull Empresa empresa){
+        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
+            for (Empresa e : Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key))
+                if(e.equals(EmpresaBLL.getEmpresaLog())) {
+                    Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).remove(e);
+                    Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).add(alteraHandler(empresa));
+                    break;
+                }
+
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
+                if (e.equals(EmpresaBLL.getEmpresaLog())) {
+                    Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).remove(e);
+                    if (!Repositorio.getRepositorio().getLocalidadesEmpresasMap().containsKey(alteraHandler(empresa).getMorada().getLocalidade())) {
+                        ArrayList<Empresa> empresas = new ArrayList<>();
+                        empresas.add(alteraHandler(empresa));
+                        Repositorio.getRepositorio().getLocalidadesEmpresasMap().put(alteraHandler(empresa).getMorada().getLocalidade(), empresas);
+                    }
+                    else
+                        Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(alteraHandler(empresa).getMorada().getLocalidade()).add(alteraHandler(empresa));
+                    break;
+                }
+
+        for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+            if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
+                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).equals(UtilizadorBLL.getUserLog()))
+                    for (Empresa e : ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList())
+                        if (e.equals(EmpresaBLL.getEmpresaLog())) {
+                            ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().remove(e);
+                            ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().add(alteraHandler(empresa));
+                            break;
+                        }
+        EmpresaBLL.setEmpresaLog(alteraHandler(empresa));
+    }
+
+    public static @NotNull Empresa alteraHandler(@NotNull Empresa empresa){
+        Empresa e = EmpresaBLL.getEmpresaLog();
+        if (!empresa.getNome().isEmpty()) e.setNome(empresa.getNome());
+        if (!empresa.getTelefone().isEmpty()) e.setTelefone(empresa.getTelefone());
+        if (!empresa.getMorada().getRua().isEmpty()) e.getMorada().setRua(empresa.getMorada().getRua());
+        e.getMorada().setnPorta(empresa.getMorada().getnPorta());
+        if (empresa.getMorada().getLocalidade() == null)
+            return e;
+        else
+            e.getMorada().setLocalidade(empresa.getMorada().getLocalidade());
+        return e;
     }
 }

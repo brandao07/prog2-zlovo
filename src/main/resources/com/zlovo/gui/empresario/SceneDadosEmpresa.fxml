@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.DadosEmpresaController">
    <children>
-      <ListView fx:id="myListView" layoutX="58.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="258.0" layoutY="27.0" text="Empresas">
+      <Label layoutX="234.0" layoutY="24.0" text="Dados Empresa">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="310.0" layoutY="94.0" mnemonicParsing="false" text="Consultar" />
-      <Button layoutX="316.0" layoutY="148.0" mnemonicParsing="false" text="Alterar" />
-      <Button layoutX="527.0" layoutY="353.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
+      <Label fx:id="nomeLabel" layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="384.0" text="Nome: " />
+      <Label fx:id="telefoneLabel" layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="384.0" text="Telefone:" />
+      <Label fx:id="ruaLabel" layoutX="14.0" layoutY="172.0" prefHeight="17.0" prefWidth="384.0" text="Rua:" />
+      <Label fx:id="portaLabel" layoutX="14.0" layoutY="218.0" prefHeight="17.0" prefWidth="384.0" text="Porta:" />
+      <Label fx:id="localidadeLabel" layoutX="14.0" layoutY="261.0" prefHeight="17.0" prefWidth="384.0" text="Localidade:" />
+      <TextField fx:id="nomeTF" layoutX="420.0" layoutY="82.0" />
+      <TextField fx:id="telefoneTF" layoutX="420.0" layoutY="124.0" />
+      <TextField fx:id="ruaTF" layoutX="420.0" layoutY="167.0" />
+      <TextField fx:id="portaTF" layoutX="420.0" layoutY="214.0" />
+      <ChoiceBox fx:id="localidadeCB" layoutX="425.0" layoutY="256.0" prefWidth="150.0" />
+      <Label fx:id="checkDados" layoutX="14.0" layoutY="316.0" prefHeight="17.0" prefWidth="140.0" textFill="#eb1c1c" />
+      <Button layoutX="258.0" layoutY="312.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
    </children>
 </AnchorPane>
