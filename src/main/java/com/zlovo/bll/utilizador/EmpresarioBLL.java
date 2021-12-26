@@ -2,6 +2,7 @@ package com.zlovo.bll.utilizador;
 
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
+import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.utilizador.Empresario;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;

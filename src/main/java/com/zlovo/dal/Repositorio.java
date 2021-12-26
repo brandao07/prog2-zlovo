@@ -15,7 +15,16 @@ public class Repositorio implements Serializable {
     private final Set<String> localidadeSet = new HashSet<>();
     private final Set<String> categoriaSet = new HashSet<>();
     private int numEmpresas = 0;
+    private int numProdutos = 0;
     private Repositorio(){}
+
+    public  int getNumProdutos() {
+        return  numProdutos;
+    }
+
+    public void setNumProdutos(int numProdutos){
+        this.numProdutos = numProdutos;
+    }
 
     public int getNumEmpresas() {
         return numEmpresas;
