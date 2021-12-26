@@ -29,7 +29,6 @@ public class CriarNovaEmpresaController implements Initializable {
     @FXML
     private Label checkDados;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         localidadeCB.getItems().addAll(Repositorio.getRepositorio().getLocalidadeSet());
@@ -56,6 +55,6 @@ public class CriarNovaEmpresaController implements Initializable {
     }
 
     public void cancelar(ActionEvent event){
-        ControladorGlobal.chamaScene("empresario/MenuEmpresarioController.fxml", event);
+        ControladorGlobal.chamaScene("empresario/SceneMenuEmpresario.fxml", event);
     }
 }
