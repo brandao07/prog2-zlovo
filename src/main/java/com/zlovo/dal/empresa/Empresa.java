@@ -16,7 +16,7 @@ public class Empresa implements Serializable {
     private String nome;
     private Morada morada;
     private String telefone;
-    private final Map<String,LinkedList<Produto>> produtosMap; // K - categoria, V - Lista de Produtos
+    private final Map<String,ArrayList<Produto>> produtosMap; // K - categoria, V - Lista de Produtos
 //    Construtor
     public Empresa(){
         produtosMap = new HashMap<>();
@@ -63,7 +63,7 @@ public class Empresa implements Serializable {
         this.telefone = telefone;
     }
 
-    public Map<String, LinkedList<Produto>> getProdutosMap() {
+    public Map<String, ArrayList<Produto>> getProdutosMap() {
         return produtosMap;
     }
 

@@ -21,6 +21,6 @@ public class MenuFuncoesEmpController {
     }
 
     public void MenuProdutos (ActionEvent event){
-        ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
+        ControladorGlobal.chamaScene("empresario/SceneMenuCategorias.fxml", event);
     }
 }

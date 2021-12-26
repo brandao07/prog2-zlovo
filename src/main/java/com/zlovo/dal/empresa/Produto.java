@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class Produto implements Serializable {
 //    Atributos
     private String nome;
+    private String categoria;
     private int idEmpresa;
     private int id;
     private double preco;
@@ -32,6 +33,14 @@ public class Produto implements Serializable {
 
     public void setIdEmpresa(int idEmpresa) {
         this.idEmpresa = idEmpresa;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public TipoUnidade getUnidade() {
