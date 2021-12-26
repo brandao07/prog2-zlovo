@@ -112,10 +112,8 @@ public class EmpresaBLL {
         if (!empresa.getTelefone().isEmpty()) e.setTelefone(empresa.getTelefone());
         if (!empresa.getMorada().getRua().isEmpty()) e.getMorada().setRua(empresa.getMorada().getRua());
         e.getMorada().setnPorta(empresa.getMorada().getnPorta());
-        if (empresa.getMorada().getLocalidade() == null)
-            return e;
-        else
-            e.getMorada().setLocalidade(empresa.getMorada().getLocalidade());
+        if (empresa.getMorada().getLocalidade() == null) return e;
+        e.getMorada().setLocalidade(empresa.getMorada().getLocalidade());
         return e;
     }
 }
