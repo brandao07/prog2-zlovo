@@ -22,5 +22,6 @@
       <Label fx:id="dimensaoLabel" layoutX="181.0" layoutY="298.0" prefHeight="17.0" prefWidth="200.0" text="Dimensão:" />
       <Label fx:id="pesoLabel" layoutX="181.0" layoutY="331.0" prefHeight="17.0" prefWidth="200.0" text="Peso:" />
       <Label fx:id="unidadeLabel" layoutX="181.0" layoutY="365.0" prefHeight="17.0" prefWidth="200.0" text="Unidade:" />
+      <Button layoutX="434.0" layoutY="225.0" mnemonicParsing="false" onAction="#bundleMenu" text="Bundle" />
    </children>
 </AnchorPane>

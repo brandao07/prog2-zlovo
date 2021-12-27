@@ -1,5 +1,6 @@
 package com.zlovo.gui.empresario;
 
+import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.gui.ControladorGlobal;
@@ -28,6 +29,7 @@ public class MenuProdutosController implements Initializable {
     @FXML
     private Label categoriaLabel;
 
+    public static Produto produtoSelecionado;
 
     public void anterior(ActionEvent event){
         ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
@@ -38,11 +40,17 @@ public class MenuProdutosController implements Initializable {
     }
 
     public void alteraProduto(ActionEvent event){
+        produtoSelecionado = myListView.getSelectionModel().getSelectedItem();
+        if(produtoSelecionado == null) return;
        ControladorGlobal.chamaScene("empresario/SceneAlteraProduto.fxml", event);
     }
 
     public void removeProduto(ActionEvent event){
-        ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
+        produtoSelecionado = myListView.getSelectionModel().getSelectedItem();
+        if (produtoSelecionado == null) return;
+        EmpresaBLL.removeProduto(produtoSelecionado);
+        produtoSelecionado = null;
+        ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -53,5 +61,9 @@ public class MenuProdutosController implements Initializable {
 //        ProdutoBLL.updateDadosLabel(myListView, pesoLabel, "Peso: "+ myListView.getSelectionModel().getSelectedItem().getPeso());
 //        ProdutoBLL.updateDadosLabel(myListView, unidadeLabel, "Unidade: "+ myListView.getSelectionModel().getSelectedItem().getUnidade());
         categoriaLabel.setText("Categoria: " + MenuCategoriasController.categoriaSelecionada);
+    }
+
+    public void bundleMenu(ActionEvent event){
+        ControladorGlobal.chamaScene("empresario/SceneMenuBundle.fxml", event);
     }
 }

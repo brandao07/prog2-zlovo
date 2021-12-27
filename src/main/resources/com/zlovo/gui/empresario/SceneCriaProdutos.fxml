@@ -26,6 +26,6 @@
       <ChoiceBox fx:id="tipoUnidadeCB" layoutX="116.0" layoutY="188.0" prefWidth="150.0" />
       <Button layoutX="267.0" layoutY="315.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-      <Label fx:id="checkDados" alignment="CENTER" layoutX="116.0" layoutY="220.0" prefHeight="17.0" prefWidth="150.0" />
+      <Label fx:id="checkDados" alignment="CENTER" layoutX="116.0" layoutY="220.0" prefHeight="17.0" prefWidth="150.0" textFill="#eb2424" />
    </children>
 </AnchorPane>

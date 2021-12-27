@@ -3,6 +3,7 @@ package com.zlovo.bll.empresa;
 import com.zlovo.bll.utilizador.EmpresarioBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.empresa.Bundle;
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.utilizador.Empresario;
@@ -137,12 +138,24 @@ public class EmpresaBLL {
         if (EmpresaBLL.getEmpresaLog().getProdutosMap().containsKey(produto.getCategoria())) {
             EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).add(produto);
             atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
+            return;
         }
+        ArrayList<Produto> produtos = new ArrayList<>();
+        produtos.add(produto);
+        EmpresaBLL.getEmpresaLog().getProdutosMap().put(produto.getCategoria(),produtos);
+        atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
     }
     // Método que atualiza a lista de produtos
     public static void atualizaListaProdutos(Empresa empresa, String categoria){
-        Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).removeIf(e -> e.getId() == empresa.getId());
-        Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).add(empresa);
+        if (Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria) != null) {
+            Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).removeIf(e -> e.getId() == empresa.getId());
+            Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).add(empresa);
+        }
+        else {
+            ArrayList<Empresa> empresas = new ArrayList<>();
+            empresas.add(empresa);
+            Repositorio.getRepositorio().getCategoriasEmpresasMap().put(categoria,empresas);
+        }
         Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(empresa.getMorada().getLocalidade()).removeIf(e -> e.getId() == empresa.getId());
         Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(empresa.getMorada().getLocalidade()).add(empresa);
         for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
@@ -155,4 +168,11 @@ public class EmpresaBLL {
                             return;
                         }
     }
+
+    public static void removeProduto(@NotNull Produto produto){
+        EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).remove(produto);
+        atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
+    }
+
+
 }

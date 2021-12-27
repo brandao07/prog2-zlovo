@@ -1,5 +1,6 @@
 package com.zlovo.gui.empresario;
 
+import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.empresa.enumerations.TipoUnidade;
@@ -27,7 +28,16 @@ public class AlteraProdutoController implements Initializable {
     private ChoiceBox<TipoUnidade> tipoUnidadeCB;
     @FXML
     private Label checkDados;
-
+    @FXML
+    private Label precoLabel;
+    @FXML
+    private Label dimensaoLabel;
+    @FXML
+    private Label nomeLabel;
+    @FXML
+    private Label pesoLabel;
+    @FXML
+    private Label unidadeLabel;
 
     public void confirmar (ActionEvent event){
         if(!nomeTF.getText().isEmpty() & !precoTF.getText().isEmpty() & !dimensaoTF.getText().isEmpty() & !pesoTF.getText().isEmpty()){
@@ -35,17 +45,16 @@ public class AlteraProdutoController implements Initializable {
                 checkDados.setText("Username já registado!");
                 return;
             }
-            Produto produto = new Produto();
-            produto.setNome(nomeTF.getText());
-            produto.setPreco(Double.parseDouble(precoTF.getText()));
-            produto.setDimensao(Double.parseDouble(dimensaoTF.getText()));
-            produto.setPeso(Double.parseDouble(pesoTF.getText()));
-            produto.setCategoria(MenuCategoriasController.categoriaSelecionada);
-            produto.setUnidade(tipoUnidadeCB.getValue());
-            //chamar a funcao
+            Produto produto = MenuProdutosController.produtoSelecionado;
+            if (!nomeTF.getText().isEmpty()) produto.setNome(nomeTF.getText());
+            if (!precoTF.getText().isEmpty()) produto.setPreco(Double.parseDouble(precoTF.getText()));
+            if (!dimensaoTF.getText().isEmpty()) produto.setDimensao(Double.parseDouble(dimensaoTF.getText()));
+            if (!pesoTF.getText().isEmpty()) produto.setPeso(Double.parseDouble(pesoTF.getText()));
+            if (tipoUnidadeCB.getValue() != null) produto.setUnidade(tipoUnidadeCB.getValue());
+            EmpresaBLL.removeProduto(MenuProdutosController.produtoSelecionado);
+            EmpresaBLL.adicionaProduto(produto);
+            MenuProdutosController.produtoSelecionado = null;
             ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml",event);
-        }
-        else checkDados.setText("Campos inválidos!");
     }
 
     public void cancelar(ActionEvent event){
@@ -55,6 +64,11 @@ public class AlteraProdutoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tipoUnidadeCB.getItems().setAll(TipoUnidade.values());
+        nomeLabel.setText("Nome: " + MenuProdutosController.produtoSelecionado.getNome());
+        precoLabel.setText("Preço: " + MenuProdutosController.produtoSelecionado.getPreco());
+        dimensaoLabel.setText("Dimensao: " + MenuProdutosController.produtoSelecionado.getDimensao());
+        pesoLabel.setText("Peso: " + MenuProdutosController.produtoSelecionado.getPeso());
+        unidadeLabel.setText("Unidade: " + MenuProdutosController.produtoSelecionado.getUnidade());
     }
 }
 

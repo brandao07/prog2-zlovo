@@ -36,7 +36,7 @@ public class CriaProdutoController implements Initializable {
     public void confirmar (ActionEvent event){
         if(!nomeTF.getText().isEmpty() & !precoTF.getText().isEmpty() & !dimensaoTF.getText().isEmpty() & !pesoTF.getText().isEmpty()){
             if(ProdutoBLL.checkProdutoNome(nomeTF.getText())){
-                checkDados.setText("Username já registado!");
+                checkDados.setText("Produto já registado!");
                 return;
             }
             Produto produto = new Produto();

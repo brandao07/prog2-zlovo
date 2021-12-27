@@ -1,8 +1,7 @@
 package com.zlovo.bll.empresa;
 
-import com.zlovo.bll.utilizador.EmpresarioBLL;
-import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.empresa.Bundle;
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;
 import javafx.scene.control.Label;
@@ -16,11 +15,13 @@ import java.util.ArrayList;
 
 public class ProdutoBLL {
 
-    public static @Nullable ArrayList<Produto> getProdutos(String categoria){
+    public static @NotNull ArrayList<Produto> getProdutos(String categoria){
         ArrayList<Produto> produtos = new ArrayList<>();
         for (String key : EmpresaBLL.getEmpresaLog().getProdutosMap().keySet())
             if (key.equals(categoria))
-                return EmpresaBLL.getEmpresaLog().getProdutosMap().get(key);
+                for (Produto p : EmpresaBLL.getEmpresaLog().getProdutosMap().get(key))
+                    if (!(p instanceof Bundle))
+                        produtos.add(p);
         return produtos;
     }
 
@@ -57,7 +58,7 @@ public class ProdutoBLL {
     public static void updateQuantidadeLabel(@NotNull ListView<String> myListView, Label myLabel){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             int dados = EmpresaBLL.quantidadeProdutosCategoria(myListView.getSelectionModel().getSelectedItem());
-            myLabel.setText(String.valueOf(dados));
+            myLabel.setText(String.valueOf("Quantidade de Produtos: " + dados));
         });
     }
     // Método que cria produto
@@ -78,4 +79,5 @@ public class ProdutoBLL {
                 }
         return checker;
     }
+
 }
