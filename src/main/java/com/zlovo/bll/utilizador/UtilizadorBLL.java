@@ -20,8 +20,9 @@ public class UtilizadorBLL {
 
     // Método que CRIA um utilizador
     public static void criarUtilizador(@NotNull Utilizador utilizador){
-        utilizador.setIdUtilizador(Repositorio.getRepositorio().getUtilizadoresMap().size() + 1);
+        utilizador.setIdUtilizador(Repositorio.getRepositorio().getNumUtilizadores() + 1);
         Repositorio.getRepositorio().getUtilizadoresMap().put(utilizador.getIdUtilizador(),utilizador);
+        Repositorio.getRepositorio().setNumUtilizadores(utilizador.getIdUtilizador());
     }
 
     // Método que verifica se existe um utilizador com given username já registado
