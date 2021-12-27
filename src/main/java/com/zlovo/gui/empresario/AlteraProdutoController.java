@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CriaProdutoController implements Initializable {
+public class AlteraProdutoController implements Initializable {
     @FXML
     private TextField nomeTF;
     @FXML
@@ -61,3 +61,4 @@ public class CriaProdutoController implements Initializable {
         tipoUnidadeCB.getItems().setAll(TipoUnidade.values());
     }
 }
+

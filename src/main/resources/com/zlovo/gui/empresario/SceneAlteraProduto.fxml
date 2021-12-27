@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.AlteraProdutoController">
+    <children>
+        <Label alignment="CENTER" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="600.0" text="Alterar Produto">
+            <font>
+                <Font name="Monotype Corsiva" size="39.0" />
+            </font>
+        </Label>
+        <Label layoutX="32.0" layoutY="69.0" prefHeight="17.0" prefWidth="56.0" text="Nome:" />
+        <Label layoutX="32.0" layoutY="100.0" prefHeight="17.0" prefWidth="56.0" text="Preço:" />
+        <Label layoutX="32.0" layoutY="131.0" text="Dimensão:" />
+        <Label layoutX="32.0" layoutY="161.0" prefHeight="17.0" prefWidth="56.0" text="Peso:" />
+        <TextField fx:id="nomeTF" layoutX="115.0" layoutY="65.0" />
+        <TextField fx:id="precoTF" layoutX="115.0" layoutY="96.0" />
+        <TextField fx:id="dimensaoTF" layoutX="114.0" layoutY="127.0" />
+        <TextField fx:id="pesoTF" layoutX="114.0" layoutY="157.0" />
+        <Label layoutX="32.0" layoutY="191.0" prefHeight="17.0" prefWidth="82.0" text="Tipo Unidade:" />
+        <ChoiceBox fx:id="tipoUnidadeCB" layoutX="113.0" layoutY="187.0" prefWidth="150.0" />
+        <Button layoutX="265.0" layoutY="319.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+        <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+        <Label fx:id="checkDados" alignment="CENTER" layoutX="114.0" layoutY="253.0" prefHeight="17.0" prefWidth="150.0" />
+      <Label layoutX="32.0" layoutY="223.0" prefHeight="18.0" prefWidth="82.0" text="Categoria:" />
+      <ChoiceBox fx:id="categoriaCB" layoutX="114.0" layoutY="219.0" prefWidth="150.0" />
+    </children>
+</AnchorPane>

@@ -134,9 +134,6 @@ public class EmpresaBLL {
     }
     // Método que adiciona um produto
     public static void adicionaProduto (@NotNull Produto produto){
-        produto.setId(Repositorio.getRepositorio().getNumProdutos() + 1);
-        Repositorio.getRepositorio().setNumProdutos(produto.getId());
-        produto.setIdEmpresa(EmpresaBLL.getEmpresaLog().getId());
         if (EmpresaBLL.getEmpresaLog().getProdutosMap().containsKey(produto.getCategoria())) {
             EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).add(produto);
             atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());

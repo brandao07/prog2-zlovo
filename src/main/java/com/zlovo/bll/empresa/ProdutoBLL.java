@@ -1,5 +1,7 @@
 package com.zlovo.bll.empresa;
 
+import com.zlovo.bll.utilizador.EmpresarioBLL;
+import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;
@@ -57,6 +59,13 @@ public class ProdutoBLL {
             int dados = EmpresaBLL.quantidadeProdutosCategoria(myListView.getSelectionModel().getSelectedItem());
             myLabel.setText(String.valueOf(dados));
         });
+    }
+    // Método que cria produto
+    public static void criarProduto(@NotNull Produto produto) {
+        produto.setId(Repositorio.getRepositorio().getNumProdutos() + 1);
+        Repositorio.getRepositorio().setNumProdutos(produto.getId());
+        produto.setIdEmpresa(EmpresaBLL.getEmpresaLog().getId());
+        //falta acabar
     }
 
     public static boolean checkProdutoNome(String nome){
