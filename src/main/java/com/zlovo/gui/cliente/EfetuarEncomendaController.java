@@ -1,21 +1,45 @@
 package com.zlovo.gui.cliente;
 
-import com.zlovo.bll.utilizador.UtilizadorBLL;
+import com.zlovo.bll.empresa.EmpresaBLL;
+import com.zlovo.bll.utilizador.EmpresarioBLL;
+import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.gui.ControladorGlobal;
+import com.zlovo.gui.administrador.DesativarEmpresaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ChoiceBox;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 
-public class EfetuarEncomendaController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class EfetuarEncomendaController implements Initializable {
     @FXML
-    private ChoiceBox myChoiceBox;
-    //criar a scene seleciona os produtos e essas tretas
-    public void seguinte(ActionEvent event){
-        ControladorGlobal.chamaScene("", event);
+    private ListView<Empresa> empresaList;
+    @FXML
+    private Label myLabel;
+    @FXML
+    private Label checkerror;
+
+    Empresa empresaSelecionada;
+
+    public void seguinte (ActionEvent event){
+        if(empresaList.getSelectionModel().getSelectedItem() == null){
+            checkerror.setText("Selecione uma empresa");
+            return;
+        }
+        empresaSelecionada = empresaList.getSelectionModel().getSelectedItem();
+        ControladorGlobal.chamaScene("cliente/.fxml", event);
     }
 
-    public void logout(ActionEvent event){
-        UtilizadorBLL.setUserLog(null);
-        ControladorGlobal.chamaScene("SceneLogin.fxml", event);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
+
+    public void anterior(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }

@@ -14,8 +14,7 @@ public class EfetuarPagamentosController {
         ControladorGlobal.chamaScene("", event);
     }
 
-    public void logout(ActionEvent event){
-        UtilizadorBLL.setUserLog(null);
-        ControladorGlobal.chamaScene("SceneLogin.fxml", event);
+    public void anterior(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }
