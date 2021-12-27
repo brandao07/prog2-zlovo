@@ -40,7 +40,6 @@ public class AlteraProdutoController implements Initializable {
     private Label unidadeLabel;
 
     public void confirmar (ActionEvent event){
-        if(!nomeTF.getText().isEmpty() & !precoTF.getText().isEmpty() & !dimensaoTF.getText().isEmpty() & !pesoTF.getText().isEmpty()){
             if(ProdutoBLL.checkProdutoNome(nomeTF.getText())){
                 checkDados.setText("Username já registado!");
                 return;

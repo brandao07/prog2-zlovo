@@ -41,12 +41,33 @@ public class ProdutoBLL {
         });
     }
 
-//    public static void updateDadosLabel(@NotNull ListView<Produto> myListView, Label myLabel){
-//        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-//            String dados = myListView.getSelectionModel().getSelectedItem().;
-//            myLabel.setText(dados);
-//        });
-//    }
+    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPreco());
+            myLabel.setText("Preço: " + dados);
+        });
+    }
+
+    public static void updateDimensaoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getDimensao());
+            myLabel.setText("Dimensão: " + dados);
+        });
+    }
+
+    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPeso());
+            myLabel.setText("Peso: " + dados);
+        });
+    }
+
+    public static void updateUnidadeLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getUnidade());
+            myLabel.setText("Unidade: " + dados);
+        });
+    }
 
     public static void updateCategoriaLabel(@NotNull ListView<String> myListView, Label myLabel){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
