@@ -27,7 +27,5 @@
         <Button layoutX="265.0" layoutY="319.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
         <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
         <Label fx:id="checkDados" alignment="CENTER" layoutX="114.0" layoutY="253.0" prefHeight="17.0" prefWidth="150.0" />
-      <Label layoutX="32.0" layoutY="223.0" prefHeight="18.0" prefWidth="82.0" text="Categoria:" />
-      <ChoiceBox fx:id="categoriaCB" layoutX="114.0" layoutY="219.0" prefWidth="150.0" />
     </children>
 </AnchorPane>

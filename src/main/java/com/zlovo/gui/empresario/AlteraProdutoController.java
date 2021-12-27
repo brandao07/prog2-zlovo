@@ -1,7 +1,6 @@
 package com.zlovo.gui.empresario;
 
 import com.zlovo.bll.empresa.ProdutoBLL;
-import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.empresa.enumerations.TipoUnidade;
 import com.zlovo.gui.ControladorGlobal;
@@ -18,8 +17,6 @@ import java.util.ResourceBundle;
 public class AlteraProdutoController implements Initializable {
     @FXML
     private TextField nomeTF;
-    @FXML
-    private ChoiceBox<String> categoriaCB;
     @FXML
     private TextField precoTF;
     @FXML
@@ -43,9 +40,9 @@ public class AlteraProdutoController implements Initializable {
             produto.setPreco(Double.parseDouble(precoTF.getText()));
             produto.setDimensao(Double.parseDouble(dimensaoTF.getText()));
             produto.setPeso(Double.parseDouble(pesoTF.getText()));
-            produto.setCategoria(categoriaCB.getValue());
+            produto.setCategoria(MenuCategoriasController.categoriaSelecionada);
             produto.setUnidade(tipoUnidadeCB.getValue());
-            ProdutoBLL.criarProduto(produto);//acabar a funcao criaProduto
+            //chamar a funcao
             ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml",event);
         }
         else checkDados.setText("Campos inválidos!");
@@ -57,7 +54,6 @@ public class AlteraProdutoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        categoriaCB.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
         tipoUnidadeCB.getItems().setAll(TipoUnidade.values());
     }
 }

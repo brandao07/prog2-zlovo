@@ -1,7 +1,6 @@
 package com.zlovo.gui.empresario;
 
 import com.zlovo.bll.empresa.ProdutoBLL;
-import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.empresa.enumerations.TipoUnidade;
 import com.zlovo.gui.ControladorGlobal;
@@ -19,8 +18,6 @@ public class CriaProdutoController implements Initializable {
     @FXML
     private TextField nomeTF;
     @FXML
-    private ChoiceBox<String> categoriaCB;
-    @FXML
     private TextField precoTF;
     @FXML
     private TextField dimensaoTF;
@@ -31,6 +28,10 @@ public class CriaProdutoController implements Initializable {
     @FXML
     private Label checkDados;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        tipoUnidadeCB.getItems().setAll(TipoUnidade.values());
+    }
 
     public void confirmar (ActionEvent event){
         if(!nomeTF.getText().isEmpty() & !precoTF.getText().isEmpty() & !dimensaoTF.getText().isEmpty() & !pesoTF.getText().isEmpty()){
@@ -43,9 +44,9 @@ public class CriaProdutoController implements Initializable {
             produto.setPreco(Double.parseDouble(precoTF.getText()));
             produto.setDimensao(Double.parseDouble(dimensaoTF.getText()));
             produto.setPeso(Double.parseDouble(pesoTF.getText()));
-            produto.setCategoria(categoriaCB.getValue());
+            produto.setCategoria(MenuCategoriasController.categoriaSelecionada);
             produto.setUnidade(tipoUnidadeCB.getValue());
-            ProdutoBLL.criarProduto(produto);//acabar a funcao criaProduto
+            ProdutoBLL.criarProduto(produto);
             ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml",event);
         }
         else checkDados.setText("Campos inválidos!");
@@ -53,11 +54,5 @@ public class CriaProdutoController implements Initializable {
 
     public void cancelar(ActionEvent event){
         ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        categoriaCB.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
-        tipoUnidadeCB.getItems().setAll(TipoUnidade.values());
     }
 }
