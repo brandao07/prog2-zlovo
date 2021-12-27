@@ -78,7 +78,7 @@ public class EmpresaBLL {
         alteraEmpresaUtilizadoresMap(empresa);
         EmpresaBLL.setEmpresaLog(alteraHandler(empresa));
     }
-
+    // Método que altera uma Empresa no mapa Categoria
     public static void alteraEmpresaCategoriaMap(@NotNull Empresa empresa){
         for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             for (Empresa e : Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key))
@@ -88,7 +88,7 @@ public class EmpresaBLL {
                     return;
                 }
     }
-
+    // Método que altera uma Empresa no mapa Localidade
     public static void alteraEmpresaLocalidadeMap(@NotNull Empresa empresa){
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
@@ -104,7 +104,7 @@ public class EmpresaBLL {
                     return;
                 }
     }
-
+    // Método que altera uma Empresa no mapa Utilizadores
     public static void alteraEmpresaUtilizadoresMap(@NotNull Empresa empresa){
         for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
@@ -116,7 +116,7 @@ public class EmpresaBLL {
                             return;
                         }
     }
-
+    // Método que altera uma Empresa
     public static @NotNull Empresa alteraHandler(@NotNull Empresa empresa){
         Empresa e = EmpresaBLL.getEmpresaLog();
         if (!empresa.getNome().isEmpty()) e.setNome(empresa.getNome());
@@ -127,21 +127,22 @@ public class EmpresaBLL {
         e.getMorada().setLocalidade(empresa.getMorada().getLocalidade());
         return e;
     }
-
-    // Método que adiciona um produto
-    public static void adicionaProduto (@NotNull Produto produto){
-        if (EmpresaBLL.getEmpresaLog().getProdutosMap().containsKey(produto.getCategoria())) {
-            EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).add(produto);
-            atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
-        }
-
-    }
-
+    // Método que devolve a quantidade de produtos de uam Categoria
     public static int quantidadeProdutosCategoria(String categoria){
         if (EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria) == null) return 0;
         return EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria).size();
     }
-
+    // Método que adiciona um produto
+    public static void adicionaProduto (@NotNull Produto produto){
+        produto.setId(Repositorio.getRepositorio().getNumProdutos() + 1);
+        Repositorio.getRepositorio().setNumProdutos(produto.getId());
+        produto.setIdEmpresa(EmpresaBLL.getEmpresaLog().getId());
+        if (EmpresaBLL.getEmpresaLog().getProdutosMap().containsKey(produto.getCategoria())) {
+            EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).add(produto);
+            atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
+        }
+    }
+    // Método que atualiza a lista de produtos
     public static void atualizaListaProdutos(Empresa empresa, String categoria){
         Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).removeIf(e -> e.getId() == empresa.getId());
         Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).add(empresa);

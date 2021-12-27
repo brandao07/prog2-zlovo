@@ -10,9 +10,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.CriarNovaEmpresaController">
    <children>
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-      <Label layoutX="195.0" layoutY="37.0" prefHeight="35.0" prefWidth="251.0" text="Criar Nova Empresa">
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="43.0" prefWidth="600.0" text="Criar Nova Empresa">
          <font>
-            <Font size="29.0" />
+            <Font name="Monotype Corsiva" size="44.0" />
          </font></Label>
       <TextField fx:id="nomeTF" layoutX="101.0" layoutY="125.0" />
       <TextField fx:id="telefoneTF" layoutX="101.0" layoutY="174.0" />

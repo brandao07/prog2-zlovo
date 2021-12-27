@@ -34,11 +34,11 @@ public class MenuProdutosController implements Initializable {
     }
 
     public void criarProduto(ActionEvent event){
-        ControladorGlobal.chamaScene("empresario/SceneCriaProduto.fxml", event);
+       ControladorGlobal.chamaScene("empresario/SceneCriaProdutos.fxml", event);
     }
 
     public void alteraProduto(ActionEvent event){
-        ControladorGlobal.chamaScene("empresario/SceneAlteraProduto.fxml", event);
+       ControladorGlobal.chamaScene("empresario/SceneAlteraProduto.fxml", event);
     }
 
     public void removeProduto(ActionEvent event){

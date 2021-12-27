@@ -9,9 +9,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.MenuProdutosController">
    <children>
       <ListView fx:id="myListView" layoutX="181.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="19.0" layoutY="80.0" mnemonicParsing="false" onAction="#criar" prefHeight="26.0" prefWidth="112.0" text="Criar Produto" />
-      <Button layoutX="19.0" layoutY="124.0" mnemonicParsing="false" onAction="#alterar" prefHeight="26.0" prefWidth="112.0" text="Alterar Produto" />
-      <Button layoutX="19.0" layoutY="174.0" mnemonicParsing="false" onAction="#remover" text="Remover Produto" />
+      <Button layoutX="19.0" layoutY="80.0" mnemonicParsing="false" onAction="#criarProduto" prefHeight="26.0" prefWidth="112.0" text="Criar Produto" />
+      <Button layoutX="19.0" layoutY="124.0" mnemonicParsing="false" onAction="#alteraProduto" prefHeight="26.0" prefWidth="112.0" text="Alterar Produto" />
+      <Button layoutX="19.0" layoutY="174.0" mnemonicParsing="false" onAction="#removeProduto" text="Remover Produto" />
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
       <Label fx:id="categoriaLabel" layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="370.0" text="Categoria:">
          <font>

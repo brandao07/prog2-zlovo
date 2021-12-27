@@ -1,6 +1,5 @@
 package com.zlovo.gui.empresario;
 
-import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.gui.ControladorGlobal;
@@ -21,8 +20,8 @@ public class MenuCategoriasController implements Initializable {
     private Label categoriaLabel;
     @FXML
     private Label quantidadeProdutosLabel;
-    String currentCategoria;
-
+    @FXML
+    private Label checkerror;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -32,6 +31,10 @@ public class MenuCategoriasController implements Initializable {
     }
 
     public void listarProdutos(ActionEvent event){
+        if(myListView.getSelectionModel().getSelectedItem() == null){
+            checkerror.setText("Selecione uma categoria!");
+            return;
+        }
         categoriaSelecionada = myListView.getSelectionModel().getSelectedItem();
         ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }

@@ -22,14 +22,6 @@ public class ProdutoBLL {
         return produtos;
     }
 
-    public static void criarProduto(Produto produto){
-       produto.setId(Repositorio.getRepositorio().getNumProdutos() + 1);
-       Repositorio.getRepositorio().setNumProdutos(produto.getId());
-       produto.setIdEmpresa(EmpresaBLL.getEmpresaLog().getId());
-
-
-    }
-
     public static void changeCellValueProdutoNome (@NotNull ListView<Produto> myListView){
         myListView.setCellFactory(new Callback<>() {
             public ListCell<Produto> call(ListView<Produto> param) {
@@ -65,5 +57,16 @@ public class ProdutoBLL {
             int dados = EmpresaBLL.quantidadeProdutosCategoria(myListView.getSelectionModel().getSelectedItem());
             myLabel.setText(String.valueOf(dados));
         });
+    }
+
+    public static boolean checkProdutoNome(String nome){
+        boolean checker = false;
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            for (Empresa keyProduto : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
+                if (keyProduto.getNome().equals(nome)) {
+                    checker = true;
+                    break;
+                }
+        return checker;
     }
 }
