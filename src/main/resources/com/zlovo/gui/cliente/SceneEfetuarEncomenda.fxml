@@ -8,14 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.EfetuarEncomendaController">
    <children>
-      <Label alignment="CENTER" layoutX="1.0" layoutY="7.0" prefHeight="35.0" prefWidth="600.0" text="Seleciona empresa">
+      <Label fx:id="myLabel" alignment="CENTER" layoutX="1.0" layoutY="14.0" prefHeight="35.0" prefWidth="600.0" text="Seleciona empresa">
          <font>
             <Font name="Monotype Corsiva" size="42.0" />
          </font>
       </Label>
       <Button layoutX="269.0" layoutY="329.0" mnemonicParsing="false" onAction="#seguinte" text="Seguinte" />
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <ListView layoutX="201.0" layoutY="94.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label alignment="CENTER" layoutY="306.0" prefHeight="18.0" prefWidth="600.0" textFill="#fa0000" />
+      <ListView fx:id="empresaList" layoutX="201.0" layoutY="94.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="checkerror" alignment="CENTER" layoutY="306.0" prefHeight="18.0" prefWidth="600.0" textFill="#fa0000" />
    </children>
 </AnchorPane>

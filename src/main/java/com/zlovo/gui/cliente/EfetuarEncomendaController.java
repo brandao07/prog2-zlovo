@@ -1,6 +1,5 @@
 package com.zlovo.gui.cliente;
 
-
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -28,12 +27,12 @@ public class EfetuarEncomendaController implements Initializable {
             return;
         }
         empresaSelecionada = empresaList.getSelectionModel().getSelectedItem();
-        ControladorGlobal.chamaScene("cliente/.fxml", event);
+        ControladorGlobal.chamaScene("cliente/SceneSelecionaCategoria.fxml", event);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        empresaList.getItems().addAll();
     }
 
     public void anterior(ActionEvent event){
