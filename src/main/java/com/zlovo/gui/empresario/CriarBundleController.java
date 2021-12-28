@@ -55,6 +55,10 @@ public class CriarBundleController implements Initializable {
             checkDados.setText("Selecione 1 produto");
             return;
         }
+        if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
+            checkDados.setText("Bundle já registado!");
+            return;
+        }
         Produto produtoSelecionado = produtosList.getSelectionModel().getSelectedItem();
         Bundle bundle = new Bundle();
         bundle.setNome(nomeTF.getText());

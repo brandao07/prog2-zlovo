@@ -130,8 +130,12 @@ public class EmpresaBLL {
     }
     // Método que devolve a quantidade de produtos de uam Categoria
     public static int quantidadeProdutosCategoria(String categoria){
-        if (EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria) == null) return 0;
-        return EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria).size();
+        int result = 0;
+        if (EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria) == null) return result;
+        for (Produto p : EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria))
+            if (!(p instanceof Bundle))
+                result++;
+        return result;
     }
     // Método que adiciona um produto
     public static void adicionaProduto (@NotNull Produto produto){
@@ -173,6 +177,4 @@ public class EmpresaBLL {
         EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).remove(produto);
         atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
     }
-
-
 }

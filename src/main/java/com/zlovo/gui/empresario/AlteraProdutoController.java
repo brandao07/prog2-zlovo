@@ -40,7 +40,7 @@ public class AlteraProdutoController implements Initializable {
     private Label unidadeLabel;
 
     public void confirmar (ActionEvent event){
-            if(ProdutoBLL.checkProdutoNome(nomeTF.getText())){
+            if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
                 checkDados.setText("Nome já registado!");
                 return;
             }

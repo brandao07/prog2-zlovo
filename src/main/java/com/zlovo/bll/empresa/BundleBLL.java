@@ -55,5 +55,7 @@ public class BundleBLL {
         });
     }
 
-
+    public static boolean checkProdutoSelecionado(@NotNull Bundle bundle, Produto produto){
+        return bundle.getProdutosBundle().contains(produto);
+    }
 }
