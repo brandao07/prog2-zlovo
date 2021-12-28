@@ -90,13 +90,15 @@ public class ProdutoBLL {
         EmpresaBLL.adicionaProduto(produto);
     }
 
-    public static boolean checkProdutoNome(String nome, String categoria){
+    public static boolean checkProdutoNome(String nome, String categoria) {
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
-            for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
+            for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key)) {
+                if (!(e.getProdutosMap().containsKey(categoria))) return false;
                 for (Produto p : e.getProdutosMap().get(categoria))
-                if (p.getNome().equals(nome)) {
-                    return true;
-                }
-        return false;
-    }
+                    if (p.getNome().equals(nome)) {
+                        return true;
+                    }
+            }
+            return false;
+        }
 }

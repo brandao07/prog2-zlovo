@@ -2,6 +2,7 @@ package com.zlovo.gui.cliente;
 
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.utilizador.Cliente;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ public class MenuClienteController implements Initializable {
     }
 
     public void efetuarEncomenda (ActionEvent event){
-        ControladorGlobal.chamaScene("cliente/SceneEfetuarEncomenda.fxml", event);
+        ControladorGlobal.chamaScene("cliente/SceneSelecionarEmpresa.fxml", event);
     }
 
     public void efetuarPagamentos (ActionEvent event){

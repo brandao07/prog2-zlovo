@@ -3,6 +3,7 @@ package com.zlovo.dal.utilizador;
 import com.zlovo.dal.encomenda.Trabalho;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,11 +11,11 @@ public class Motard extends Funcionario implements Serializable {
 
 //    Atributos
     private boolean disponivel;
-    private List<Trabalho> historial;
+    private ArrayList<Trabalho> historial;
 
 //    Construtor
     public Motard(){
-        historial = new LinkedList<>();
+        historial = new ArrayList<>();
         disponivel = false;
     }
 
@@ -28,11 +29,11 @@ public class Motard extends Funcionario implements Serializable {
         this.disponivel = disponivel;
     }
 
-    public List<Trabalho> getHistorial() {
+    public ArrayList<Trabalho> getHistorial() {
         return historial;
     }
 
-    public void setHistorial(List<Trabalho> historial) {
+    public void setHistorial(ArrayList<Trabalho> historial) {
         this.historial = historial;
     }
 }

@@ -8,11 +8,11 @@ import java.util.List;
 
 public class Empresario extends Utilizador implements Serializable {
 
-    private final List<Empresa> empresasList = new ArrayList<>();
+    private final ArrayList<Empresa> empresasList = new ArrayList<>();
     //      Construtor
     public Empresario(){}
 
-    public List<Empresa> getEmpresasList() {
+    public ArrayList<Empresa> getEmpresasList() {
         return empresasList;
     }
 }

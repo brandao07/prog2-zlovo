@@ -4,6 +4,7 @@ import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.encomenda.enumerations.TipoHorario;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,14 +18,14 @@ public class Encomenda implements Serializable {
     private Pagamento pagamento;
     private Date dataCliente;
     private TipoHorario horario;
-    private final List<Produto> produtosList;
+    private final ArrayList<Produto> produtosList;
 
 
     //    Construtor
     public Encomenda() {
         pagamento = new Pagamento();
         detalhes = new DetalhesEncomenda();
-        produtosList = new LinkedList<>();
+        produtosList = new ArrayList<>();
     }
 
     //    Getters & Setters
@@ -80,7 +81,7 @@ public class Encomenda implements Serializable {
         this.horario = horario;
     }
 
-    public List<Produto> getProdutosList() {
+    public ArrayList<Produto> getProdutosList() {
         return produtosList;
     }
 }
