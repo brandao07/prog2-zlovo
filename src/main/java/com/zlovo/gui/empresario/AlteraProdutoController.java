@@ -41,7 +41,7 @@ public class AlteraProdutoController implements Initializable {
 
     public void confirmar (ActionEvent event){
             if(ProdutoBLL.checkProdutoNome(nomeTF.getText())){
-                checkDados.setText("Username já registado!");
+                checkDados.setText("Nome já registado!");
                 return;
             }
             Produto produto = MenuProdutosController.produtoSelecionado;

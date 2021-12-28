@@ -22,9 +22,11 @@ public class MenuBundleController implements Initializable {
     private Label precoLabel;
     @FXML
     private ListView<Bundle> bundleList;
+    @FXML
+    private Label checkDados;
 
     public static Bundle bundleSelecionado;
-//TODO: FAZER ALTERAR + APAGAR BUNDLE
+//TODO: ver criar bundle melhor
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bundleList.getItems().addAll(BundleBLL.getBundles(EmpresaBLL.getEmpresaLog(),MenuCategoriasController.categoriaSelecionada));
@@ -39,15 +41,21 @@ public class MenuBundleController implements Initializable {
 
     public void removerBundle(ActionEvent event){
         bundleSelecionado = bundleList.getSelectionModel().getSelectedItem();
-        if (bundleSelecionado == null) return;
-        //
+        if (bundleSelecionado == null){
+            checkDados.setText("Selecione um Bundle!");
+            return;
+        }
+        EmpresaBLL.removeProduto(bundleSelecionado);
         bundleSelecionado = null;
         ControladorGlobal.chamaScene("empresario/SceneMenuBundle.fxml", event);
     }
 
     public void editarBundle(ActionEvent event){
         bundleSelecionado = bundleList.getSelectionModel().getSelectedItem();
-        if (bundleSelecionado == null) return;
+        if (bundleSelecionado == null){
+            checkDados.setText("Selecione um Bundle!");
+            return;
+        }
         ControladorGlobal.chamaScene("empresario/SceneAlteraBundle.fxml", event);
     }
 

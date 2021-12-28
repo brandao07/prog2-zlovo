@@ -1,11 +1,8 @@
 package com.zlovo.gui.cliente;
 
-import com.zlovo.bll.empresa.EmpresaBLL;
-import com.zlovo.bll.utilizador.EmpresarioBLL;
-import com.zlovo.dal.Repositorio;
+
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.gui.ControladorGlobal;
-import com.zlovo.gui.administrador.DesativarEmpresaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
