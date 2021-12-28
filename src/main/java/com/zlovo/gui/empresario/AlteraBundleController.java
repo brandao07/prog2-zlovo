@@ -41,19 +41,23 @@ public class AlteraBundleController implements Initializable {
     private ListView<Produto> bundleProdutos;
 
     public void confirmar (ActionEvent event){
+
         Produto produto = produtosList.getSelectionModel().getSelectedItem();
+        Produto bundleProduto = bundleProdutos.getSelectionModel().getSelectedItem();
         Bundle bundle = MenuBundleController.bundleSelecionado;
+        if (!nomeTF.getText().isEmpty())
+            if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
+                checkDados.setText("Bundle já registado!");
+                return;
+            }
         if(!nomeTF.getText().isEmpty()) bundle.setNome(nomeTF.getText());
         if(!precoTF.getText().isEmpty()) bundle.setPreco(Double.parseDouble(precoTF.getText()));
-        if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
-            checkDados.setText("Bundle já registado!");
-            return;
-        }
         if (BundleBLL.checkProdutoSelecionado(bundle,produto)){
             checkDados.setText("Bundle já possui este produto!");
             return;
         }
         if (produto != null) bundle.getProdutosBundle().add(produto);
+        if (bundleProduto != null) bundle.getProdutosBundle().remove(bundleProduto);
         EmpresaBLL.removeProduto(MenuBundleController.bundleSelecionado);
         EmpresaBLL.adicionaProduto(bundle);
         ControladorGlobal.chamaScene("empresario/SceneMenuBundle.fxml", event);

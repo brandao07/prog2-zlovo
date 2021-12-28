@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.AdicionarSaldoController">
+   <children>
+      <Button layoutX="273.0" layoutY="217.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+      <ChoiceBox fx:id="pagamentoCB" layoutX="225.0" layoutY="175.0" prefWidth="150.0" />
+      <TextField fx:id="saldoTF" layoutX="220.0" layoutY="135.0" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+      <Label fx:id="saldoLabel" alignment="CENTER_RIGHT" contentDisplay="TOP" layoutX="269.0" layoutY="23.0" prefHeight="17.0" prefWidth="317.0" text="Saldo: " />
+      <Label layoutX="169.0" layoutY="140.0" text="Valor:" />
+      <Label layoutX="162.0" layoutY="180.0" text="Método:" />
+      <Label fx:id="checkDados" alignment="CENTER" layoutX="133.0" layoutY="271.0" prefHeight="17.0" prefWidth="365.0" textFill="#d31d1d" />
+   </children>
+</AnchorPane>

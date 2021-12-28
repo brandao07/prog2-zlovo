@@ -7,14 +7,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.MenuClienteController">
    <children>
-      <Button layoutX="531.0" layoutY="361.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Button layoutX="238.0" layoutY="108.0" mnemonicParsing="false" onAction="#efetuarEncomenda" prefHeight="25.0" prefWidth="124.0" text="Efetuar Encomenda" />
-      <Button layoutX="239.0" layoutY="154.0" mnemonicParsing="false" onAction="#efetuarPagamentos" prefHeight="25.0" prefWidth="124.0" text="Efetuar Pagamentos" />
-      <Button layoutX="242.0" layoutY="200.0" mnemonicParsing="false" onAction="#ListarEncomendas" prefHeight="25.0" prefWidth="124.0" text="Listar Encomendas" />
+      <Button layoutX="14.0" layoutY="357.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+      <Button layoutX="222.0" layoutY="106.0" mnemonicParsing="false" onAction="#efetuarEncomenda" prefHeight="26.0" prefWidth="156.0" text="Efetuar Encomenda" />
+      <Button layoutX="222.0" layoutY="153.0" mnemonicParsing="false" onAction="#efetuarPagamentos" prefHeight="26.0" prefWidth="156.0" text="Efetuar Pagamentos" />
+      <Button layoutX="222.0" layoutY="200.0" mnemonicParsing="false" onAction="#listarEncomendas" prefHeight="26.0" prefWidth="156.0" text="Listar Encomendas" />
       <Label fx:id="usernameCliente" alignment="CENTER" layoutY="39.0" prefHeight="17.0" prefWidth="600.0">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
+      <Button layoutX="223.0" layoutY="249.0" mnemonicParsing="false" onAction="#adicionarSaldo" prefHeight="26.0" prefWidth="156.0" text="Adicionar Saldo" />
+      <Label fx:id="saldoLabel" layoutX="493.0" layoutY="22.0" prefHeight="17.0" prefWidth="101.0" text="Saldo:" />
    </children>
 </AnchorPane>
