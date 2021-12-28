@@ -1,5 +1,7 @@
 package com.zlovo.gui.cliente;
 
+import com.zlovo.bll.empresa.EmpresaBLL;
+import com.zlovo.bll.utilizador.EmpresarioBLL;
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -32,7 +34,9 @@ public class EfetuarEncomendaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        empresaList.getItems().addAll();
+        empresaList.getItems().addAll(EmpresaBLL.getEmpresas());
+        EmpresarioBLL.changeCellValueEmpresaNome(empresaList);
+        EmpresarioBLL.updateNomeEmpresaLabel(empresaList, myLabel);
     }
 
     public void anterior(ActionEvent event){

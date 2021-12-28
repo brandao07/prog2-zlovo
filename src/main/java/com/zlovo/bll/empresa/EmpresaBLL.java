@@ -177,4 +177,11 @@ public class EmpresaBLL {
         EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).remove(produto);
         atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
     }
+
+    public static ArrayList<Empresa> getEmpresas(){
+        ArrayList<Empresa> empresas = new ArrayList<>();
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            empresas.addAll(Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key));
+        return empresas;
+    }
 }
