@@ -9,11 +9,9 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Objects;
 
 public class ProdutoBLL {
 
@@ -99,4 +97,11 @@ public class ProdutoBLL {
             }
         return false;
     }
+    // Método que devolve os produtos de uma determinada categoria
+    public static @NotNull ArrayList<Produto> getProduto(@NotNull String categoria, Empresa empresa){
+        ArrayList<Produto> produtos = new ArrayList<>();
+        empresa.getProdutosMap().get(Objects.requireNonNull(categoria)).addAll(produtos);
+        return produtos;
+    }
+
 }

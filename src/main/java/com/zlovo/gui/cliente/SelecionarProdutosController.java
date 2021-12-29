@@ -1,7 +1,6 @@
 package com.zlovo.gui.cliente;
 
 import com.zlovo.bll.empresa.ProdutoBLL;
-import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -31,7 +30,8 @@ public class SelecionarProdutosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(SelecionarCategoriaController.categoriaSelecionada)));
+        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProduto(SelecionarCategoriaController.categoriaSelecionada, SelecionarEmpresaController.empresaSelecionada)));
+        // ver melhor pois podem existir
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
     }
 

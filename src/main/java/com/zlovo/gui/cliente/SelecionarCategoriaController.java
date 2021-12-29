@@ -25,6 +25,7 @@ public class SelecionarCategoriaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         categoriasList.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
+        // se a categoria tiver sem produtos o programa cracha
         ProdutoBLL.updateCategoriaLabel(categoriasList,categoriaLabel);
     }
 
