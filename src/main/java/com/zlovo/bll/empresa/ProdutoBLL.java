@@ -12,6 +12,8 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ProdutoBLL {
 
@@ -32,9 +34,7 @@ public class ProdutoBLL {
                     @Override
                     public void updateItem(Produto item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (item != null) {
-                            setText(item.getNome());
-                        }
+                        if (item != null) setText(item.getNome());
                     }
                 };
             }
@@ -95,10 +95,8 @@ public class ProdutoBLL {
             for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key)) {
                 if (!(e.getProdutosMap().containsKey(categoria))) return false;
                 for (Produto p : e.getProdutosMap().get(categoria))
-                    if (p.getNome().equals(nome)) {
-                        return true;
-                    }
+                    if (p.getNome().equals(nome)) return true;
             }
-            return false;
-        }
+        return false;
+    }
 }

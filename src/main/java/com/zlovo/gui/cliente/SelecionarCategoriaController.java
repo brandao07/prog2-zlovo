@@ -1,6 +1,7 @@
 package com.zlovo.gui.cliente;
 
 import com.zlovo.bll.empresa.ProdutoBLL;
+import com.zlovo.dal.Repositorio;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,8 +22,10 @@ public class SelecionarCategoriaController implements Initializable {
 
     public static String categoriaSelecionada;
 
-    public void anterior(ActionEvent event){
-        ControladorGlobal.chamaScene("cliente/SceneSelecionarEmpresa.fxml", event);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        categoriasList.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
+        ProdutoBLL.updateCategoriaLabel(categoriasList,categoriaLabel);
     }
 
     public void seguinte(ActionEvent event){
@@ -34,9 +37,7 @@ public class SelecionarCategoriaController implements Initializable {
         ControladorGlobal.chamaScene("cliente/SceneSelecionarProdutos.fxml", event);
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        categoriasList.getItems().addAll(SelecionarEmpresaController.empresaSelecionada.getProdutosMap().keySet());
-        ProdutoBLL.updateCategoriaLabel(categoriasList,categoriaLabel);
+    public void anterior(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneSelecionarEmpresa.fxml", event);
     }
 }
