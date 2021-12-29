@@ -9,17 +9,18 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class ProdutoBLL {
 
-    public static @NotNull ArrayList<Produto> getProdutos(String categoria){
+    public static @NotNull ArrayList<Produto> getProdutos(String categoria, @NotNull Empresa empresa){
         ArrayList<Produto> produtos = new ArrayList<>();
-        for (String key : EmpresaBLL.getEmpresaLog().getProdutosMap().keySet())
+        for (String key : empresa.getProdutosMap().keySet())
             if (key.equals(categoria))
-                for (Produto p : EmpresaBLL.getEmpresaLog().getProdutosMap().get(key))
+                for (Produto p : empresa.getProdutosMap().get(key))
                     if (!(p instanceof Bundle))
                         produtos.add(p);
         return produtos;
@@ -39,9 +40,9 @@ public class ProdutoBLL {
         });
     }
 
-    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel, int quantidade){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPreco());
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPreco() * quantidade);
             myLabel.setText("Preço: " + dados);
         });
     }
@@ -53,9 +54,9 @@ public class ProdutoBLL {
         });
     }
 
-    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel, int quantidade){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPeso());
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPeso() * quantidade);
             myLabel.setText("Peso: " + dados);
         });
     }
@@ -76,7 +77,7 @@ public class ProdutoBLL {
 
     public static void updateQuantidadeLabel(@NotNull ListView<String> myListView, Label myLabel){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            int dados = EmpresaBLL.quantidadeProdutosCategoria(myListView.getSelectionModel().getSelectedItem());
+            int dados = EmpresaBLL.quantidadeProdutosCategoria(EmpresaBLL.getEmpresaLog(), myListView.getSelectionModel().getSelectedItem());
             myLabel.setText(String.valueOf("Quantidade de Produtos: " + dados));
         });
     }
@@ -97,11 +98,11 @@ public class ProdutoBLL {
             }
         return false;
     }
-    // Método que devolve os produtos de uma determinada categoria
-    public static @NotNull ArrayList<Produto> getProduto(@NotNull String categoria, Empresa empresa){
-        ArrayList<Produto> produtos = new ArrayList<>();
-        empresa.getProdutosMap().get(Objects.requireNonNull(categoria)).addAll(produtos);
-        return produtos;
-    }
 
+    public static @Nullable Produto getProduto(String categoria, @NotNull Empresa empresa, Produto produto){
+        for (Produto p : empresa.getProdutosMap().get(categoria))
+            if (produto.getNome().equals(p.getNome()))
+                return p;
+        return null;
+    }
 }

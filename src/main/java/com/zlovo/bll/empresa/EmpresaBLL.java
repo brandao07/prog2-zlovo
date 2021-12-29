@@ -10,6 +10,8 @@ import com.zlovo.dal.utilizador.Empresario;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class EmpresaBLL {
 
@@ -129,10 +131,10 @@ public class EmpresaBLL {
         return e;
     }
     // Método que devolve a quantidade de produtos de uam Categoria
-    public static int quantidadeProdutosCategoria(String categoria){
+    public static int quantidadeProdutosCategoria(@NotNull Empresa empresa, String categoria){
         int result = 0;
-        if (EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria) == null) return result;
-        for (Produto p : EmpresaBLL.getEmpresaLog().getProdutosMap().get(categoria))
+        if (empresa.getProdutosMap().get(categoria) == null) return result;
+        for (Produto p : empresa.getProdutosMap().get(categoria))
             if (!(p instanceof Bundle))
                 result++;
         return result;
@@ -183,5 +185,13 @@ public class EmpresaBLL {
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             empresas.addAll(Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key));
         return empresas;
+    }
+
+    public static @NotNull HashSet<String> showCategorias(@NotNull Empresa empresa) {
+        HashSet<String> categorias = new HashSet<>();
+        for (String key : empresa.getProdutosMap().keySet())
+            if (EmpresaBLL.quantidadeProdutosCategoria(empresa, key) > 0)
+                categorias.add(key);
+        return categorias;
     }
 }

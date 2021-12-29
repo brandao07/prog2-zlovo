@@ -71,17 +71,17 @@ public class AlteraBundleController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nomeLabel.setText("Nome: " + MenuBundleController.bundleSelecionado.getNome());
         precoBundleLabel.setText("Preço: " + MenuBundleController.bundleSelecionado.getPreco());
-        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada)));
+        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada, EmpresaBLL.getEmpresaLog())));
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel);
+        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel,1);
         ProdutoBLL.updateDimensaoLabel(produtosList,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel);
+        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel,1);
         ProdutoBLL.updateUnidadeLabel(produtosList,unidadeLabel);
         bundleProdutos.getItems().addAll(MenuBundleController.bundleSelecionado.getProdutosBundle());
         ProdutoBLL.changeCellValueProdutoNome(bundleProdutos);
-        ProdutoBLL.updatePrecoLabel(bundleProdutos,precoLabel);
+        ProdutoBLL.updatePrecoLabel(bundleProdutos,precoLabel,1);
         ProdutoBLL.updateDimensaoLabel(bundleProdutos,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(bundleProdutos,pesoLabel);
+        ProdutoBLL.updatePesoLabel(bundleProdutos,pesoLabel,1);
         ProdutoBLL.updateUnidadeLabel(bundleProdutos,unidadeLabel);
     }
 }

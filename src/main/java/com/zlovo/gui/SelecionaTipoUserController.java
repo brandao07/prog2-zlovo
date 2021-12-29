@@ -38,7 +38,7 @@ public class SelecionaTipoUserController implements Initializable {
     }
 
     public void anterior(ActionEvent event){
-        SelecionaTipoUserController.utilizador = null;
+        utilizador = null;
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }
 }

@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.SelecionarProdutosController">
    <children>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Button layoutX="275.0" layoutY="325.0" mnemonicParsing="false" onAction="#seguinte" text="Confirmar" />
-      <Label layoutX="240.0" layoutY="14.0" text="Lista Produtos">
+      <Button layoutX="246.0" layoutY="154.0" mnemonicParsing="false" onAction="#adicionarCarrinho" text="Adicionar ao Carrinho" />
+      <Label layoutX="48.0" layoutY="14.0" text="Lista Produtos">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <ListView fx:id="produtosList" layoutX="100.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="checkDados" alignment="CENTER" layoutX="100.0" layoutY="259.0" prefHeight="17.0" prefWidth="200.0" textFill="#f80101" />
-      <Label layoutX="369.0" layoutY="104.0" prefHeight="17.0" prefWidth="148.0" text="Insira uma quantidade:">
+      <ListView fx:id="produtosList" layoutX="14.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label fx:id="checkDados" alignment="CENTER" layoutX="213.0" layoutY="125.0" prefHeight="17.0" prefWidth="200.0" textFill="#f80101" />
+      <Label layoutX="239.0" layoutY="63.0" prefHeight="17.0" prefWidth="148.0" text="Insira uma quantidade:">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="quantidadeTF" layoutX="369.0" layoutY="128.0" />
-      <Label fx:id="checkQuantidade" layoutX="369.0" layoutY="160.0" prefHeight="17.0" prefWidth="149.0" />
+      <Spinner fx:id="quantidadeSpinner" layoutX="233.0" layoutY="87.0" />
+      <Hyperlink layoutX="490.0" layoutY="350.0" prefHeight="36.0" prefWidth="96.0" text="Carrinho">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="precoLabel" layoutX="20.0" layoutY="261.0" prefHeight="17.0" prefWidth="160.0" />
+      <Label fx:id="dimensaoLabel" layoutX="14.0" layoutY="285.0" prefHeight="17.0" prefWidth="160.0" />
+      <Label fx:id="pesoLabel" layoutX="14.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0" />
+      <Label fx:id="unidadeLabel" layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="160.0" />
    </children>
 </AnchorPane>

@@ -17,7 +17,9 @@ public class DetalhesEncomenda implements Serializable {
     private Date dataEntrega;
 
 //    Construtor
-    public DetalhesEncomenda(){}
+    public DetalhesEncomenda(String cliente){
+        this.cliente = cliente;
+    }
 
 //    Getters & Setters
     public String getCliente() {

@@ -14,11 +14,25 @@ public class Produto implements Serializable {
     private double dimensao;
     private double peso;
     private TipoUnidade unidade;
+    private int quantidade = 1;
 
 //    Construtor
     public Produto(){}
 
-//    Getters & Setters
+    //TODO: Falta associar isto
+    public Produto(String nome, String categoria, int idEmpresa, int id, double preco, double dimensao, double peso, TipoUnidade unidade, int quantidade) {
+        this.nome = nome;
+        this.categoria = categoria;
+        this.idEmpresa = idEmpresa;
+        this.id = id;
+        this.preco = preco;
+        this.dimensao = dimensao;
+        this.peso = peso;
+        this.unidade = unidade;
+        this.quantidade = quantidade;
+    }
+
+    //    Getters & Setters
     public String getNome() {
         return nome;
     }
@@ -81,5 +95,13 @@ public class Produto implements Serializable {
 
     public void setPeso(double peso) {
         this.peso = peso;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }

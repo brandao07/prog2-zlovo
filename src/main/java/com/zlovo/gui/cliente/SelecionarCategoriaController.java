@@ -1,7 +1,7 @@
 package com.zlovo.gui.cliente;
 
+import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
-import com.zlovo.dal.Repositorio;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,8 +24,7 @@ public class SelecionarCategoriaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        categoriasList.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
-        // se a categoria tiver sem produtos o programa cracha
+        categoriasList.getItems().addAll(EmpresaBLL.showCategorias(SelecionarEmpresaController.empresaSelecionada));
         ProdutoBLL.updateCategoriaLabel(categoriasList,categoriaLabel);
     }
 

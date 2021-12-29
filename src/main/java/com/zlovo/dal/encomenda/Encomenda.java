@@ -12,19 +12,19 @@ import java.util.List;
 public class Encomenda implements Serializable {
     //    Atributos
     private int id;
+    private int idEmpresa;
     private double preco;
-    private int quantidade;
     private DetalhesEncomenda detalhes;
     private Pagamento pagamento;
     private Date dataCliente;
     private TipoHorario horario;
     private final ArrayList<Produto> produtosList;
 
-
     //    Construtor
-    public Encomenda() {
+    public Encomenda(int idEmpresa, String cliente) {
+        this.idEmpresa = idEmpresa;
         pagamento = new Pagamento();
-        detalhes = new DetalhesEncomenda();
+        detalhes = new DetalhesEncomenda(cliente);
         produtosList = new ArrayList<>();
     }
 
@@ -33,20 +33,24 @@ public class Encomenda implements Serializable {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
+    }
+
     public double getPreco() {
         return preco;
     }
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
     }
 
     public DetalhesEncomenda getDetalhes() {

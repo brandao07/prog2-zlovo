@@ -20,7 +20,7 @@ public class SelecionarHorarioController implements Initializable {
     }
 
     public void anterior(ActionEvent event) {
-        SelecionarProdutosController.produtoselecionado = null;
+        SelecionarProdutosController.produtoSelecionado = null;
         ControladorGlobal.chamaScene("cliente/SceneSelecionarCategoria.fxml", event);
     }
 }

@@ -2,7 +2,9 @@ package com.zlovo.gui.cliente;
 
 import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.utilizador.EmpresarioBLL;
+import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.empresa.Empresa;
+import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,12 +25,15 @@ public class SelecionarEmpresaController implements Initializable {
 
     public static Empresa empresaSelecionada;
 
+    public static Encomenda encomenda;
+
     public void seguinte (ActionEvent event){
         if(empresaList.getSelectionModel().getSelectedItem() == null){
             checkerror.setText("Selecione uma empresa");
             return;
         }
         empresaSelecionada = empresaList.getSelectionModel().getSelectedItem();
+        encomenda = new Encomenda(empresaSelecionada.getId(), UtilizadorBLL.getUserLog().getUsername());
         ControladorGlobal.chamaScene("cliente/SceneSelecionarCategoria.fxml", event);
     }
 
@@ -40,6 +45,7 @@ public class SelecionarEmpresaController implements Initializable {
     }
 
     public void anterior(ActionEvent event){
+        empresaSelecionada = null;
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }

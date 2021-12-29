@@ -1,14 +1,13 @@
 package com.zlovo.gui.cliente;
 
+import com.zlovo.bll.EncomendaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.Objects;
@@ -18,39 +17,54 @@ public class SelecionarProdutosController implements Initializable {
     @FXML
     private Label checkDados;
     @FXML
-    private Label checkQuantidade;
-    @FXML
     private ListView<Produto> produtosList;
     @FXML
     private Label produtoLabel;
     @FXML
-    private TextField quantidadeTF;
+    private Spinner<Integer> quantidadeSpinner = new Spinner<>();
+    @FXML
+    private Label precoLabel;
+    @FXML
+    private Label dimensaoLabel;
+    @FXML
+    private Label pesoLabel;
+    @FXML
+    private Label unidadeLabel;
 
-    public static Produto produtoselecionado;
+    public static Produto produtoSelecionado;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProduto(SelecionarCategoriaController.categoriaSelecionada, SelecionarEmpresaController.empresaSelecionada)));
-        // ver melhor pois podem existir
+        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(SelecionarCategoriaController.categoriaSelecionada, SelecionarEmpresaController.empresaSelecionada)));
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,10);
+        valueFactory.setValue(1);
+        quantidadeSpinner.setValueFactory(valueFactory);
+        ProdutoBLL.changeCellValueProdutoNome(produtosList);
+        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel,quantidadeSpinner.getValue());
+        ProdutoBLL.updateDimensaoLabel(produtosList,dimensaoLabel);
+        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel,quantidadeSpinner.getValue());
+        ProdutoBLL.updateUnidadeLabel(produtosList,unidadeLabel);
     }
 
-    public void seguinte(ActionEvent event){
-        produtoselecionado = produtosList.getSelectionModel().getSelectedItem();
-        if (produtoselecionado == null) {
+    public void adicionarCarrinho(ActionEvent event){
+        //TODO: mudar metodo usando construtor
+        produtoSelecionado = produtosList.getSelectionModel().getSelectedItem();
+        if (produtoSelecionado == null) {
             checkDados.setText("Selecione um produto!");
             return;
         }
-        if(!quantidadeTF.getText().isEmpty()){
-            checkDados.setText("Insira uma quantidade!");
+        produtoSelecionado.setQuantidade(quantidadeSpinner.getValue());
+        if (EncomendaBLL.checkProduto(SelecionarEmpresaController.encomenda, produtoSelecionado)){
+            checkDados.setText("Produto já no carrinho!");
             return;
         }
-        ControladorGlobal.chamaScene("cliente/SceneSelecionarHorario.fxml", event);
+        SelecionarEmpresaController.encomenda.getProdutosList().add(produtoSelecionado);
+        produtoSelecionado.setQuantidade(1);
     }
 
     public void anterior(ActionEvent event){
         SelecionarCategoriaController.categoriaSelecionada = null;
         ControladorGlobal.chamaScene("cliente/SceneSelecionarCategoria.fxml", event);
-
     }
 }

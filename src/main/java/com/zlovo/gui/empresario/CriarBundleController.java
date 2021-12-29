@@ -3,6 +3,7 @@ package com.zlovo.gui.empresario;
 import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Bundle;
+import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.empresa.enumerations.TipoUnidade;
 import com.zlovo.gui.ControladorGlobal;
@@ -38,11 +39,11 @@ public class CriarBundleController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada)));
+        produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada, EmpresaBLL.getEmpresaLog())));
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel);
+        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel,1);
         ProdutoBLL.updateDimensaoLabel(produtosList,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel);
+        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel,1);
         ProdutoBLL.updateUnidadeLabel(produtosList,unidadeLabel);
     }
 
