@@ -4,6 +4,7 @@ import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.encomenda.enumerations.TipoHorario;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -16,7 +17,7 @@ public class Encomenda implements Serializable {
     private double preco;
     private DetalhesEncomenda detalhes;
     private Pagamento pagamento;
-    private Date dataCliente;
+    private LocalDate dataCliente;
     private TipoHorario horario;
     private final ArrayList<Produto> produtosList;
 
@@ -69,11 +70,11 @@ public class Encomenda implements Serializable {
         this.pagamento = pagamento;
     }
 
-    public Date getDataCliente() {
+    public LocalDate getDataCliente() {
         return dataCliente;
     }
 
-    public void setDataCliente(Date dataCliente) {
+    public void setDataCliente(LocalDate dataCliente) {
         this.dataCliente = dataCliente;
     }
 

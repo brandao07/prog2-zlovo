@@ -56,9 +56,9 @@ public class MenuProdutosController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         myListView.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada, EmpresaBLL.getEmpresaLog())));
         ProdutoBLL.changeCellValueProdutoNome(myListView);
-        ProdutoBLL.updatePrecoLabel(myListView,precoLabel,1);
+        ProdutoBLL.updatePrecoLabel(myListView,precoLabel);
         ProdutoBLL.updateDimensaoLabel(myListView,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(myListView,pesoLabel,1);
+        ProdutoBLL.updatePesoLabel(myListView,pesoLabel);
         ProdutoBLL.updateUnidadeLabel(myListView,unidadeLabel);
         categoriaLabel.setText("Categoria: " + MenuCategoriasController.categoriaSelecionada);
     }

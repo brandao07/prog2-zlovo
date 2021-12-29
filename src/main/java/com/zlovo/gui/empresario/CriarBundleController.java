@@ -41,9 +41,9 @@ public class CriarBundleController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada, EmpresaBLL.getEmpresaLog())));
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel,1);
+        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel);
         ProdutoBLL.updateDimensaoLabel(produtosList,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel,1);
+        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel);
         ProdutoBLL.updateUnidadeLabel(produtosList,unidadeLabel);
     }
 

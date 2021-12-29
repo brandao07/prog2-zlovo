@@ -12,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ProdutoBLL {
 
@@ -40,9 +39,9 @@ public class ProdutoBLL {
         });
     }
 
-    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel, int quantidade){
+    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPreco() * quantidade);
+            double dados = myListView.getSelectionModel().getSelectedItem().getPreco();
             myLabel.setText("Preço: " + dados);
         });
     }
@@ -54,9 +53,9 @@ public class ProdutoBLL {
         });
     }
 
-    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel, int quantidade){
+    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPeso() * quantidade);
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPeso());
             myLabel.setText("Peso: " + dados);
         });
     }

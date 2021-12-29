@@ -1,6 +1,7 @@
 package com.zlovo.dal;
 
 import com.zlovo.dal.empresa.Empresa;
+import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.utilizador.Utilizador;
 
 import java.io.*;
@@ -12,15 +13,21 @@ public class Repositorio implements Serializable {
     private final Map<Integer, Utilizador> utilizadoresMap = new HashMap<>();
     private final Map<String, ArrayList<Empresa>> localidadesEmpresasMap = new HashMap<>();
     private final Map<String, ArrayList<Empresa>> categoriasEmpresasMap = new HashMap<>();
+    private final Map<Integer, Encomenda> encomendasMap = new HashMap<>();
     private final Set<String> localidadeSet = new HashSet<>();
     private final Set<String> categoriaSet = new HashSet<>();
     private int numEmpresas = 0;
     private int numProdutos = 0;
     private int numUtilizadores = 0;
+    private int numEncomendas = 0;
     private Repositorio(){}
 
     public  int getNumProdutos() {
         return  numProdutos;
+    }
+
+    public Map<Integer, Encomenda> getEncomendasMap() {
+        return encomendasMap;
     }
 
     public int getNumUtilizadores() {
@@ -41,6 +48,14 @@ public class Repositorio implements Serializable {
 
     public void setNumEmpresas(int numEmpresas) {
         this.numEmpresas = numEmpresas;
+    }
+
+    public int getNumEncomendas() {
+        return numEncomendas;
+    }
+
+    public void setNumEncomendas(int numEncomendas) {
+        this.numEncomendas = numEncomendas;
     }
 
     public  Set<String> getCategoriaSet() {

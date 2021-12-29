@@ -40,4 +40,8 @@ public class SelecionarCategoriaController implements Initializable {
     public void anterior(ActionEvent event){
         ControladorGlobal.chamaScene("cliente/SceneSelecionarEmpresa.fxml", event);
     }
+
+    public void carrinho(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneCarrinho.fxml", event);
+    }
 }

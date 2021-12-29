@@ -19,8 +19,6 @@ public class SelecionarProdutosController implements Initializable {
     @FXML
     private ListView<Produto> produtosList;
     @FXML
-    private Label produtoLabel;
-    @FXML
     private Spinner<Integer> quantidadeSpinner = new Spinner<>();
     @FXML
     private Label precoLabel;
@@ -30,6 +28,8 @@ public class SelecionarProdutosController implements Initializable {
     private Label pesoLabel;
     @FXML
     private Label unidadeLabel;
+    @FXML
+    private Label checkLabel;
 
     public static Produto produtoSelecionado;
 
@@ -41,30 +41,34 @@ public class SelecionarProdutosController implements Initializable {
         valueFactory.setValue(1);
         quantidadeSpinner.setValueFactory(valueFactory);
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel,quantidadeSpinner.getValue());
+        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel);
         ProdutoBLL.updateDimensaoLabel(produtosList,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel,quantidadeSpinner.getValue());
+        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel);
         ProdutoBLL.updateUnidadeLabel(produtosList,unidadeLabel);
     }
 
-    public void adicionarCarrinho(ActionEvent event){
-        //TODO: mudar metodo usando construtor
+    public void adicionarCarrinho(){
         produtoSelecionado = produtosList.getSelectionModel().getSelectedItem();
         if (produtoSelecionado == null) {
             checkDados.setText("Selecione um produto!");
             return;
         }
-        produtoSelecionado.setQuantidade(quantidadeSpinner.getValue());
+      //  produtoSelecionado.setQuantidade(quantidadeSpinner.getValue());
         if (EncomendaBLL.checkProduto(SelecionarEmpresaController.encomenda, produtoSelecionado)){
             checkDados.setText("Produto já no carrinho!");
             return;
         }
-        SelecionarEmpresaController.encomenda.getProdutosList().add(produtoSelecionado);
-        produtoSelecionado.setQuantidade(1);
+        Produto produto = new Produto(produtoSelecionado.getNome(), produtoSelecionado.getCategoria(),produtoSelecionado.getIdEmpresa(),produtoSelecionado.getId(),produtoSelecionado.getPreco(),produtoSelecionado.getDimensao(),produtoSelecionado.getPeso(),produtoSelecionado.getUnidade(),quantidadeSpinner.getValue());
+        SelecionarEmpresaController.encomenda.getProdutosList().add(produto);
+        checkLabel.setText("Produto adicionado com sucesso! :)");
     }
 
     public void anterior(ActionEvent event){
         SelecionarCategoriaController.categoriaSelecionada = null;
         ControladorGlobal.chamaScene("cliente/SceneSelecionarCategoria.fxml", event);
+    }
+
+    public void carrinho(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneCarrinho.fxml", event);
     }
 }
