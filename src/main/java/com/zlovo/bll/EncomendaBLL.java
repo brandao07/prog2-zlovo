@@ -5,6 +5,7 @@ import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.encomenda.enumerations.TipoEstado;
+import com.zlovo.dal.encomenda.enumerations.TipoPagamento;
 import com.zlovo.dal.utilizador.Cliente;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;

@@ -36,7 +36,8 @@ public class EncomendasPorPagarController implements Initializable {
             checkLabel.setText("Selecione uma encomenda!");
             return;
         }
-        ControladorGlobal.chamaScene("cliente/SceneEfetuarPagamento.fxml", event);
+        encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
+        ControladorGlobal.chamaScene("cliente/SceneSelecionarMetodoPagamento.fxml", event);
     }
 
     public void anular(ActionEvent event){
@@ -47,10 +48,6 @@ public class EncomendasPorPagarController implements Initializable {
         encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
         encomendaSelecionada.getDetalhes().setTipoEstado(TipoEstado.ANULADA);
         ControladorGlobal.chamaScene("cliente/SceneEncomendasPorPagar.fxml", event);
-    }
-
-    public void anterior(ActionEvent event){
-        ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 
     @Override
@@ -73,5 +70,9 @@ public class EncomendasPorPagarController implements Initializable {
             return;
         }
         ControladorGlobal.chamaScene("cliente/SceneVerProdutos.fxml", event);
+    }
+
+    public void anterior(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }
