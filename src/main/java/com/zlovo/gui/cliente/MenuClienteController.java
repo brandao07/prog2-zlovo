@@ -31,7 +31,7 @@ public class MenuClienteController implements Initializable {
     }
 
     public void efetuarPagamentos (ActionEvent event){
-        ControladorGlobal.chamaScene("cliente/SceneEfetuarPagamentos.fxml", event);
+        ControladorGlobal.chamaScene("cliente/SceneEncomendasPorPagar.fxml", event);
     }
 
     public void listarEncomendas (ActionEvent event){

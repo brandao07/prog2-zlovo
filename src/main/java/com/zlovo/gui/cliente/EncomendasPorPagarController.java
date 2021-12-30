@@ -1,9 +1,11 @@
-package com.zlovo.gui.empresario;
+package com.zlovo.gui.cliente;
 
 import com.zlovo.bll.EncomendaBLL;
-import com.zlovo.dal.Repositorio;
+import com.zlovo.bll.utilizador.ClienteBLL;
+import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.encomenda.enumerations.TipoEstado;
+import com.zlovo.dal.utilizador.Cliente;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,65 +16,62 @@ import javafx.scene.control.ListView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ConsultarEncomendasController implements Initializable {
+public class EncomendasPorPagarController implements Initializable {
+
     @FXML
     private ListView<Encomenda> encomendasList;
     @FXML
-    private Label emptyLabel;
+    private Label checkLabel;
     @FXML
-    private Label clienteLabel;
+    private Label precoLabel;
     @FXML
     private Label dataLabel;
     @FXML
     private Label horarioLabel;
-    @FXML
-    private Label precoTotalLabel;
 
     public static Encomenda encomendaSelecionada;
 
-    public void anterior(ActionEvent event) {
-        ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
-    }
-
-    public void confirmar(ActionEvent event) {
+    public void seguinte(ActionEvent event){
         if (encomendasList.getSelectionModel().getSelectedItem() == null){
-            emptyLabel.setText("Selecione uma encomenda!");
+            checkLabel.setText("Selecione uma encomenda!");
             return;
         }
-        encomendasList.getSelectionModel().getSelectedItem().getDetalhes().setTipoEstado(TipoEstado.CONFIRMADA_POR_PAGAR);
-        ControladorGlobal.chamaScene("empresario/SceneConsultarEncomendas.fxml", event);
+        ControladorGlobal.chamaScene("cliente/SceneEfetuarPagamento.fxml", event);
     }
 
     public void anular(ActionEvent event){
         if (encomendasList.getSelectionModel().getSelectedItem() == null){
-            emptyLabel.setText("Selecione uma encomenda!");
+            checkLabel.setText("Selecione uma encomenda!");
             return;
         }
-        encomendasList.getSelectionModel().getSelectedItem().getDetalhes().setTipoEstado(TipoEstado.ANULADA);
-        ControladorGlobal.chamaScene("empresario/SceneConsultarEncomendas.fxml", event);
+        encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
+        encomendaSelecionada.getDetalhes().setTipoEstado(TipoEstado.ANULADA);
+        ControladorGlobal.chamaScene("cliente/SceneEncomendasPorPagar.fxml", event);
+    }
+
+    public void anterior(ActionEvent event){
+        ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        encomendasList.getItems().addAll(EncomendaBLL.getPorConfirmarEncomendas());
+        encomendasList.getItems().addAll(ClienteBLL.encomendasPorPagar((Cliente) UtilizadorBLL.getUserLog()));
         if (encomendasList.getItems().isEmpty()){
-            emptyLabel.setText("Sem encomendas por confirmar!");
+            checkLabel.setText("Sem encomendas por pagar!");
             return;
         }
         EncomendaBLL.changeCellValueEncomendaNome(encomendasList);
-        EncomendaBLL.updateClienteLabel(encomendasList,clienteLabel);
         EncomendaBLL.updateHorarioLabel(encomendasList,horarioLabel);
         EncomendaBLL.updateDataLabel(encomendasList,dataLabel);
-        EncomendaBLL.updatePrecoTotalLabel(encomendasList,precoTotalLabel);
-
+        EncomendaBLL.updatePrecoTotalLabel(encomendasList,precoLabel);
     }
 
     public void verProdutos(ActionEvent event){
         encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
         if (encomendaSelecionada == null){
-            emptyLabel.setText("Selecione uma encomenda!");
+            checkLabel.setText("Selecione uma encomenda!");
             return;
         }
-        ControladorGlobal.chamaScene("empresario/SceneVerProdutos.fxml", event);
+        ControladorGlobal.chamaScene("cliente/SceneVerProdutos.fxml", event);
     }
 }
