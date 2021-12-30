@@ -8,6 +8,7 @@ import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.utilizador.Empresario;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -193,5 +194,13 @@ public class EmpresaBLL {
             if (EmpresaBLL.quantidadeProdutosCategoria(empresa, key) > 0)
                 categorias.add(key);
         return categorias;
+    }
+
+    public static @Nullable Empresa getEmpresa(int id){
+        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
+                if (e.getId() == id)
+                    return e;
+        return null;
     }
 }

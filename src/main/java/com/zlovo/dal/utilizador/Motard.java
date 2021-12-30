@@ -11,7 +11,7 @@ public class Motard extends Funcionario implements Serializable {
 
 //    Atributos
     private boolean disponivel;
-    private ArrayList<Trabalho> historial;
+    private final ArrayList<Trabalho> historial;
 
 //    Construtor
     public Motard(){
@@ -31,10 +31,6 @@ public class Motard extends Funcionario implements Serializable {
 
     public ArrayList<Trabalho> getHistorial() {
         return historial;
-    }
-
-    public void setHistorial(ArrayList<Trabalho> historial) {
-        this.historial = historial;
     }
 }
 

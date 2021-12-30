@@ -5,6 +5,7 @@ import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.encomenda.enumerations.TipoEstado;
 import com.zlovo.dal.utilizador.Cliente;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
@@ -40,5 +41,12 @@ public class ClienteBLL {
             if (e.getDetalhes().getTipoEstado().equals(TipoEstado.CONFIRMADA))
                 encomendas.add(e);
         return encomendas;
+    }
+
+    public static @Nullable Cliente getCliente(String username){
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+            if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(username))
+                return (Cliente) Repositorio.getRepositorio().getUtilizadoresMap().get(key);
+        return null;
     }
 }

@@ -15,7 +15,6 @@ public class MenuMotardController implements Initializable {
     private Label usernameMotard;
 
     public void logout(ActionEvent event){
-        UtilizadorBLL.setUserLog(null);
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }
     //Criar Scene de listar as ordens
@@ -23,6 +22,9 @@ public class MenuMotardController implements Initializable {
         ControladorGlobal.chamaScene("motard/SceneListarOrdens.fxml", event);
     }
 
+    public void seguinte(ActionEvent event){
+        ControladorGlobal.chamaScene("motard/SceneEncomenda.fxml", event);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

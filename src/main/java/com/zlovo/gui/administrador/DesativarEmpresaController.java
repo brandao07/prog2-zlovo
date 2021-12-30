@@ -1,9 +1,6 @@
 package com.zlovo.gui.administrador;
 
 import com.zlovo.bll.utilizador.AdministradorBLL;
-import com.zlovo.bll.utilizador.EmpresarioBLL;
-import com.zlovo.bll.utilizador.UtilizadorBLL;
-import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.utilizador.Empresario;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -13,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 
