@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.ListarEncomendasController">
+<AnchorPane fx:id="verProduto" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.ListarEncomendasController">
    <children>
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
       <ListView fx:id="encomendasList" layoutX="73.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" />
@@ -16,8 +17,12 @@
          </font>
       </Label>
       <Label fx:id="checkLabel" layoutX="73.0" layoutY="281.0" prefHeight="18.0" prefWidth="200.0" textFill="#ec0505" />
-      <Label fx:id="precoLabel" layoutX="286.0" layoutY="95.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="dataLabel" layoutX="286.0" layoutY="161.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="horarioLabel" layoutX="286.0" layoutY="125.0" prefHeight="18.0" prefWidth="230.0" />
+      <Label fx:id="precoLabel" layoutX="286.0" layoutY="70.0" prefHeight="18.0" prefWidth="230.0" />
+      <Label fx:id="dataLabel" layoutX="286.0" layoutY="131.0" prefHeight="18.0" prefWidth="230.0" />
+      <Label fx:id="horarioLabel" layoutX="286.0" layoutY="97.0" prefHeight="18.0" prefWidth="230.0" />
+      <Label fx:id="metodoLabel" layoutX="43.0" layoutY="323.0" prefHeight="18.0" prefWidth="513.0" />
+      <Label fx:id="estadoLabel" layoutX="135.0" layoutY="351.0" prefHeight="18.0" prefWidth="399.0" />
+      <Label fx:id="metodoPagamentoLabel" layoutX="286.0" layoutY="170.0" prefHeight="18.0" prefWidth="230.0" />
+      <Hyperlink layoutX="286.0" layoutY="239.0" onAction="#verProduto" text="Ver produtos" />
    </children>
 </AnchorPane>

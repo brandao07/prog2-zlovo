@@ -4,8 +4,6 @@ import com.zlovo.bll.EncomendaBLL;
 import com.zlovo.bll.utilizador.ClienteBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.encomenda.Encomenda;
-import com.zlovo.dal.encomenda.enumerations.TipoEstado;
-import com.zlovo.dal.encomenda.enumerations.TipoPagamento;
 import com.zlovo.dal.utilizador.Cliente;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
@@ -29,6 +27,12 @@ public class ListarEncomendasController implements Initializable {
     private Label dataLabel;
     @FXML
     private Label horarioLabel;
+    @FXML
+    private Label metodoPagamentoLabel;
+    @FXML
+    private Label estadoLabel;
+
+    public static Encomenda encomendaSelecionada;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,6 +45,17 @@ public class ListarEncomendasController implements Initializable {
         EncomendaBLL.updateHorarioLabel(encomendasList,horarioLabel);
         EncomendaBLL.updateDataLabel(encomendasList,dataLabel);
         EncomendaBLL.updatePrecoTotalLabel(encomendasList,precoLabel);
+        EncomendaBLL.updateMetodoPagamentoLabel(encomendasList, metodoPagamentoLabel);
+        EncomendaBLL.updateTipoEstadoLabel(encomendasList, estadoLabel);
+    }
+
+    public void verProduto(ActionEvent event){
+        encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
+        if (encomendaSelecionada == null){
+            checkLabel.setText("Selecione uma encomenda!");
+            return;
+        }
+        ControladorGlobal.chamaScene("cliente/VerProdutos2.fxml", event);
     }
 
     public void anterior(ActionEvent event){

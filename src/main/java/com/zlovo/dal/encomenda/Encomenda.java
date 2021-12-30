@@ -6,9 +6,6 @@ import com.zlovo.dal.encomenda.enumerations.TipoHorario;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Encomenda implements Serializable {
     //    Atributos

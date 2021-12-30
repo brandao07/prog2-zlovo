@@ -73,6 +73,20 @@ public class EncomendaBLL {
         });
     }
 
+    public static void updateMetodoPagamentoLabel(@NotNull ListView<Encomenda> myListView, Label myLabel){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPagamento().getTipo());
+            myLabel.setText("Método Pagamento: " + dados);
+        });
+    }
+
+    public static void updateTipoEstadoLabel(@NotNull ListView<Encomenda> myListView, Label myLabel){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getDetalhes().getEstadoEntrega());
+            myLabel.setText("Estado Entrega: " + dados);
+        });
+    }
+
     public static double somaPrecoProdutosCarrinho(@NotNull ArrayList<Produto> carrinho){
         double result = 0;
         for (Produto p : carrinho)

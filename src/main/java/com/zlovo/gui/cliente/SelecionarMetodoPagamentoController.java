@@ -2,6 +2,7 @@ package com.zlovo.gui.cliente;
 
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.encomenda.enumerations.TipoEstado;
+import com.zlovo.dal.encomenda.enumerations.TipoEstadoEntrega;
 import com.zlovo.dal.encomenda.enumerations.TipoPagamento;
 import com.zlovo.dal.utilizador.Cliente;
 import com.zlovo.gui.ControladorGlobal;
