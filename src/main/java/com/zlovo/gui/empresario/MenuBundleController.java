@@ -26,7 +26,7 @@ public class MenuBundleController implements Initializable {
     private Label checkDados;
 
     public static Bundle bundleSelecionado;
-//TODO: ver criar bundle melhor
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bundleList.getItems().addAll(BundleBLL.getBundles(EmpresaBLL.getEmpresaLog(),MenuCategoriasController.categoriaSelecionada));

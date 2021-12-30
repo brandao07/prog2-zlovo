@@ -16,7 +16,7 @@ public class Motard extends Funcionario implements Serializable {
 //    Construtor
     public Motard(){
         historial = new ArrayList<>();
-        disponivel = false;
+        disponivel = true;
     }
 
 //    Getters & Setters

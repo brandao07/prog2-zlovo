@@ -95,6 +95,14 @@ public class EncomendaBLL {
         return encomendas;
     }
 
+    public static @NotNull ArrayList<Encomenda> getConfirmarEncomendas(){
+        ArrayList<Encomenda> encomendas = new ArrayList<>();
+        for (int key : Repositorio.getRepositorio().getEncomendasMap().keySet())
+            if (Repositorio.getRepositorio().getEncomendasMap().get(key).getDetalhes().getTipoEstado().equals(TipoEstado.CONFIRMADA))
+                encomendas.add(Repositorio.getRepositorio().getEncomendasMap().get(key));
+        return encomendas;
+    }
+
     public static void changeCellValueEncomendaNome (@NotNull ListView<Encomenda> myListView){
         myListView.setCellFactory(new Callback<>() {
             public ListCell<Encomenda> call(ListView<Encomenda> param) {
@@ -108,6 +116,4 @@ public class EncomendaBLL {
             }
         });
     }
-
-
 }

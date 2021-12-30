@@ -7,12 +7,10 @@ import java.io.Serializable;
 public class Pagamento implements Serializable {
 //    Atributos
     private TipoPagamento tipo;
-    private double valor;
     private boolean estado;
 
 //    Construtor
     public Pagamento() {
-        valor = 0;
         estado = false;
         tipo = null;
     }
@@ -24,14 +22,6 @@ public class Pagamento implements Serializable {
 
     public void setTipo(TipoPagamento tipo) {
         this.tipo = tipo;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 
     public boolean isEstado() {

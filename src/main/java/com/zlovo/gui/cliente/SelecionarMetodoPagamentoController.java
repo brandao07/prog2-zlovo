@@ -28,12 +28,28 @@ public class SelecionarMetodoPagamentoController implements Initializable {
             return;
         }
 
-        if(tipoPagamentoCB.getSelectionModel().getSelectedItem().equals(TipoPagamento.APLICACAO))
-            if((((Cliente)UtilizadorBLL.getUserLog()).getSaldo()) < EncomendasPorPagarController.encomendaSelecionada.getPreco()){
+        if(tipoPagamentoCB.getSelectionModel().getSelectedItem().equals(TipoPagamento.APLICACAO)) {
+            if ((((Cliente) UtilizadorBLL.getUserLog()).getSaldo()) < EncomendasPorPagarController.encomendaSelecionada.getPreco()) {
                 checkPagamento.setText("Saldo insuficiente!");
                 return;
             }
-        ((Cliente)UtilizadorBLL.getUserLog()).setSaldo(((Cliente)UtilizadorBLL.getUserLog()).getSaldo() - EncomendasPorPagarController.encomendaSelecionada.getPreco());
+            ((Cliente)UtilizadorBLL.getUserLog()).setSaldo(((Cliente)UtilizadorBLL.getUserLog()).getSaldo() - EncomendasPorPagarController.encomendaSelecionada.getPreco());
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setEstado(true);
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setTipo(TipoPagamento.APLICACAO);
+        }
+        else if (tipoPagamentoCB.getSelectionModel().getSelectedItem().equals(TipoPagamento.DINHEIRO)){
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setEstado(false);
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setTipo(TipoPagamento.DINHEIRO);
+        }
+        else if (tipoPagamentoCB.getSelectionModel().getSelectedItem().equals(TipoPagamento.MULTIBANCO)){
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setEstado(true);
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setTipo(TipoPagamento.MULTIBANCO);
+        }
+        else if(tipoPagamentoCB.getSelectionModel().getSelectedItem().equals(TipoPagamento.CARTAO_CREDITO)){
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setEstado(true);
+            EncomendasPorPagarController.encomendaSelecionada.getPagamento().setTipo(TipoPagamento.CARTAO_CREDITO);
+        }
+        EncomendasPorPagarController.encomendaSelecionada.getDetalhes().setEstadoEntrega(TipoEstadoEntrega.A_PERPARAR);
         EncomendasPorPagarController.encomendaSelecionada.getDetalhes().setTipoEstado(TipoEstado.CONFIRMADA);
         ControladorGlobal.chamaScene("cliente/SceneEncomendasPorPagar.fxml", event);
     }

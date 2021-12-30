@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import java.util.ResourceBundle;
 
 public class MenuAdministradorController {
-    // TODO continuacao dos butoes
+    // TODO continuacao dos butoes grafico linhas
     public void criarUser(ActionEvent event){
         ControladorGlobal.chamaScene("administrador/SceneSelecionaTipoFuncionario.fxml", event);
     }
@@ -22,6 +22,10 @@ public class MenuAdministradorController {
 
     public void desativarDonoEmpresa(ActionEvent event){
         ControladorGlobal.chamaScene("administrador/SceneDesativarDonoEmpresa.fxml", event);
+    }
+
+    public void enviarMotards(ActionEvent event){
+        ControladorGlobal.chamaScene("administrador/SceneSelecionarEncomenda.fxml", event);
     }
 
     public void logout(ActionEvent event){

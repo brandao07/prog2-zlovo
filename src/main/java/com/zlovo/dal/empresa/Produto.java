@@ -19,7 +19,6 @@ public class Produto implements Serializable {
 //    Construtor
     public Produto(){}
 
-    //TODO: Falta associar isto
     public Produto(String nome, String categoria, int idEmpresa, int id, double preco, double dimensao, double peso, TipoUnidade unidade, int quantidade) {
         this.nome = nome;
         this.categoria = categoria;

@@ -18,5 +18,6 @@
       </Label>
       <Button layoutX="200.0" layoutY="289.0" mnemonicParsing="false" onAction="#desativarEmpresa" prefHeight="25.0" prefWidth="201.0" text="Desativar empresas" />
       <Button layoutX="200.0" layoutY="245.0" mnemonicParsing="false" onAction="#desativarDonoEmpresa" prefHeight="25.0" prefWidth="201.0" text="Desativar donos de empresas" />
+      <Button layoutX="201.0" layoutY="336.0" mnemonicParsing="false" onAction="#enviarMotards" prefHeight="26.0" prefWidth="201.0" text="Enviar Motards" />
    </children>
 </AnchorPane>
