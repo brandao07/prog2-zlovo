@@ -4,7 +4,6 @@ import com.zlovo.bll.EncomendaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.gui.ControladorGlobal;
-import com.zlovo.gui.empresario.ConsultarEncomendasController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

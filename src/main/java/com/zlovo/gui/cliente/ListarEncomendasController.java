@@ -55,11 +55,10 @@ public class ListarEncomendasController implements Initializable {
             checkLabel.setText("Selecione uma encomenda!");
             return;
         }
-        ControladorGlobal.chamaScene("cliente/VerProdutos2.fxml", event);
+        ControladorGlobal.chamaScene("cliente/SceneVerProdutos2.fxml", event);
     }
 
     public void anterior(ActionEvent event){
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }
-
