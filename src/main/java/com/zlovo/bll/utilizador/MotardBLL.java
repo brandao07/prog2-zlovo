@@ -1,5 +1,6 @@
 package com.zlovo.bll.utilizador;
 
+import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;

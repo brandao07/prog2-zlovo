@@ -1,12 +1,10 @@
 package com.zlovo.gui.motard;
 
-import com.zlovo.bll.EncomendaBLL;
 import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.utilizador.ClienteBLL;
 import com.zlovo.bll.utilizador.MotardBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.empresa.Empresa;
-import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.encomenda.Trabalho;
 import com.zlovo.dal.utilizador.Cliente;
 import com.zlovo.dal.utilizador.Motard;
@@ -18,7 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ListarOrdensController implements Initializable {
@@ -39,6 +36,17 @@ public class ListarOrdensController implements Initializable {
     private Label dataLabel;
     @FXML
     private Label estadoLabel;
+    @FXML
+    private Label ruaClienteLabel;
+    @FXML
+    private Label portaClienteLabel;
+    @FXML
+    private Label ruaEmpresaLabel;
+    @FXML
+    private Label portaEmpresaLabel;
+
+    public static Cliente cliente;
+    public static Empresa empresa;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,16 +57,17 @@ public class ListarOrdensController implements Initializable {
         }
         MotardBLL.changeCellValueTrabalhoNome(trabalhosList);
         try{
-            EncomendaBLL.changeCellValueEncomendaNome(trabalhosList);
-            EncomendaBLL.updateDataLabel(trabalhosList,dataLabel);
-            Trabalho trabalho = MotardBLL.getTrabalho((Motard) UtilizadorBLL.getUserLog(), trabalhosList.getSelectionModel().getSelectedItem());
-            Empresa empresa = EmpresaBLL.getEmpresa(trabalhosList.getSelectionModel().getSelectedItem().getIdEmpresa());
-            Cliente cliente = ClienteBLL.getCliente(trabalhosList.getSelectionModel().getSelectedItem().getDetalhes().getCliente());
-            EncomendaBLL.updateOrigemLabel(trabalhosList,origemLabel,empresa);
-            EncomendaBLL.updateDestinoLabel(trabalhosList,destinoLabel,cliente);
-            EncomendaBLL.updateEmpresaLabel(trabalhosList,empresaLabel,empresa);
-            EncomendaBLL.updateEstadoLabel(trabalhosList,estadoLabel,trabalho);
-            EncomendaBLL.updateDescricaoLabel(trabalhosList,descricaoLabel,trabalho);
+                MotardBLL.updateDescricaoLabel(trabalhosList, descricaoLabel);
+                MotardBLL.updateDestinoLabel(trabalhosList, destinoLabel);
+                MotardBLL.updateOrigemLabel(trabalhosList, origemLabel);
+                MotardBLL.updateEmpresaLabel(trabalhosList, empresaLabel);
+                MotardBLL.updateNPortaClienteLabel(trabalhosList, portaClienteLabel);
+                MotardBLL.updateNPortaEmpresaLabel(trabalhosList, portaEmpresaLabel);
+                MotardBLL.updateRuaClienteLabel(trabalhosList, ruaClienteLabel);
+                MotardBLL.updateRuaEmpresaLabel(trabalhosList, ruaEmpresaLabel);
+                MotardBLL.updateTipoEstadoLabel(trabalhosList, estadoLabel);
+                MotardBLL.updateDataLabel(trabalhosList, dataLabel);
+
         } catch (Exception e){
             e.printStackTrace();
         }

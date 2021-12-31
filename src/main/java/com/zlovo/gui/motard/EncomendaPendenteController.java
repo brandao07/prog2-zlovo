@@ -31,6 +31,8 @@ public class EncomendaPendenteController implements Initializable {
     @FXML
     private Label destinoLabel;
     @FXML
+    private Label clienteLabel;
+    @FXML
     private ChoiceBox<TipoEstadoEntrega> estadoBox;
     @FXML
     private TextArea textArea;

@@ -167,4 +167,32 @@ public class EncomendaBLL {
             myLabel.setText("Descrição: " + dados);
         });
     }
+
+    public static void updateNPortaClienteLabel(@NotNull ListView<Encomenda> myListView, Label myLabel, Cliente cliente){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(cliente.getMorada().getnPorta());
+            myLabel.setText("(Destino) Número da Porta: " + dados);
+        });
+    }
+
+    public static void updateRuaClienteLabel(@NotNull ListView<Encomenda> myListView, Label myLabel, Cliente cliente){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(cliente.getMorada().getRua());
+            myLabel.setText("(Destino) Rua : " + dados);
+        });
+    }
+
+    public static void updateRuaEmpresaLabel(@NotNull ListView<Encomenda> myListView, Label myLabel, Empresa empresa){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(empresa.getMorada().getRua());
+            myLabel.setText("(Origem) Rua: " + dados);
+        });
+    }
+
+    public static void updateNPortaEmpresaLabel(@NotNull ListView<Encomenda> myListView, Label myLabel, Empresa empresa){
+        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+            String dados = String.valueOf(empresa.getMorada().getnPorta());
+            myLabel.setText("(Origem) Número da Porta: " + dados);
+        });
+    }
 }
