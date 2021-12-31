@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class ListarOrdensController implements Initializable {
 
     @FXML
-    private ListView<Encomenda> trabalhosList;
+    private ListView<Trabalho> trabalhosList;
     @FXML
     private Label origemLabel;
     @FXML
@@ -42,11 +42,12 @@ public class ListarOrdensController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        trabalhosList.getItems().addAll(MotardBLL.getEncomendas((Motard) UtilizadorBLL.getUserLog()));
+        trabalhosList.getItems().addAll(MotardBLL.getTrabalhosFinalizados((Motard) UtilizadorBLL.getUserLog()));
         if (trabalhosList.getItems() == null){
             checkLabel.setText("Histórico de trabalhos vazio!");
             return;
         }
+        MotardBLL.changeCellValueTrabalhoNome(trabalhosList);
         try{
             EncomendaBLL.changeCellValueEncomendaNome(trabalhosList);
             EncomendaBLL.updateDataLabel(trabalhosList,dataLabel);

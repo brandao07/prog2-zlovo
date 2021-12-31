@@ -29,4 +29,6 @@ module com.zlovo {
     opens com.zlovo.gui.empresario to javafx.fxml;
     exports com.zlovo.gui.administrador;
     opens com.zlovo.gui.administrador to javafx.fxml;
+    exports com.zlovo.gui.motard;
+    opens com.zlovo.gui.motard to javafx.fxml;
 }

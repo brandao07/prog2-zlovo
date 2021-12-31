@@ -7,4 +7,7 @@
 27/12 - Encomendas
 28/12 - Motard + Administrador
 
-
+Corrigir bugs
+Melhorar Scenes
+Adicionar 1 empresa
+Grafico

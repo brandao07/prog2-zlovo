@@ -32,5 +32,6 @@ public class Motard extends Funcionario implements Serializable {
     public ArrayList<Trabalho> getHistorial() {
         return historial;
     }
+
 }
 

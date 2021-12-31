@@ -22,5 +22,9 @@
       <Label fx:id="descricaoLabel" alignment="TOP_LEFT" layoutX="241.0" layoutY="309.0" prefHeight="74.0" prefWidth="345.0" wrapText="true" />
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
       <Label fx:id="dataLabel" layoutX="247.0" layoutY="270.0" prefHeight="17.0" prefWidth="345.0" />
+      <Label fx:id="ruaClienteLabel" layoutX="270.0" layoutY="29.0" prefHeight="17.0" prefWidth="225.0" text="aaa" />
+      <Label fx:id="ruaEmpresaLabel" layoutX="270.0" layoutY="58.0" prefHeight="17.0" prefWidth="194.0" text="aaaa" />
+      <Label fx:id="portaClienteLabel" layoutX="457.0" layoutY="29.0" text="Label" />
+      <Label fx:id="portaEmpresaLabel" layoutX="457.0" layoutY="58.0" text="Label" />
    </children>
 </AnchorPane>
