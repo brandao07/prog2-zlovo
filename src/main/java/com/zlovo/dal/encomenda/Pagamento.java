@@ -5,17 +5,17 @@ import com.zlovo.dal.encomenda.enumerations.TipoPagamento;
 import java.io.Serializable;
 
 public class Pagamento implements Serializable {
-//    Atributos
+    //    Atributos
     private TipoPagamento tipo;
     private boolean estado;
 
-//    Construtor
+    //    Construtor
     public Pagamento() {
         estado = false;
         tipo = null;
     }
 
-//    Getters & Setters
+    //    Getters & Setters
     public TipoPagamento getTipo() {
         return tipo;
     }

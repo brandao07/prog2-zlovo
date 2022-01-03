@@ -1,7 +1,6 @@
 package com.zlovo.gui.empresario;
 
 import com.zlovo.bll.EncomendaBLL;
-import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.encomenda.enumerations.TipoEstado;
 import com.zlovo.gui.ControladorGlobal;
@@ -15,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ConsultarEncomendasController implements Initializable {
+    public static Encomenda encomendaSelecionada;
     @FXML
     private ListView<Encomenda> encomendasList;
     @FXML
@@ -28,14 +28,12 @@ public class ConsultarEncomendasController implements Initializable {
     @FXML
     private Label precoTotalLabel;
 
-    public static Encomenda encomendaSelecionada;
-
     public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
     }
 
     public void confirmar(ActionEvent event) {
-        if (encomendasList.getSelectionModel().getSelectedItem() == null){
+        if (encomendasList.getSelectionModel().getSelectedItem() == null) {
             emptyLabel.setText("Selecione uma encomenda!");
             return;
         }
@@ -43,8 +41,8 @@ public class ConsultarEncomendasController implements Initializable {
         ControladorGlobal.chamaScene("empresario/SceneConsultarEncomendas.fxml", event);
     }
 
-    public void anular(ActionEvent event){
-        if (encomendasList.getSelectionModel().getSelectedItem() == null){
+    public void anular(ActionEvent event) {
+        if (encomendasList.getSelectionModel().getSelectedItem() == null) {
             emptyLabel.setText("Selecione uma encomenda!");
             return;
         }
@@ -55,21 +53,21 @@ public class ConsultarEncomendasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         encomendasList.getItems().addAll(EncomendaBLL.getPorConfirmarEncomendas());
-        if (encomendasList.getItems().isEmpty()){
+        if (encomendasList.getItems().isEmpty()) {
             emptyLabel.setText("Sem encomendas por confirmar!");
             return;
         }
         EncomendaBLL.changeCellValueEncomendaNome(encomendasList);
-        EncomendaBLL.updateClienteLabel(encomendasList,clienteLabel);
-        EncomendaBLL.updateHorarioLabel(encomendasList,horarioLabel);
-        EncomendaBLL.updateDataLabel(encomendasList,dataLabel);
-        EncomendaBLL.updatePrecoTotalLabel(encomendasList,precoTotalLabel);
+        EncomendaBLL.updateClienteLabel(encomendasList, clienteLabel);
+        EncomendaBLL.updateHorarioLabel(encomendasList, horarioLabel);
+        EncomendaBLL.updateDataLabel(encomendasList, dataLabel);
+        EncomendaBLL.updatePrecoTotalLabel(encomendasList, precoTotalLabel);
 
     }
 
-    public void verProdutos(ActionEvent event){
+    public void verProdutos(ActionEvent event) {
         encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
-        if (encomendaSelecionada == null){
+        if (encomendaSelecionada == null) {
             emptyLabel.setText("Selecione uma encomenda!");
             return;
         }

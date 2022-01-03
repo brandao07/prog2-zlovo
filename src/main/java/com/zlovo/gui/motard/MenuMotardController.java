@@ -18,16 +18,17 @@ public class MenuMotardController implements Initializable {
     @FXML
     private Label checkDados;
 
-    public void logout(ActionEvent event){
+    public void logout(ActionEvent event) {
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }
+
     //Criar Scene de listar as ordens
-    public void listarOrdens(ActionEvent event){
+    public void listarOrdens(ActionEvent event) {
         ControladorGlobal.chamaScene("motard/SceneListarOrdens.fxml", event);
     }
 
-    public void seguinte(ActionEvent event){
-        if (MotardBLL.getCurrentTrabalho((Motard) UtilizadorBLL.getUserLog()) == null){
+    public void seguinte(ActionEvent event) {
+        if (MotardBLL.getCurrentTrabalho((Motard) UtilizadorBLL.getUserLog()) == null) {
             checkDados.setText("Sem encomendas por entregar!");
             return;
         }

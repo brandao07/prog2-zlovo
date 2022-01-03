@@ -11,7 +11,8 @@ public class Morada implements Serializable {
 
     //Construtor
 
-    public Morada(){}
+    public Morada() {
+    }
 
     // Getters & Setters
 

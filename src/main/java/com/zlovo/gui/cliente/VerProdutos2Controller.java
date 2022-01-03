@@ -22,17 +22,18 @@ public class VerProdutos2Controller implements Initializable {
     private Label quantidadeLabel;
     @FXML
     private Label categoriaLabel;
+
     @Override
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         produtosList.getItems().addAll(ListarEncomendasController.encomendaSelecionada.getProdutosList());
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        EncomendaBLL.updatePrecoLabel(produtosList,precoLabel);
-        EncomendaBLL.updateQuantidadeLabel(produtosList,quantidadeLabel);
-        EncomendaBLL.updateCategoriaLabel(produtosList,categoriaLabel);
+        EncomendaBLL.updatePrecoLabel(produtosList, precoLabel);
+        EncomendaBLL.updateQuantidadeLabel(produtosList, quantidadeLabel);
+        EncomendaBLL.updateCategoriaLabel(produtosList, categoriaLabel);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneListarEncomendas.fxml", event);
     }
 }

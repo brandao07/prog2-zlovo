@@ -24,13 +24,14 @@ public class SelecionarHorarioController implements Initializable {
         tipoHorarioCB.getItems().addAll(TipoHorario.values());
     }
 
-    public void seguinte(ActionEvent event){
+    public void seguinte(ActionEvent event) {
         SelecionarEmpresaController.encomenda.setDataCliente(date.getValue());
         SelecionarEmpresaController.encomenda.setHorario(tipoHorarioCB.getValue());
         SelecionarEmpresaController.encomenda.getDetalhes().setTipoEstado(TipoEstado.AGUARDAR);
         EncomendaBLL.criarEncomenda(SelecionarEmpresaController.encomenda);
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
+
     public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneCarrinho.fxml", event);
     }

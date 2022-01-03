@@ -26,12 +26,12 @@ public class MenuCategoriasController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         myListView.getItems().addAll(Repositorio.getRepositorio().getCategoriaSet());
-        ProdutoBLL.updateCategoriaLabel(myListView,categoriaLabel);
-        ProdutoBLL.updateQuantidadeLabel(myListView,quantidadeProdutosLabel);
+        ProdutoBLL.updateCategoriaLabel(myListView, categoriaLabel);
+        ProdutoBLL.updateQuantidadeLabel(myListView, quantidadeProdutosLabel);
     }
 
-    public void listarProdutos(ActionEvent event){
-        if(myListView.getSelectionModel().getSelectedItem() == null){
+    public void listarProdutos(ActionEvent event) {
+        if (myListView.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Selecione uma categoria!");
             return;
         }
@@ -39,7 +39,7 @@ public class MenuCategoriasController implements Initializable {
         ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
     }
 }

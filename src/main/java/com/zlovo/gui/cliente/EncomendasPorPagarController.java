@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 
 public class EncomendasPorPagarController implements Initializable {
 
+    public static Encomenda encomendaSelecionada;
     @FXML
     private ListView<Encomenda> encomendasList;
     @FXML
@@ -29,10 +30,8 @@ public class EncomendasPorPagarController implements Initializable {
     @FXML
     private Label horarioLabel;
 
-    public static Encomenda encomendaSelecionada;
-
-    public void seguinte(ActionEvent event){
-        if (encomendasList.getSelectionModel().getSelectedItem() == null){
+    public void seguinte(ActionEvent event) {
+        if (encomendasList.getSelectionModel().getSelectedItem() == null) {
             checkLabel.setText("Selecione uma encomenda!");
             return;
         }
@@ -40,8 +39,8 @@ public class EncomendasPorPagarController implements Initializable {
         ControladorGlobal.chamaScene("cliente/SceneSelecionarMetodoPagamento.fxml", event);
     }
 
-    public void anular(ActionEvent event){
-        if (encomendasList.getSelectionModel().getSelectedItem() == null){
+    public void anular(ActionEvent event) {
+        if (encomendasList.getSelectionModel().getSelectedItem() == null) {
             checkLabel.setText("Selecione uma encomenda!");
             return;
         }
@@ -53,26 +52,26 @@ public class EncomendasPorPagarController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         encomendasList.getItems().addAll(ClienteBLL.encomendasPorPagar((Cliente) UtilizadorBLL.getUserLog()));
-        if (encomendasList.getItems().isEmpty()){
+        if (encomendasList.getItems().isEmpty()) {
             checkLabel.setText("Sem encomendas por pagar!");
             return;
         }
         EncomendaBLL.changeCellValueEncomendaNome(encomendasList);
-        EncomendaBLL.updateHorarioLabel(encomendasList,horarioLabel);
-        EncomendaBLL.updateDataLabel(encomendasList,dataLabel);
-        EncomendaBLL.updatePrecoTotalLabel(encomendasList,precoLabel);
+        EncomendaBLL.updateHorarioLabel(encomendasList, horarioLabel);
+        EncomendaBLL.updateDataLabel(encomendasList, dataLabel);
+        EncomendaBLL.updatePrecoTotalLabel(encomendasList, precoLabel);
     }
 
-    public void verProdutos(ActionEvent event){
+    public void verProdutos(ActionEvent event) {
         encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
-        if (encomendaSelecionada == null){
+        if (encomendaSelecionada == null) {
             checkLabel.setText("Selecione uma encomenda!");
             return;
         }
         ControladorGlobal.chamaScene("cliente/SceneVerProdutos.fxml", event);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }

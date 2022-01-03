@@ -20,10 +20,40 @@ public class Repositorio implements Serializable {
     private int numProdutos = 0;
     private int numUtilizadores = 0;
     private int numEncomendas = 0;
-    private Repositorio(){}
 
-    public  int getNumProdutos() {
-        return  numProdutos;
+    private Repositorio() {
+    }
+
+    // Método que apenas permite 1 repositório
+    public static Repositorio getRepositorio() {
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        if (_repo == null) _repo = new Repositorio();
+        lock.unlock();
+        return _repo;
+    }
+
+    // Ler o ficheiro
+    public static void desserializar(String filename) {
+        try {
+            FileInputStream fileIn = new FileInputStream(filename);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            _repo = (Repositorio) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Repositorio class not found. " + ex.getMessage());
+        }
+    }
+
+    public int getNumProdutos() {
+        return numProdutos;
+    }
+
+    public void setNumProdutos(int numProdutos) {
+        this.numProdutos = numProdutos;
     }
 
     public Map<Integer, Encomenda> getEncomendasMap() {
@@ -36,10 +66,6 @@ public class Repositorio implements Serializable {
 
     public void setNumUtilizadores(int numUtilizadores) {
         this.numUtilizadores = numUtilizadores;
-    }
-
-    public void setNumProdutos(int numProdutos){
-        this.numProdutos = numProdutos;
     }
 
     public int getNumEmpresas() {
@@ -58,23 +84,23 @@ public class Repositorio implements Serializable {
         this.numEncomendas = numEncomendas;
     }
 
-    public  Set<String> getCategoriaSet() {
+    public Set<String> getCategoriaSet() {
         return categoriaSet;
     }
 
-    public  Map<Integer, Utilizador> getUtilizadoresMap() {
+    public Map<Integer, Utilizador> getUtilizadoresMap() {
         return utilizadoresMap;
     }
 
-    public  Map<String, ArrayList<Empresa>> getLocalidadesEmpresasMap() {
+    public Map<String, ArrayList<Empresa>> getLocalidadesEmpresasMap() {
         return localidadesEmpresasMap;
     }
 
-    public  Map<String, ArrayList<Empresa>> getCategoriasEmpresasMap() {
+    public Map<String, ArrayList<Empresa>> getCategoriasEmpresasMap() {
         return categoriasEmpresasMap;
     }
 
-    public  Set<String> getLocalidadeSet() {
+    public Set<String> getLocalidadeSet() {
         return localidadeSet;
     }
 
@@ -82,44 +108,20 @@ public class Repositorio implements Serializable {
         return "src/main/resources/com/zlovo/dal/BD.dat";
     }
 
-    public String getLocalidadesPath(){
+    public String getLocalidadesPath() {
         return "src/main/resources/com/zlovo/dal/localidades.txt";
     }
 
-    // Método que apenas permite 1 repositório
-    public static Repositorio getRepositorio(){
-        ReentrantLock lock = new ReentrantLock();
-        lock.lock();
-        if (_repo == null) _repo = new Repositorio();
-        lock.unlock();
-        return _repo;
-    }
-
-    // Ler o ficheiro
-    public static void desserializar(String filename){
-        try{
-            FileInputStream fileIn = new FileInputStream(filename);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            _repo = (Repositorio) in.readObject();
-            in.close();
-            fileIn.close();
-        } catch(IOException ex){
-            System.out.println("Erro: " + ex.getMessage());
-        } catch(ClassNotFoundException ex){
-            System.out.println("Repositorio class not found. " + ex.getMessage());
-        }
-    }
-
     // Escrever para o ficheiro
-    public void serializar(String filename){
-        try{
+    public void serializar(String filename) {
+        try {
             FileOutputStream fileOut = new FileOutputStream(filename);
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(this);
             out.close();
             fileOut.close();
             System.out.println("Serialized data is saved in " + filename);
-        } catch(IOException ex){
+        } catch (IOException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
     }
@@ -127,7 +129,7 @@ public class Repositorio implements Serializable {
     public void adicionaLocalidades() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(Repositorio.getRepositorio().getLocalidadesPath()));
         String line;
-        while((line = reader.readLine()) != null) {
+        while ((line = reader.readLine()) != null) {
             Repositorio.getRepositorio().getLocalidadeSet().add(line);
         }
         reader.close();

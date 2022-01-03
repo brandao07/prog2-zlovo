@@ -17,9 +17,9 @@ public class DadosAdminController {
     @FXML
     private Label invalidDados;
 
-    public void confirmar(ActionEvent event){
-        if (!usernameTF.getText().isEmpty() & !passwordTF.getText().isEmpty()){
-            if (UtilizadorBLL.checkUsername(usernameTF.getText())){
+    public void confirmar(ActionEvent event) {
+        if (!usernameTF.getText().isEmpty() & !passwordTF.getText().isEmpty()) {
+            if (UtilizadorBLL.checkUsername(usernameTF.getText())) {
                 invalidDados.setText("Username já registado!");
                 return;
             }
@@ -28,11 +28,10 @@ public class DadosAdminController {
             UtilizadorBLL.criarUtilizador(SelecionaTipoFuncionarioController.utilizador);
             SelecionaTipoFuncionarioController.utilizador = null;
             ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
-        }
-        else invalidDados.setText("Dados inválidos!");
+        } else invalidDados.setText("Dados inválidos!");
     }
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         SelecionaTipoUserController.utilizador = null;
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }

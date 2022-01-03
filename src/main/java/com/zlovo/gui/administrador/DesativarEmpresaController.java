@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 
 public class DesativarEmpresaController implements Initializable {
 
+    public static Empresario empresarioSelecionado;
     @FXML
     private ListView<Empresario> empresarioList;
     @FXML
@@ -22,14 +23,12 @@ public class DesativarEmpresaController implements Initializable {
     @FXML
     private Label checkerror;
 
-    public static Empresario empresarioSelecionado;
-
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
-    public void seguinte(ActionEvent event){
-        if(empresarioList.getSelectionModel().getSelectedItem() == null){
+    public void seguinte(ActionEvent event) {
+        if (empresarioList.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Selecione um empresário");
             return;
         }
@@ -41,6 +40,6 @@ public class DesativarEmpresaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         empresarioList.getItems().addAll(AdministradorBLL.getEmpresarios());
         AdministradorBLL.changeCellValueEmpresarioNome(empresarioList);
-        AdministradorBLL.updateNomeEmpresarioLabel(empresarioList,myLabel);
+        AdministradorBLL.updateNomeEmpresarioLabel(empresarioList, myLabel);
     }
 }

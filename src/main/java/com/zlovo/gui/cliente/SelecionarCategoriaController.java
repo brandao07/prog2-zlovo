@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SelecionarCategoriaController implements Initializable {
+    public static String categoriaSelecionada;
     @FXML
     private Label checkDados;
     @FXML
@@ -20,15 +21,13 @@ public class SelecionarCategoriaController implements Initializable {
     @FXML
     private Label categoriaLabel;
 
-    public static String categoriaSelecionada;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         categoriasList.getItems().addAll(EmpresaBLL.showCategorias(SelecionarEmpresaController.empresaSelecionada));
-        ProdutoBLL.updateCategoriaLabel(categoriasList,categoriaLabel);
+        ProdutoBLL.updateCategoriaLabel(categoriasList, categoriaLabel);
     }
 
-    public void seguinte(ActionEvent event){
+    public void seguinte(ActionEvent event) {
         categoriaSelecionada = categoriasList.getSelectionModel().getSelectedItem();
         if (categoriaSelecionada == null) {
             checkDados.setText("Selecione uma categoria!");
@@ -37,11 +36,11 @@ public class SelecionarCategoriaController implements Initializable {
         ControladorGlobal.chamaScene("cliente/SceneSelecionarProdutos.fxml", event);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneSelecionarEmpresa.fxml", event);
     }
 
-    public void carrinho(ActionEvent event){
+    public void carrinho(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneCarrinho.fxml", event);
     }
 }

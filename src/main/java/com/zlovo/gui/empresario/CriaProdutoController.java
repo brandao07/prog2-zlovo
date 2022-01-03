@@ -33,9 +33,9 @@ public class CriaProdutoController implements Initializable {
         tipoUnidadeCB.getItems().setAll(TipoUnidade.values());
     }
 
-    public void confirmar (ActionEvent event){
-        if(!nomeTF.getText().isEmpty() & !precoTF.getText().isEmpty() & !dimensaoTF.getText().isEmpty() & !pesoTF.getText().isEmpty() & tipoUnidadeCB.getValue() != null){
-            if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
+    public void confirmar(ActionEvent event) {
+        if (!nomeTF.getText().isEmpty() & !precoTF.getText().isEmpty() & !dimensaoTF.getText().isEmpty() & !pesoTF.getText().isEmpty() & tipoUnidadeCB.getValue() != null) {
+            if (ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)) {
                 checkDados.setText("Produto já registado!");
                 return;
             }
@@ -47,12 +47,11 @@ public class CriaProdutoController implements Initializable {
             produto.setCategoria(MenuCategoriasController.categoriaSelecionada);
             produto.setUnidade(tipoUnidadeCB.getValue());
             ProdutoBLL.criarProduto(produto);
-            ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml",event);
-        }
-        else checkDados.setText("Campos inválidos!");
+            ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
+        } else checkDados.setText("Campos inválidos!");
     }
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }
 }

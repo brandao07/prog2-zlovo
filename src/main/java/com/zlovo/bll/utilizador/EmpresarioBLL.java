@@ -2,7 +2,6 @@ package com.zlovo.bll.utilizador;
 
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
-import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.utilizador.Empresario;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -13,8 +12,8 @@ import org.jetbrains.annotations.NotNull;
 public class EmpresarioBLL {
 
     // Método que lista todos os Empresarios
-    public static void listarEmpresarios(){
-        if(!Repositorio.getRepositorio().getUtilizadoresMap().isEmpty()) {
+    public static void listarEmpresarios() {
+        if (!Repositorio.getRepositorio().getUtilizadoresMap().isEmpty()) {
             System.out.println("Empresários");
             for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
                 if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
@@ -22,18 +21,19 @@ public class EmpresarioBLL {
         } else
             System.out.println("Sem donos de empresas registados!");
     }
+
     // Método que adiciona uma empresa
-    public static boolean adicionarEmpresa(Empresa empresa){
+    public static boolean adicionarEmpresa(Empresa empresa) {
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
-                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(UtilizadorBLL.getUserLog().getUsername())){
+                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(UtilizadorBLL.getUserLog().getUsername())) {
                     ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().add(empresa);
                     return true;
                 }
         return false;
     }
 
-    public static void changeCellValueEmpresaNome (@NotNull ListView<Empresa> myListView){
+    public static void changeCellValueEmpresaNome(@NotNull ListView<Empresa> myListView) {
         myListView.setCellFactory(new Callback<>() {
             public ListCell<Empresa> call(ListView<Empresa> param) {
                 return new ListCell<>() {
@@ -49,7 +49,7 @@ public class EmpresarioBLL {
         });
     }
 
-    public static void updateNomeEmpresaLabel(@NotNull ListView<Empresa> myListView, Label myLabel){
+    public static void updateNomeEmpresaLabel(@NotNull ListView<Empresa> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String currentEmpresa = myListView.getSelectionModel().getSelectedItem().getNome();
             myLabel.setText(currentEmpresa);

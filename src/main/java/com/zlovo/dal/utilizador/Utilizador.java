@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public abstract class Utilizador implements Serializable {
-//    Atributos
+    //    Atributos
     private int idUtilizador;
     private String username;
     private String password;
@@ -18,13 +18,13 @@ public abstract class Utilizador implements Serializable {
     private boolean loginStatus;
     private Date data;
 
-//    Construtor
+    //    Construtor
     public Utilizador() {
         data = new Date();
         loginStatus = false;
     }
 
-//    Getters & Setters
+    //    Getters & Setters
     public String getUsername() {
         return username;
     }

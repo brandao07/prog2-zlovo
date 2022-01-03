@@ -5,7 +5,7 @@ import com.zlovo.dal.empresa.enumerations.TipoUnidade;
 import java.io.Serializable;
 
 public class Produto implements Serializable {
-//    Atributos
+    //    Atributos
     private String nome;
     private String categoria;
     private int idEmpresa;
@@ -16,8 +16,9 @@ public class Produto implements Serializable {
     private TipoUnidade unidade;
     private int quantidade = 1;
 
-//    Construtor
-    public Produto(){}
+    //    Construtor
+    public Produto() {
+    }
 
     public Produto(String nome, String categoria, int idEmpresa, int id, double preco, double dimensao, double peso, TipoUnidade unidade, int quantidade) {
         this.nome = nome;
@@ -64,12 +65,12 @@ public class Produto implements Serializable {
         this.unidade = unidade;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public double getPreco() {

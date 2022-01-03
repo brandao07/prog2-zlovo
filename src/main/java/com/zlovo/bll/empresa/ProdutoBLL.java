@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class ProdutoBLL {
 
-    public static @NotNull ArrayList<Produto> getProdutos(String categoria, @NotNull Empresa empresa){
+    public static @NotNull ArrayList<Produto> getProdutos(String categoria, @NotNull Empresa empresa) {
         ArrayList<Produto> produtos = new ArrayList<>();
         for (String key : empresa.getProdutosMap().keySet())
             if (key.equals(categoria))
@@ -25,7 +25,7 @@ public class ProdutoBLL {
         return produtos;
     }
 
-    public static void changeCellValueProdutoNome (@NotNull ListView<Produto> myListView){
+    public static void changeCellValueProdutoNome(@NotNull ListView<Produto> myListView) {
         myListView.setCellFactory(new Callback<>() {
             public ListCell<Produto> call(ListView<Produto> param) {
                 return new ListCell<>() {
@@ -39,47 +39,48 @@ public class ProdutoBLL {
         });
     }
 
-    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+    public static void updatePrecoLabel(@NotNull ListView<Produto> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             double dados = myListView.getSelectionModel().getSelectedItem().getPreco();
             myLabel.setText("Preço: " + dados);
         });
     }
 
-    public static void updateDimensaoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+    public static void updateDimensaoLabel(@NotNull ListView<Produto> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getDimensao());
             myLabel.setText("Dimensão: " + dados);
         });
     }
 
-    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+    public static void updatePesoLabel(@NotNull ListView<Produto> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPeso());
             myLabel.setText("Peso: " + dados);
         });
     }
 
-    public static void updateUnidadeLabel(@NotNull ListView<Produto> myListView, Label myLabel){
+    public static void updateUnidadeLabel(@NotNull ListView<Produto> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getUnidade());
             myLabel.setText("Unidade: " + dados);
         });
     }
 
-    public static void updateCategoriaLabel(@NotNull ListView<String> myListView, Label myLabel){
+    public static void updateCategoriaLabel(@NotNull ListView<String> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = myListView.getSelectionModel().getSelectedItem();
             myLabel.setText(dados);
         });
     }
 
-    public static void updateQuantidadeLabel(@NotNull ListView<String> myListView, Label myLabel){
+    public static void updateQuantidadeLabel(@NotNull ListView<String> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             int dados = EmpresaBLL.quantidadeProdutosCategoria(EmpresaBLL.getEmpresaLog(), myListView.getSelectionModel().getSelectedItem());
-            myLabel.setText(String.valueOf("Quantidade de Produtos: " + dados));
+            myLabel.setText("Quantidade de Produtos: " + dados);
         });
     }
+
     // Método que cria produto
     public static void criarProduto(@NotNull Produto produto) {
         produto.setId(Repositorio.getRepositorio().getNumProdutos() + 1);
@@ -98,7 +99,7 @@ public class ProdutoBLL {
         return false;
     }
 
-    public static @Nullable Produto getProduto(String categoria, @NotNull Empresa empresa, Produto produto){
+    public static @Nullable Produto getProduto(String categoria, @NotNull Empresa empresa, Produto produto) {
         for (Produto p : empresa.getProdutosMap().get(categoria))
             if (produto.getNome().equals(p.getNome()))
                 return p;

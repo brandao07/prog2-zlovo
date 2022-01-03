@@ -38,8 +38,8 @@ public class DadosMotardController implements Initializable {
     @FXML
     private Label invalidDados;
 
-    public void confirmar (ActionEvent event){
-        if(!nomeTF.getText().isEmpty() & !ccTF.getText().isEmpty() & !nifTF.getText().isEmpty() & !telefoneTF.getText().isEmpty() & !ruaTF.getText().isEmpty() & !portaTF.getText().isEmpty() & !usernameTF.getText().isEmpty() & !passwordF.getText().isEmpty()) {
+    public void confirmar(ActionEvent event) {
+        if (!nomeTF.getText().isEmpty() & !ccTF.getText().isEmpty() & !nifTF.getText().isEmpty() & !telefoneTF.getText().isEmpty() & !ruaTF.getText().isEmpty() & !portaTF.getText().isEmpty() & !usernameTF.getText().isEmpty() & !passwordF.getText().isEmpty()) {
             if (UtilizadorBLL.checkUsername(usernameTF.getText())) {
                 invalidDados.setText("Username já registado!");
                 return;
@@ -61,7 +61,7 @@ public class DadosMotardController implements Initializable {
         } else invalidDados.setText("Dados inválidos!");
     }
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         SelecionaTipoUserController.utilizador = null;
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }

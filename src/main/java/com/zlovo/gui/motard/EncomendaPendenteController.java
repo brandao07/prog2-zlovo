@@ -1,6 +1,5 @@
 package com.zlovo.gui.motard;
 
-import com.zlovo.bll.EncomendaBLL;
 import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.utilizador.ClienteBLL;
 import com.zlovo.bll.utilizador.MotardBLL;
@@ -22,6 +21,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EncomendaPendenteController implements Initializable {
+    public static Trabalho trabalho;
     @FXML
     private Label encomendaLabel;
     @FXML
@@ -39,8 +39,6 @@ public class EncomendaPendenteController implements Initializable {
     @FXML
     private Label checkDados;
 
-    public static Trabalho trabalho;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         estadoBox.getItems().add(TipoEstadoEntrega.ENTREGUE);
@@ -52,14 +50,14 @@ public class EncomendaPendenteController implements Initializable {
         assert empresa != null;
         assert cliente != null;
         encomendaLabel.setText("Encomenda #" + trabalho.getEncomenda().getId());
-        clienteLabel.setText("Cliente: " +  cliente.getNome());
+        clienteLabel.setText("Cliente: " + cliente.getNome());
         empresaLabel.setText("Empresa: " + empresa.getNome());
         origemLabel.setText("Origem: " + empresa.getMorada().getLocalidade());
         destinoLabel.setText("Destino: " + cliente.getMorada().getLocalidade());
     }
 
-    public void confirmar(ActionEvent event){
-        if (estadoBox.getValue() == null){
+    public void confirmar(ActionEvent event) {
+        if (estadoBox.getValue() == null) {
             checkDados.setText("Escolha estado da encomenda!");
             return;
         }
@@ -67,11 +65,11 @@ public class EncomendaPendenteController implements Initializable {
         if (trabalho.getEncomenda().getDetalhes().getEstadoEntrega().equals(TipoEstadoEntrega.FALHA))
             trabalho.setDescricao(textArea.getText());
         trabalho.setEstado(true);
-        ((Motard)UtilizadorBLL.getUserLog()).setDisponivel(true);
+        ((Motard) UtilizadorBLL.getUserLog()).setDisponivel(true);
         ControladorGlobal.chamaScene("motard/SceneMenuMotard.fxml", event);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("motard/SceneMenuMotard.fxml", event);
     }
 }

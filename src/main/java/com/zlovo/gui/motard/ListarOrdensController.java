@@ -1,7 +1,5 @@
 package com.zlovo.gui.motard;
 
-import com.zlovo.bll.empresa.EmpresaBLL;
-import com.zlovo.bll.utilizador.ClienteBLL;
 import com.zlovo.bll.utilizador.MotardBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.empresa.Empresa;
@@ -20,6 +18,8 @@ import java.util.ResourceBundle;
 
 public class ListarOrdensController implements Initializable {
 
+    public static Cliente cliente;
+    public static Empresa empresa;
     @FXML
     private ListView<Trabalho> trabalhosList;
     @FXML
@@ -45,35 +45,32 @@ public class ListarOrdensController implements Initializable {
     @FXML
     private Label portaEmpresaLabel;
 
-    public static Cliente cliente;
-    public static Empresa empresa;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         trabalhosList.getItems().addAll(MotardBLL.getTrabalhosFinalizados((Motard) UtilizadorBLL.getUserLog()));
-        if (trabalhosList.getItems() == null){
+        if (trabalhosList.getItems() == null) {
             checkLabel.setText("Histórico de trabalhos vazio!");
             return;
         }
         MotardBLL.changeCellValueTrabalhoNome(trabalhosList);
-        try{
-                MotardBLL.updateDescricaoLabel(trabalhosList, descricaoLabel);
-                MotardBLL.updateDestinoLabel(trabalhosList, destinoLabel);
-                MotardBLL.updateOrigemLabel(trabalhosList, origemLabel);
-                MotardBLL.updateEmpresaLabel(trabalhosList, empresaLabel);
-                MotardBLL.updateNPortaClienteLabel(trabalhosList, portaClienteLabel);
-                MotardBLL.updateNPortaEmpresaLabel(trabalhosList, portaEmpresaLabel);
-                MotardBLL.updateRuaClienteLabel(trabalhosList, ruaClienteLabel);
-                MotardBLL.updateRuaEmpresaLabel(trabalhosList, ruaEmpresaLabel);
-                MotardBLL.updateTipoEstadoLabel(trabalhosList, estadoLabel);
-                MotardBLL.updateDataLabel(trabalhosList, dataLabel);
+        try {
+            MotardBLL.updateDescricaoLabel(trabalhosList, descricaoLabel);
+            MotardBLL.updateDestinoLabel(trabalhosList, destinoLabel);
+            MotardBLL.updateOrigemLabel(trabalhosList, origemLabel);
+            MotardBLL.updateEmpresaLabel(trabalhosList, empresaLabel);
+            MotardBLL.updateNPortaClienteLabel(trabalhosList, portaClienteLabel);
+            MotardBLL.updateNPortaEmpresaLabel(trabalhosList, portaEmpresaLabel);
+            MotardBLL.updateRuaClienteLabel(trabalhosList, ruaClienteLabel);
+            MotardBLL.updateRuaEmpresaLabel(trabalhosList, ruaEmpresaLabel);
+            MotardBLL.updateTipoEstadoLabel(trabalhosList, estadoLabel);
+            MotardBLL.updateDataLabel(trabalhosList, dataLabel);
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("motard/SceneMenuMotard.fxml", event);
     }
 }

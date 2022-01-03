@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdicionarSaldoController  implements Initializable {
+public class AdicionarSaldoController implements Initializable {
 
     @FXML
     private Label saldoLabel;
@@ -27,20 +27,20 @@ public class AdicionarSaldoController  implements Initializable {
     @FXML
     private Label checkDados;
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 
-    public void confirmar(ActionEvent event){
+    public void confirmar(ActionEvent event) {
         if (pagamentoCB.getValue() == null) {
             checkDados.setText("Escolha um método de transferência!");
             return;
         }
-        if (saldoTF.getText().isEmpty() || (Double.parseDouble(saldoTF.getText())) <= 0){
+        if (saldoTF.getText().isEmpty() || (Double.parseDouble(saldoTF.getText())) <= 0) {
             checkDados.setText("Valor Inválido!");
             return;
         }
-        ((Cliente)UtilizadorBLL.getUserLog()).setSaldo(((Cliente)UtilizadorBLL.getUserLog()).getSaldo() + (Double.parseDouble(saldoTF.getText())));
+        ((Cliente) UtilizadorBLL.getUserLog()).setSaldo(((Cliente) UtilizadorBLL.getUserLog()).getSaldo() + (Double.parseDouble(saldoTF.getText())));
         ClienteBLL.updateCliente((Cliente) UtilizadorBLL.getUserLog());
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
@@ -49,6 +49,6 @@ public class AdicionarSaldoController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pagamentoCB.getItems().add(TipoPagamento.MULTIBANCO);
         pagamentoCB.getItems().add(TipoPagamento.CARTAO_CREDITO);
-        saldoLabel.setText("Saldo: " + ((Cliente)UtilizadorBLL.getUserLog()).getSaldo());
+        saldoLabel.setText("Saldo: " + ((Cliente) UtilizadorBLL.getUserLog()).getSaldo());
     }
 }

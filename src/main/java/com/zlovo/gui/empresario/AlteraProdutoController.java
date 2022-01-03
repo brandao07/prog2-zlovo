@@ -39,24 +39,24 @@ public class AlteraProdutoController implements Initializable {
     @FXML
     private Label unidadeLabel;
 
-    public void confirmar (ActionEvent event){
-            if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
-                checkDados.setText("Nome já registado!");
-                return;
-            }
-            Produto produto = MenuProdutosController.produtoSelecionado;
-            if (!nomeTF.getText().isEmpty()) produto.setNome(nomeTF.getText());
-            if (!precoTF.getText().isEmpty()) produto.setPreco(Double.parseDouble(precoTF.getText()));
-            if (!dimensaoTF.getText().isEmpty()) produto.setDimensao(Double.parseDouble(dimensaoTF.getText()));
-            if (!pesoTF.getText().isEmpty()) produto.setPeso(Double.parseDouble(pesoTF.getText()));
-            if (tipoUnidadeCB.getValue() != null) produto.setUnidade(tipoUnidadeCB.getValue());
-            EmpresaBLL.removeProduto(MenuProdutosController.produtoSelecionado);
-            EmpresaBLL.adicionaProduto(produto);
-            MenuProdutosController.produtoSelecionado = null;
-            ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml",event);
+    public void confirmar(ActionEvent event) {
+        if (ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)) {
+            checkDados.setText("Nome já registado!");
+            return;
+        }
+        Produto produto = MenuProdutosController.produtoSelecionado;
+        if (!nomeTF.getText().isEmpty()) produto.setNome(nomeTF.getText());
+        if (!precoTF.getText().isEmpty()) produto.setPreco(Double.parseDouble(precoTF.getText()));
+        if (!dimensaoTF.getText().isEmpty()) produto.setDimensao(Double.parseDouble(dimensaoTF.getText()));
+        if (!pesoTF.getText().isEmpty()) produto.setPeso(Double.parseDouble(pesoTF.getText()));
+        if (tipoUnidadeCB.getValue() != null) produto.setUnidade(tipoUnidadeCB.getValue());
+        EmpresaBLL.removeProduto(MenuProdutosController.produtoSelecionado);
+        EmpresaBLL.adicionaProduto(produto);
+        MenuProdutosController.produtoSelecionado = null;
+        ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }
 

@@ -23,7 +23,7 @@ public class DesativarDonoEmpresaController implements Initializable {
     private Label checkError;
 
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
@@ -31,11 +31,11 @@ public class DesativarDonoEmpresaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         myListView.getItems().addAll(AdministradorBLL.getEmpresarios());
         AdministradorBLL.changeCellValueEmpresarioNome(myListView);
-        AdministradorBLL.updateNomeEmpresarioLabel(myListView,myLabel);
+        AdministradorBLL.updateNomeEmpresarioLabel(myListView, myLabel);
     }
 
-    public void desativar(ActionEvent event){
-        if(myListView.getSelectionModel().getSelectedItem() == null){
+    public void desativar(ActionEvent event) {
+        if (myListView.getSelectionModel().getSelectedItem() == null) {
             checkError.setText("Selecione um empresário!");
             return;
         }

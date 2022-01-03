@@ -4,17 +4,15 @@ import com.zlovo.dal.encomenda.Trabalho;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class Motard extends Funcionario implements Serializable {
 
-//    Atributos
-    private boolean disponivel;
     private final ArrayList<Trabalho> historial;
+    //    Atributos
+    private boolean disponivel;
 
-//    Construtor
-    public Motard(){
+    //    Construtor
+    public Motard() {
         historial = new ArrayList<>();
         disponivel = true;
     }

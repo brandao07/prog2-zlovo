@@ -14,31 +14,31 @@ import java.util.ResourceBundle;
 
 public class MenuCategoriaController implements Initializable {
 
+    public static String categoriaSelecionada;
+    String currentCategoria;
     @FXML
     private ListView<String> categoriaList;
     @FXML
     private Label myLabel;
     @FXML
     private Label checkerror;
-    String currentCategoria;
 
-    public static String categoriaSelecionada;
-
-    public void adicionar (ActionEvent event){
+    public void adicionar(ActionEvent event) {
         categoriaSelecionada = null;
         ControladorGlobal.chamaScene("administrador/SceneAdicionarCategoria.fxml", event);
     }
 
-    public void alterar (ActionEvent event){
-        if(categoriaList.getSelectionModel().getSelectedItem() == null){
+    public void alterar(ActionEvent event) {
+        if (categoriaList.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Selecione uma categoria");
             return;
         }
         categoriaSelecionada = categoriaList.getSelectionModel().getSelectedItem();
         ControladorGlobal.chamaScene("administrador/SceneEditarCategorias.fxml", event);
     }
-    public void remover (ActionEvent event) {
-        if(categoriaList.getSelectionModel().getSelectedItem() == null){
+
+    public void remover(ActionEvent event) {
+        if (categoriaList.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Selecione uma categoria");
             return;
         }
@@ -47,7 +47,7 @@ public class MenuCategoriaController implements Initializable {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
-    public void anterior (ActionEvent event){
+    public void anterior(ActionEvent event) {
         categoriaSelecionada = null;
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }

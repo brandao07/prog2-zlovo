@@ -17,6 +17,7 @@ import java.util.ResourceBundle;
 
 public class ListarEncomendasController implements Initializable {
 
+    public static Encomenda encomendaSelecionada;
     @FXML
     private ListView<Encomenda> encomendasList;
     @FXML
@@ -32,33 +33,31 @@ public class ListarEncomendasController implements Initializable {
     @FXML
     private Label estadoLabel;
 
-    public static Encomenda encomendaSelecionada;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         encomendasList.getItems().addAll(ClienteBLL.encomendasConfirmadas((Cliente) UtilizadorBLL.getUserLog()));
-        if(encomendasList.getItems().isEmpty()){
+        if (encomendasList.getItems().isEmpty()) {
             checkLabel.setText("Sem encomendas efetuadas!");
             return;
         }
         EncomendaBLL.changeCellValueEncomendaNome(encomendasList);
-        EncomendaBLL.updateHorarioLabel(encomendasList,horarioLabel);
-        EncomendaBLL.updateDataLabel(encomendasList,dataLabel);
-        EncomendaBLL.updatePrecoTotalLabel(encomendasList,precoLabel);
+        EncomendaBLL.updateHorarioLabel(encomendasList, horarioLabel);
+        EncomendaBLL.updateDataLabel(encomendasList, dataLabel);
+        EncomendaBLL.updatePrecoTotalLabel(encomendasList, precoLabel);
         EncomendaBLL.updateMetodoPagamentoLabel(encomendasList, metodoPagamentoLabel);
         EncomendaBLL.updateTipoEstadoLabel(encomendasList, estadoLabel);
     }
 
-    public void verProduto(ActionEvent event){
+    public void verProduto(ActionEvent event) {
         encomendaSelecionada = encomendasList.getSelectionModel().getSelectedItem();
-        if (encomendaSelecionada == null){
+        if (encomendaSelecionada == null) {
             checkLabel.setText("Selecione uma encomenda!");
             return;
         }
         ControladorGlobal.chamaScene("cliente/SceneVerProdutos2.fxml", event);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }
 }

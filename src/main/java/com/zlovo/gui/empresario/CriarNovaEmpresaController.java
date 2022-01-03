@@ -34,9 +34,9 @@ public class CriarNovaEmpresaController implements Initializable {
         localidadeCB.getItems().addAll(Repositorio.getRepositorio().getLocalidadeSet());
     }
 
-    public void confirmar(ActionEvent event){
-        if(!nomeTF.getText().isEmpty() & !telefoneTF.getText().isEmpty() & !ruaTF.getText().isEmpty() & !portaTF.getText().isEmpty() & !localidadeCB.getValue().isEmpty()){
-            if(EmpresaBLL.checkEmpresaNome(nomeTF.getText())){
+    public void confirmar(ActionEvent event) {
+        if (!nomeTF.getText().isEmpty() & !telefoneTF.getText().isEmpty() & !ruaTF.getText().isEmpty() & !portaTF.getText().isEmpty() & !localidadeCB.getValue().isEmpty()) {
+            if (EmpresaBLL.checkEmpresaNome(nomeTF.getText())) {
                 checkDados.setText("Username já registado!");
                 return;
             }
@@ -49,12 +49,11 @@ public class CriarNovaEmpresaController implements Initializable {
             morada.setnPorta(Integer.parseInt(portaTF.getText()));
             empresa.setMorada(morada);
             EmpresaBLL.criarEmpresa(empresa);
-            ControladorGlobal.chamaScene("empresario/SceneMenuEmpresario.fxml",event);
-        }
-        else checkDados.setText("Campos inválidos!");
+            ControladorGlobal.chamaScene("empresario/SceneMenuEmpresario.fxml", event);
+        } else checkDados.setText("Campos inválidos!");
     }
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuEmpresario.fxml", event);
     }
 }

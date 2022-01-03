@@ -10,9 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,13 +26,13 @@ public class MenuEmpresarioController implements Initializable {
     @FXML
     private Label checkerror;
 
-    public void logout(ActionEvent event){
+    public void logout(ActionEvent event) {
         UtilizadorBLL.setUserLog(null);
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }
 
-    public void seguinte(ActionEvent event){
-        if(myListView.getSelectionModel().getSelectedItem() == null){
+    public void seguinte(ActionEvent event) {
+        if (myListView.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Crie uma empresa");
             return;
         }
@@ -51,7 +49,7 @@ public class MenuEmpresarioController implements Initializable {
         EmpresarioBLL.updateNomeEmpresaLabel(myListView, myLabel);
     }
 
-    public void criaEmpresa(ActionEvent event){
+    public void criaEmpresa(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneCriarNovaEmpresa.fxml", event);
     }
 }

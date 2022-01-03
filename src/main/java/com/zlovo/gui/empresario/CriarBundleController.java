@@ -3,7 +3,6 @@ package com.zlovo.gui.empresario;
 import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Bundle;
-import com.zlovo.dal.empresa.Empresa;
 import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.empresa.enumerations.TipoUnidade;
 import com.zlovo.gui.ControladorGlobal;
@@ -15,7 +14,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -41,22 +39,22 @@ public class CriarBundleController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         produtosList.getItems().addAll(Objects.requireNonNull(ProdutoBLL.getProdutos(MenuCategoriasController.categoriaSelecionada, EmpresaBLL.getEmpresaLog())));
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        ProdutoBLL.updatePrecoLabel(produtosList,precoLabel);
-        ProdutoBLL.updateDimensaoLabel(produtosList,dimensaoLabel);
-        ProdutoBLL.updatePesoLabel(produtosList,pesoLabel);
-        ProdutoBLL.updateUnidadeLabel(produtosList,unidadeLabel);
+        ProdutoBLL.updatePrecoLabel(produtosList, precoLabel);
+        ProdutoBLL.updateDimensaoLabel(produtosList, dimensaoLabel);
+        ProdutoBLL.updatePesoLabel(produtosList, pesoLabel);
+        ProdutoBLL.updateUnidadeLabel(produtosList, unidadeLabel);
     }
 
-    public void criar(ActionEvent event){
-        if (nomeTF.getText().isEmpty() & precoTF.getText().isEmpty()){
+    public void criar(ActionEvent event) {
+        if (nomeTF.getText().isEmpty() & precoTF.getText().isEmpty()) {
             checkDados.setText("Campos Inválidos!");
             return;
         }
-        if (produtosList.getSelectionModel().getSelectedItem() == null){
+        if (produtosList.getSelectionModel().getSelectedItem() == null) {
             checkDados.setText("Selecione 1 produto");
             return;
         }
-        if(ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)){
+        if (ProdutoBLL.checkProdutoNome(nomeTF.getText(), MenuCategoriasController.categoriaSelecionada)) {
             checkDados.setText("Bundle já registado!");
             return;
         }
@@ -71,7 +69,7 @@ public class CriarBundleController implements Initializable {
         ControladorGlobal.chamaScene("empresario/SceneMenuBundle.fxml", event);
     }
 
-    public void cancelar(ActionEvent event){
+    public void cancelar(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuBundle.fxml", event);
     }
 }

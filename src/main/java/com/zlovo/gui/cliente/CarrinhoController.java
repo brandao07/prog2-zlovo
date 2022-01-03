@@ -1,6 +1,5 @@
 package com.zlovo.gui.cliente;
 
-import com.dlsc.formsfx.model.validators.SelectionLengthValidator;
 import com.zlovo.bll.EncomendaBLL;
 import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Produto;
@@ -32,13 +31,13 @@ public class CarrinhoController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         produtosCarrinho.getItems().addAll(SelecionarEmpresaController.encomenda.getProdutosList());
         ProdutoBLL.changeCellValueProdutoNome(produtosCarrinho);
-        if (SelecionarEmpresaController.encomenda.getProdutosList().isEmpty()){
+        if (SelecionarEmpresaController.encomenda.getProdutosList().isEmpty()) {
             carrinhoVazioLabel.setText("Carrinho vazio!");
             return;
         }
         EncomendaBLL.updatePrecoLabel(produtosCarrinho, precoLabel);
-        EncomendaBLL.updateQuantidadeLabel(produtosCarrinho,quantidadeLabel);
-        EncomendaBLL.updateCategoriaLabel(produtosCarrinho,categoriaLabel);
+        EncomendaBLL.updateQuantidadeLabel(produtosCarrinho, quantidadeLabel);
+        EncomendaBLL.updateCategoriaLabel(produtosCarrinho, categoriaLabel);
         precoFinalLabel.setText("Preço final: " + EncomendaBLL.somaPrecoProdutosCarrinho(SelecionarEmpresaController.encomenda.getProdutosList()));
     }
 

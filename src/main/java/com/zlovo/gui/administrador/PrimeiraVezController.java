@@ -20,12 +20,12 @@ public class PrimeiraVezController {
 
     public void seguinte(ActionEvent event) {
         Administrador master = new Administrador();
-        if (!username.getText().isEmpty() & !pass.getText().isEmpty()){
+        if (!username.getText().isEmpty() & !pass.getText().isEmpty()) {
             master.setUsername(username.getText());
             master.setPassword(pass.getText());
             UtilizadorBLL.criarUtilizador(master);
             ControladorGlobal.chamaScene("SceneLogin.fxml", event);
-        }else
+        } else
             warning.setText("Campos inválidos!");
     }
 }

@@ -1,6 +1,8 @@
 package com.zlovo.gui.administrador;
 
-import com.zlovo.dal.utilizador.*;
+import com.zlovo.dal.utilizador.Administrador;
+import com.zlovo.dal.utilizador.Motard;
+import com.zlovo.dal.utilizador.Utilizador;
 import com.zlovo.gui.ControladorGlobal;
 import com.zlovo.gui.SelecionaTipoUserController;
 import javafx.event.ActionEvent;
@@ -13,13 +15,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SelecionaTipoFuncionarioController implements Initializable {
+    // Criação do utilizador para armazenar no mapa no fim de tudo
+    public static Utilizador utilizador;
     @FXML
     private ChoiceBox<String> myChoiceBox;
     @FXML
     private Label invalidOption;
-
-    // Criação do utilizador para armazenar no mapa no fim de tudo
-    public static Utilizador utilizador;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,12 +37,12 @@ public class SelecionaTipoFuncionarioController implements Initializable {
                 utilizador = new Motard();
                 ControladorGlobal.chamaScene("administrador/SceneDadosMotard.fxml", event);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             invalidOption.setText("Selecione um tipo de utilizador!");
         }
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         SelecionaTipoUserController.utilizador = null;
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }

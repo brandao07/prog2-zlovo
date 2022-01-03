@@ -12,8 +12,8 @@ import java.util.ArrayList;
 public class ClienteBLL {
 
     // Método que lista todos os Clientes
-    public static void listarClientes(){
-        if(!Repositorio.getRepositorio().getUtilizadoresMap().isEmpty()) {
+    public static void listarClientes() {
+        if (!Repositorio.getRepositorio().getUtilizadoresMap().isEmpty()) {
             System.out.println("Clientes");
             for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
                 if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Cliente)
@@ -22,12 +22,12 @@ public class ClienteBLL {
             System.out.println("Sem clientes registados!");
     }
 
-    public static void updateCliente(@NotNull Cliente cliente){
+    public static void updateCliente(@NotNull Cliente cliente) {
         Repositorio.getRepositorio().getUtilizadoresMap().remove(cliente.getIdUtilizador());
         Repositorio.getRepositorio().getUtilizadoresMap().put(cliente.getIdUtilizador(), cliente);
     }
 
-    public static @NotNull ArrayList<Encomenda> encomendasPorPagar(@NotNull Cliente cliente){
+    public static @NotNull ArrayList<Encomenda> encomendasPorPagar(@NotNull Cliente cliente) {
         ArrayList<Encomenda> encomendas = new ArrayList<>();
         for (Encomenda e : cliente.getHistorial())
             if (e.getDetalhes().getTipoEstado().equals(TipoEstado.CONFIRMADA_POR_PAGAR))
@@ -35,7 +35,7 @@ public class ClienteBLL {
         return encomendas;
     }
 
-    public static @NotNull ArrayList<Encomenda> encomendasConfirmadas(@NotNull Cliente cliente){
+    public static @NotNull ArrayList<Encomenda> encomendasConfirmadas(@NotNull Cliente cliente) {
         ArrayList<Encomenda> encomendas = new ArrayList<>();
         for (Encomenda e : cliente.getHistorial())
             if (e.getDetalhes().getTipoEstado().equals(TipoEstado.CONFIRMADA))
@@ -43,7 +43,7 @@ public class ClienteBLL {
         return encomendas;
     }
 
-    public static @Nullable Cliente getCliente(String username){
+    public static @Nullable Cliente getCliente(String username) {
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(username))
                 return (Cliente) Repositorio.getRepositorio().getUtilizadoresMap().get(key);

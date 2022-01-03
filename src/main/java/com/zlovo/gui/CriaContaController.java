@@ -19,7 +19,7 @@ public class CriaContaController {
         if (!UtilizadorBLL.checkUsername(usernameTextField.getText()) & !usernameTextField.getText().isEmpty() & !passwordField.getText().isEmpty()) {
             SelecionaTipoUserController.utilizador.setUsername(usernameTextField.getText());
             SelecionaTipoUserController.utilizador.setPassword(passwordField.getText());
-            ControladorGlobal.chamaScene("SceneDadosPessoais.fxml",event);
+            ControladorGlobal.chamaScene("SceneDadosPessoais.fxml", event);
         } else if (usernameTextField.getText().isEmpty())
             checkLabel.setText("username inválido!");
         else if (passwordField.getText().isEmpty())
@@ -28,7 +28,7 @@ public class CriaContaController {
             checkLabel.setText("username já registado!");
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         SelecionaTipoUserController.utilizador = null;
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }

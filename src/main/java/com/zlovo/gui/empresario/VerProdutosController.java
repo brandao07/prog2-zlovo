@@ -28,12 +28,12 @@ public class VerProdutosController implements Initializable {
         if (ConsultarEncomendasController.encomendaSelecionada != null)
             produtosList.getItems().addAll(ConsultarEncomendasController.encomendaSelecionada.getProdutosList());
         ProdutoBLL.changeCellValueProdutoNome(produtosList);
-        EncomendaBLL.updatePrecoLabel(produtosList,precoLabel);
-        EncomendaBLL.updateQuantidadeLabel(produtosList,quantidadeLabel);
-        EncomendaBLL.updateCategoriaLabel(produtosList,categoriaLabel);
+        EncomendaBLL.updatePrecoLabel(produtosList, precoLabel);
+        EncomendaBLL.updateQuantidadeLabel(produtosList, quantidadeLabel);
+        EncomendaBLL.updateCategoriaLabel(produtosList, categoriaLabel);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneConsultarEncomendas.fxml", event);
     }
 }

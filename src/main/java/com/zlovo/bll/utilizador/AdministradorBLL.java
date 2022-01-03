@@ -28,11 +28,12 @@ public class AdministradorBLL {
 
     // Método que verifica se o utilizador é do tipo Addministrador
     public static boolean checkAdministrador() {
-        for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
-            if(Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Administrador)
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+            if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Administrador)
                 return true;
         return false;
     }
+
     // Método que verifica se a categoria existe
     public static boolean checkCategorias(String categoria) {
         if (Repositorio.getRepositorio().getCategoriaSet().contains(categoria))
@@ -40,15 +41,17 @@ public class AdministradorBLL {
                 return Repositorio.getRepositorio().getCategoriasEmpresasMap().containsKey(categoria);
         return false;
     }
+
     // Método que altera o nome de uma categoria
     public static void editarCategoria(String categoria) {
-        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet()){
+        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet()) {
             if (key.equals(MenuCategoriaController.categoriaSelecionada)) {
                 ArrayList<Empresa> empresas = Repositorio.getRepositorio().getCategoriasEmpresasMap().remove(key);
                 Repositorio.getRepositorio().getCategoriasEmpresasMap().put(categoria, empresas);
             }
         }
     }
+
     // Método que remove uma categoria
     public static void removerCategoria(String categoria) {
         for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
@@ -56,16 +59,17 @@ public class AdministradorBLL {
                 Repositorio.getRepositorio().getCategoriasEmpresasMap().remove(key);
         Repositorio.getRepositorio().getCategoriaSet().remove(categoria);
     }
+
     // Método que devolve todos os empresários
-    public static @NotNull ArrayList<Empresario> getEmpresarios(){
+    public static @NotNull ArrayList<Empresario> getEmpresarios() {
         ArrayList<Empresario> empresarios = new ArrayList<>();
-        for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
                 empresarios.add((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key));
         return empresarios;
     }
 
-    public static void changeCellValueEmpresarioNome(@NotNull ListView<Empresario> listView){
+    public static void changeCellValueEmpresarioNome(@NotNull ListView<Empresario> listView) {
         listView.setCellFactory(new Callback<>() {
             public ListCell<Empresario> call(ListView<Empresario> param) {
                 return new ListCell<>() {
@@ -81,7 +85,7 @@ public class AdministradorBLL {
         });
     }
 
-    public static void updateNomeEmpresarioLabel(@NotNull ListView<Empresario> listView, Label label){
+    public static void updateNomeEmpresarioLabel(@NotNull ListView<Empresario> listView, Label label) {
         listView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String empresario = listView.getSelectionModel().getSelectedItem().getNome();
             label.setText(empresario);

@@ -12,7 +12,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
 
 public class EmpresaBLL {
 
@@ -25,12 +24,13 @@ public class EmpresaBLL {
     public static void setEmpresaLog(Empresa empresaLog) {
         EmpresaBLL.empresaLog = empresaLog;
     }
+
     // Método que cria empresa
     public static void criarEmpresa(@NotNull Empresa empresa) {
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
         empresa.setEmpresarioID(UtilizadorBLL.getUserLog().getUsername());
-        if(!EmpresarioBLL.adicionarEmpresa(empresa))
+        if (!EmpresarioBLL.adicionarEmpresa(empresa))
             return;
         if (!Repositorio.getRepositorio().getLocalidadesEmpresasMap().containsKey(empresa.getMorada().getLocalidade())) {
             ArrayList<Empresa> empresas = new ArrayList<>();
@@ -40,8 +40,9 @@ public class EmpresaBLL {
         }
         Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(empresa.getMorada().getLocalidade()).add(empresa);
     }
+
     //Método que verifica se o nome da empresa é repetido
-    public static boolean checkEmpresaNome(String nome){
+    public static boolean checkEmpresaNome(String nome) {
         boolean checker = false;
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             for (Empresa keyEmpresa : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
@@ -51,11 +52,12 @@ public class EmpresaBLL {
                 }
         return checker;
     }
+
     // Método que remove a empresa do mapa LocalidadeEmpresa e tambem do mapa CategoriaEmpresa e do mapa utilizadores
-    public static void removerEmpresa(Empresa empresa, Empresario empresario){
+    public static void removerEmpresa(Empresa empresa, Empresario empresario) {
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.equals(empresa));
-        for(String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
+        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.equals(empresa));
 
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
@@ -67,33 +69,37 @@ public class EmpresaBLL {
                             return;
                         }
     }
+
     // Método que remove a empresa do mapa LocalidadeEmpresa e tambem do mapa CategoriaEmpresa
-    public static void removerEmpresaALL(String empresario){
+    public static void removerEmpresaALL(String empresario) {
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
 
-        for(String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
+        for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
     }
+
     // Método que altera os dados de uma empresa
-    public static void alteraEmpresa(@NotNull Empresa empresa){
+    public static void alteraEmpresa(@NotNull Empresa empresa) {
         alteraEmpresaCategoriaMap(empresa);
         alteraEmpresaLocalidadeMap(empresa);
         alteraEmpresaUtilizadoresMap(empresa);
         EmpresaBLL.setEmpresaLog(alteraHandler(empresa));
     }
+
     // Método que altera uma Empresa no mapa Categoria
-    public static void alteraEmpresaCategoriaMap(@NotNull Empresa empresa){
+    public static void alteraEmpresaCategoriaMap(@NotNull Empresa empresa) {
         for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             for (Empresa e : Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key))
-                if(e.equals(EmpresaBLL.getEmpresaLog())) {
+                if (e.equals(EmpresaBLL.getEmpresaLog())) {
                     Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).remove(e);
                     Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).add(alteraHandler(empresa));
                     return;
                 }
     }
+
     // Método que altera uma Empresa no mapa Localidade
-    public static void alteraEmpresaLocalidadeMap(@NotNull Empresa empresa){
+    public static void alteraEmpresaLocalidadeMap(@NotNull Empresa empresa) {
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
                 if (e.equals(EmpresaBLL.getEmpresaLog())) {
@@ -108,9 +114,10 @@ public class EmpresaBLL {
                     return;
                 }
     }
+
     // Método que altera uma Empresa no mapa Utilizadores
-    public static void alteraEmpresaUtilizadoresMap(@NotNull Empresa empresa){
-        for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+    public static void alteraEmpresaUtilizadoresMap(@NotNull Empresa empresa) {
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
                 if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).equals(UtilizadorBLL.getUserLog()))
                     for (Empresa e : ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList())
@@ -120,8 +127,9 @@ public class EmpresaBLL {
                             return;
                         }
     }
+
     // Método que altera uma Empresa
-    public static @NotNull Empresa alteraHandler(@NotNull Empresa empresa){
+    public static @NotNull Empresa alteraHandler(@NotNull Empresa empresa) {
         Empresa e = EmpresaBLL.getEmpresaLog();
         if (!empresa.getNome().isEmpty()) e.setNome(empresa.getNome());
         if (!empresa.getTelefone().isEmpty()) e.setTelefone(empresa.getTelefone());
@@ -131,8 +139,9 @@ public class EmpresaBLL {
         e.getMorada().setLocalidade(empresa.getMorada().getLocalidade());
         return e;
     }
+
     // Método que devolve a quantidade de produtos de uam Categoria
-    public static int quantidadeProdutosCategoria(@NotNull Empresa empresa, String categoria){
+    public static int quantidadeProdutosCategoria(@NotNull Empresa empresa, String categoria) {
         int result = 0;
         if (empresa.getProdutosMap().get(categoria) == null) return result;
         for (Produto p : empresa.getProdutosMap().get(categoria))
@@ -140,8 +149,9 @@ public class EmpresaBLL {
                 result++;
         return result;
     }
+
     // Método que adiciona um produto
-    public static void adicionaProduto (@NotNull Produto produto){
+    public static void adicionaProduto(@NotNull Produto produto) {
         if (EmpresaBLL.getEmpresaLog().getProdutosMap().containsKey(produto.getCategoria())) {
             EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).add(produto);
             atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
@@ -149,23 +159,23 @@ public class EmpresaBLL {
         }
         ArrayList<Produto> produtos = new ArrayList<>();
         produtos.add(produto);
-        EmpresaBLL.getEmpresaLog().getProdutosMap().put(produto.getCategoria(),produtos);
+        EmpresaBLL.getEmpresaLog().getProdutosMap().put(produto.getCategoria(), produtos);
         atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
     }
+
     // Método que atualiza a lista de produtos
-    public static void atualizaListaProdutos(Empresa empresa, String categoria){
+    public static void atualizaListaProdutos(Empresa empresa, String categoria) {
         if (Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria) != null) {
             Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).removeIf(e -> e.getId() == empresa.getId());
             Repositorio.getRepositorio().getCategoriasEmpresasMap().get(categoria).add(empresa);
-        }
-        else {
+        } else {
             ArrayList<Empresa> empresas = new ArrayList<>();
             empresas.add(empresa);
-            Repositorio.getRepositorio().getCategoriasEmpresasMap().put(categoria,empresas);
+            Repositorio.getRepositorio().getCategoriasEmpresasMap().put(categoria, empresas);
         }
         Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(empresa.getMorada().getLocalidade()).removeIf(e -> e.getId() == empresa.getId());
         Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(empresa.getMorada().getLocalidade()).add(empresa);
-        for(int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
+        for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
                 if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).equals(UtilizadorBLL.getUserLog()))
                     for (Empresa e : ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList())
@@ -176,12 +186,12 @@ public class EmpresaBLL {
                         }
     }
 
-    public static void removeProduto(@NotNull Produto produto){
+    public static void removeProduto(@NotNull Produto produto) {
         EmpresaBLL.getEmpresaLog().getProdutosMap().get(produto.getCategoria()).remove(produto);
         atualizaListaProdutos(EmpresaBLL.getEmpresaLog(), produto.getCategoria());
     }
 
-    public static @NotNull ArrayList<Empresa> getEmpresas(){
+    public static @NotNull ArrayList<Empresa> getEmpresas() {
         ArrayList<Empresa> empresas = new ArrayList<>();
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             empresas.addAll(Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key));
@@ -196,7 +206,7 @@ public class EmpresaBLL {
         return categorias;
     }
 
-    public static @Nullable Empresa getEmpresa(int id){
+    public static @Nullable Empresa getEmpresa(int id) {
         for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
             for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
                 if (e.getId() == id)

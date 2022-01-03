@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class RecuperarPasswordController {
+    private static String username;
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -21,18 +22,17 @@ public class RecuperarPasswordController {
     @FXML
     private Label checkLabel2;
 
-    private static String username;
-
-    public void verificarDados (ActionEvent event) {
-            if (UtilizadorBLL.checkUsernameNif(usernameTextField.getText(), nifTextField.getText()) != null) {
-                username = usernameTextField.getText();
-                ControladorGlobal.chamaScene("SceneNovaPass.fxml", event);
-            }else if (usernameTextField.getText().isEmpty() || nifTextField.getText().isEmpty())
-                checkLabel.setText("campo inválido");
+    public void verificarDados(ActionEvent event) {
+        if (UtilizadorBLL.checkUsernameNif(usernameTextField.getText(), nifTextField.getText()) != null) {
+            username = usernameTextField.getText();
+            ControladorGlobal.chamaScene("SceneNovaPass.fxml", event);
+        } else if (usernameTextField.getText().isEmpty() || nifTextField.getText().isEmpty())
+            checkLabel.setText("campo inválido");
     }
+
     public void cancelar(ActionEvent event) {
         username = null;
-        ControladorGlobal.chamaScene("SceneLogin.fxml",event);
+        ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }
 
     public void resetPassword(ActionEvent event) {

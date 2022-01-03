@@ -37,7 +37,7 @@ public class DadosPessoaisController implements Initializable {
     }
 
     public void seguinte(ActionEvent event) {
-        if (!nomeTextfield.getText().isEmpty() & !ccTextfield.getText().isEmpty() & !nifTextfield.getText().isEmpty() & !telefoneTextfield.getText().isEmpty() & !ruaTextfield.getText().isEmpty() & !portaTextfield.getText().isEmpty()){
+        if (!nomeTextfield.getText().isEmpty() & !ccTextfield.getText().isEmpty() & !nifTextfield.getText().isEmpty() & !telefoneTextfield.getText().isEmpty() & !ruaTextfield.getText().isEmpty() & !portaTextfield.getText().isEmpty()) {
             SelecionaTipoUserController.utilizador.setNome(nomeTextfield.getText());
             SelecionaTipoUserController.utilizador.setNumCC(ccTextfield.getText());
             SelecionaTipoUserController.utilizador.setNif(nifTextfield.getText());
@@ -49,12 +49,12 @@ public class DadosPessoaisController implements Initializable {
             SelecionaTipoUserController.utilizador.setMorada(morada);
             UtilizadorBLL.criarUtilizador(SelecionaTipoUserController.utilizador);
             SelecionaTipoUserController.utilizador = null;
-            ControladorGlobal.chamaScene("SceneLogin.fxml",event);
+            ControladorGlobal.chamaScene("SceneLogin.fxml", event);
         } else
             invalidDados.setText("Campos por preencher!");
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         SelecionaTipoUserController.utilizador = null;
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }

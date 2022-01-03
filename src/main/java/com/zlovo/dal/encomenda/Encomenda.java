@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Encomenda implements Serializable {
+    private final ArrayList<Produto> produtosList;
     //    Atributos
     private int id;
     private int idEmpresa;
@@ -16,7 +17,6 @@ public class Encomenda implements Serializable {
     private Pagamento pagamento;
     private LocalDate dataCliente;
     private TipoHorario horario;
-    private final ArrayList<Produto> produtosList;
 
     //    Construtor
     public Encomenda(int idEmpresa, String cliente) {

@@ -29,10 +29,11 @@ public class EnviarMotardController implements Initializable {
     private Label checkLabel;
     @FXML
     private ListView<Motard> motardsList;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         motardsList.getItems().addAll(MotardBLL.getMotards());
-        if (motardsList.getItems().isEmpty()){
+        if (motardsList.getItems().isEmpty()) {
             checkLabel.setText("Sem encomendas pendentes!");
             return;
         }
@@ -46,22 +47,22 @@ public class EnviarMotardController implements Initializable {
             origemLabel.setText("Origem: " + empresa.getMorada().getLocalidade());
             assert cliente != null;
             destinoLabel.setText("Destino: " + cliente.getMorada().getLocalidade());
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneSelecionarEncomenda.fxml", event);
     }
 
-    public void confirmar(ActionEvent event){
-        if (motardsList.getSelectionModel().getSelectedItem() == null){
+    public void confirmar(ActionEvent event) {
+        if (motardsList.getSelectionModel().getSelectedItem() == null) {
             checkLabel.setText("Selecione um motard!");
             return;
         }
         Motard motard = motardsList.getSelectionModel().getSelectedItem();
-        MotardBLL.adicionaTrabalho(motard,SelecionarEncomendaController.encomendaSelecionada);
+        MotardBLL.adicionaTrabalho(motard, SelecionarEncomendaController.encomendaSelecionada);
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 }

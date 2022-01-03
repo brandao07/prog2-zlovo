@@ -5,24 +5,23 @@ import com.zlovo.dal.Morada;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.function.IntFunction;
 
 public class Empresa implements Serializable {
-//    Atributos
+    private final Map<String, ArrayList<Produto>> produtosMap; // K - categoria, V - Lista de Produtos
+    //    Atributos
     private int id;
     private String empresarioID;
     private String nome;
     private Morada morada;
     private String telefone;
-    private final Map<String,ArrayList<Produto>> produtosMap; // K - categoria, V - Lista de Produtos
-//    Construtor
-    public Empresa(){
+
+    //    Construtor
+    public Empresa() {
         produtosMap = new HashMap<>();
     }
 
-//    Getters & Setters
+    //    Getters & Setters
     public int getId() {
         return id;
     }

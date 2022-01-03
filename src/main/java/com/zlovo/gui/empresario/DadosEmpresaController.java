@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -50,11 +49,11 @@ public class DadosEmpresaController implements Initializable {
         localidadeCB.getItems().addAll(Repositorio.getRepositorio().getLocalidadeSet());
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuFuncoesEmp.fxml", event);
     }
 
-    public void confirmar(ActionEvent event){
+    public void confirmar(ActionEvent event) {
         try {
             Empresa empresa = new Empresa();
             empresa.setNome(nomeTF.getText());

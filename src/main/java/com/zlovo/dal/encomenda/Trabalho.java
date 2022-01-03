@@ -3,19 +3,19 @@ package com.zlovo.dal.encomenda;
 import java.io.Serializable;
 
 public class Trabalho implements Serializable {
-//      Atributos
+    //      Atributos
     private final Encomenda encomenda;
     private boolean estado;
     private String descricao;
 
-//    Construtor
-    public Trabalho(Encomenda encomenda){
+    //    Construtor
+    public Trabalho(Encomenda encomenda) {
         this.encomenda = encomenda;
         estado = false;
         descricao = null;
     }
 
-//    Getters & Setters
+    //    Getters & Setters
     public Encomenda getEncomenda() {
         return encomenda;
     }

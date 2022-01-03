@@ -2,9 +2,7 @@ package com.zlovo.gui.empresario;
 
 import com.zlovo.bll.empresa.BundleBLL;
 import com.zlovo.bll.empresa.EmpresaBLL;
-import com.zlovo.bll.empresa.ProdutoBLL;
 import com.zlovo.dal.empresa.Bundle;
-import com.zlovo.dal.empresa.Produto;
 import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MenuBundleController implements Initializable {
+    public static Bundle bundleSelecionado;
     @FXML
     private Label quantidadeLabel;
     @FXML
@@ -25,23 +24,21 @@ public class MenuBundleController implements Initializable {
     @FXML
     private Label checkDados;
 
-    public static Bundle bundleSelecionado;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        bundleList.getItems().addAll(BundleBLL.getBundles(EmpresaBLL.getEmpresaLog(),MenuCategoriasController.categoriaSelecionada));
+        bundleList.getItems().addAll(BundleBLL.getBundles(EmpresaBLL.getEmpresaLog(), MenuCategoriasController.categoriaSelecionada));
         BundleBLL.changeCellValueBundleNome(bundleList);
-        BundleBLL.updatePrecoLabel(bundleList,precoLabel);
-        BundleBLL.updateQuantidadeLabel(bundleList,quantidadeLabel);
+        BundleBLL.updatePrecoLabel(bundleList, precoLabel);
+        BundleBLL.updateQuantidadeLabel(bundleList, quantidadeLabel);
     }
 
-    public void criarBundle(ActionEvent event){
+    public void criarBundle(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneCriaBundle.fxml", event);
     }
 
-    public void removerBundle(ActionEvent event){
+    public void removerBundle(ActionEvent event) {
         bundleSelecionado = bundleList.getSelectionModel().getSelectedItem();
-        if (bundleSelecionado == null){
+        if (bundleSelecionado == null) {
             checkDados.setText("Selecione um Bundle!");
             return;
         }
@@ -50,16 +47,16 @@ public class MenuBundleController implements Initializable {
         ControladorGlobal.chamaScene("empresario/SceneMenuBundle.fxml", event);
     }
 
-    public void editarBundle(ActionEvent event){
+    public void editarBundle(ActionEvent event) {
         bundleSelecionado = bundleList.getSelectionModel().getSelectedItem();
-        if (bundleSelecionado == null){
+        if (bundleSelecionado == null) {
             checkDados.setText("Selecione um Bundle!");
             return;
         }
         ControladorGlobal.chamaScene("empresario/SceneAlteraBundle.fxml", event);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("empresario/SceneMenuProdutos.fxml", event);
     }
 }

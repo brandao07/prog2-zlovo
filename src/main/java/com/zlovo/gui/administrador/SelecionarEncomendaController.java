@@ -8,11 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import java.net.URL;
 
+import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SelecionarEncomendaController implements Initializable {
+    public static Encomenda encomendaSelecionada;
     @FXML
     private ListView<Encomenda> encomendasList;
     @FXML
@@ -26,24 +27,22 @@ public class SelecionarEncomendaController implements Initializable {
     @FXML
     private Label clienteLabel;
 
-    public static Encomenda encomendaSelecionada;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         encomendasList.getItems().addAll(EncomendaBLL.getConfirmarEncomendas());
-        if (encomendasList.getItems().isEmpty()){
+        if (encomendasList.getItems().isEmpty()) {
             checkDados.setText("Sem encomendas pendentes!");
             return;
         }
         EncomendaBLL.changeCellValueEncomendaNome(encomendasList);
-        EncomendaBLL.updateClienteLabel(encomendasList,clienteLabel);
-        EncomendaBLL.updateDataLabel(encomendasList,dataLabel);
-        EncomendaBLL.updateHorarioLabel(encomendasList,horarioLabel);
-        EncomendaBLL.updateMetodoPagamentoLabel(encomendasList,tipoPagamentoLabel);
+        EncomendaBLL.updateClienteLabel(encomendasList, clienteLabel);
+        EncomendaBLL.updateDataLabel(encomendasList, dataLabel);
+        EncomendaBLL.updateHorarioLabel(encomendasList, horarioLabel);
+        EncomendaBLL.updateMetodoPagamentoLabel(encomendasList, tipoPagamentoLabel);
     }
 
-    public void seguinte(ActionEvent event){
-        if (encomendasList.getSelectionModel().getSelectedItem() == null){
+    public void seguinte(ActionEvent event) {
+        if (encomendasList.getSelectionModel().getSelectedItem() == null) {
             checkDados.setText("Selecione uma encomenda!");
             return;
         }
@@ -51,7 +50,7 @@ public class SelecionarEncomendaController implements Initializable {
         ControladorGlobal.chamaScene("administrador/SceneEnviarMotards.fxml", event);
     }
 
-    public void anterior(ActionEvent evemt){
+    public void anterior(ActionEvent evemt) {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", evemt);
     }
 }

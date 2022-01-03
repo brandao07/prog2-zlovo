@@ -16,6 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SelecionarEmpresaController implements Initializable {
+    public static Empresa empresaSelecionada;
+    public static Encomenda encomenda;
     @FXML
     private ListView<Empresa> empresaList;
     @FXML
@@ -23,12 +25,8 @@ public class SelecionarEmpresaController implements Initializable {
     @FXML
     private Label checkerror;
 
-    public static Empresa empresaSelecionada;
-
-    public static Encomenda encomenda;
-
-    public void seguinte (ActionEvent event){
-        if(empresaList.getSelectionModel().getSelectedItem() == null){
+    public void seguinte(ActionEvent event) {
+        if (empresaList.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Selecione uma empresa");
             return;
         }
@@ -44,7 +42,7 @@ public class SelecionarEmpresaController implements Initializable {
         EmpresarioBLL.updateNomeEmpresaLabel(empresaList, myLabel);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         empresaSelecionada = null;
         ControladorGlobal.chamaScene("cliente/SceneMenuCliente.fxml", event);
     }

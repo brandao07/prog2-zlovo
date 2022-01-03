@@ -21,18 +21,18 @@ public class ControladorGlobal {
             stage.setTitle("Zlovo");
             stage.setScene(scene);
             stage.show();
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static void exit(Stage stage){
+    public static void exit(Stage stage) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit");
         alert.setHeaderText("Estás prestes a fechar a aplicação!");
         alert.setContentText("Tens a certeza?");
 
-        if(alert.showAndWait().get() == ButtonType.OK) {
+        if (alert.showAndWait().get() == ButtonType.OK) {
             Repositorio.getRepositorio().serializar(Repositorio.getRepositorio().getRepoPath());
             stage.close();
         }

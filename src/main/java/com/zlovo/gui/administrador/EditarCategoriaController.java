@@ -23,8 +23,8 @@ public class EditarCategoriaController implements Initializable {
     @FXML
     private Label currentCategoria;
 
-    public void confirmar(ActionEvent event){
-        if(nomeTF.getText().isEmpty() & confirmarTF.getText().isEmpty()){
+    public void confirmar(ActionEvent event) {
+        if (nomeTF.getText().isEmpty() & confirmarTF.getText().isEmpty()) {
             invalidDados.setText("Campos inválidos!");
             return;
         }
@@ -32,7 +32,7 @@ public class EditarCategoriaController implements Initializable {
             invalidDados.setText("Nomes não coincidem!");
             return;
         }
-        if(AdministradorBLL.checkCategorias(MenuCategoriaController.categoriaSelecionada))
+        if (AdministradorBLL.checkCategorias(MenuCategoriaController.categoriaSelecionada))
             AdministradorBLL.editarCategoria(nomeTF.getText());
         Repositorio.getRepositorio().getCategoriaSet().remove(MenuCategoriaController.categoriaSelecionada);
         Repositorio.getRepositorio().getCategoriaSet().add(nomeTF.getText());
@@ -40,7 +40,7 @@ public class EditarCategoriaController implements Initializable {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 
-    public void anterior (ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 

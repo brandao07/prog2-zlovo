@@ -22,9 +22,9 @@ public class DesativarEmpresaFinalController implements Initializable {
     private Label checkerror;
 
 
-    public void remover (ActionEvent event){
+    public void remover(ActionEvent event) {
         Empresa empresaSelecionada;
-        if(empresaList.getSelectionModel().getSelectedItem() == null){
+        if (empresaList.getSelectionModel().getSelectedItem() == null) {
             checkerror.setText("Selecione uma empresa");
             return;
         }
@@ -40,7 +40,7 @@ public class DesativarEmpresaFinalController implements Initializable {
         EmpresarioBLL.updateNomeEmpresaLabel(empresaList, myLabel);
     }
 
-    public void anterior(ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
     }
 }

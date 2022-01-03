@@ -8,10 +8,11 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 public class BundleBLL {
-    public static @NotNull ArrayList<Bundle> getBundles(@NotNull Empresa empresa, String categoria){
+    public static @NotNull ArrayList<Bundle> getBundles(@NotNull Empresa empresa, String categoria) {
         ArrayList<Bundle> bundles = new ArrayList<>();
         for (Produto p : empresa.getProdutosMap().get(categoria))
             if (p instanceof Bundle)
@@ -19,11 +20,11 @@ public class BundleBLL {
         return bundles;
     }
 
-    public static int quantidadeProdutosBundle(@NotNull Bundle bundle){
+    public static int quantidadeProdutosBundle(@NotNull Bundle bundle) {
         return bundle.getProdutosBundle().size();
     }
 
-    public static void changeCellValueBundleNome (@NotNull ListView<Bundle> myListView){
+    public static void changeCellValueBundleNome(@NotNull ListView<Bundle> myListView) {
         myListView.setCellFactory(new Callback<>() {
             public ListCell<Bundle> call(ListView<Bundle> param) {
                 return new ListCell<>() {
@@ -39,21 +40,21 @@ public class BundleBLL {
         });
     }
 
-    public static void updatePrecoLabel(@NotNull ListView<Bundle> myListView, Label myLabel){
+    public static void updatePrecoLabel(@NotNull ListView<Bundle> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getPreco());
             myLabel.setText("Preço: " + dados);
         });
     }
 
-    public static void updateQuantidadeLabel(@NotNull ListView<Bundle> myListView, Label myLabel){
+    public static void updateQuantidadeLabel(@NotNull ListView<Bundle> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = String.valueOf(quantidadeProdutosBundle(myListView.getSelectionModel().getSelectedItem()));
             myLabel.setText("Quantidade de Produtos: " + dados);
         });
     }
 
-    public static boolean checkProdutoSelecionado(@NotNull Bundle bundle, Produto produto){
+    public static boolean checkProdutoSelecionado(@NotNull Bundle bundle, Produto produto) {
         return bundle.getProdutosBundle().contains(produto);
     }
 }

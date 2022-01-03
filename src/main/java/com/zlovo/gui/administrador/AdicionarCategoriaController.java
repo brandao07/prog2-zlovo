@@ -13,8 +13,8 @@ public class AdicionarCategoriaController {
     @FXML
     private Label invalidDados;
 
-    public void AdicionarCategoria(ActionEvent event){
-        if (nomeTF.getText().isEmpty()){
+    public void AdicionarCategoria(ActionEvent event) {
+        if (nomeTF.getText().isEmpty()) {
             invalidDados.setText("Campos inválidos!");
             return;
         }
@@ -23,7 +23,7 @@ public class AdicionarCategoriaController {
 
     }
 
-    public void anterior (ActionEvent event){
+    public void anterior(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneMenuAdmin.fxml", event);
 
     }
