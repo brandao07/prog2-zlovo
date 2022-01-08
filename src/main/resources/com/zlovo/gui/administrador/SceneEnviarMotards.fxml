@@ -6,25 +6,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.EnviarMotardController">
    <children>
       <ListView fx:id="motardsList" layoutX="379.0" layoutY="84.0" prefHeight="200.0" prefWidth="200.0" />
       <Label fx:id="encomendaLabel" layoutX="32.0" layoutY="28.0" prefHeight="28.0" prefWidth="177.0" text="Encomenda #">
          <font>
-            <Font size="22.0" />
+            <Font name="Open Sans SemiBold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="379.0" layoutY="43.0" prefHeight="17.0" prefWidth="183.0" text="Motards disponíveis">
+      <Label layoutX="374.0" layoutY="45.0" prefHeight="31.0" prefWidth="210.0" text="Motards disponíveis">
          <font>
-            <Font size="21.0" />
+            <Font name="Open Sans SemiBold" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Button layoutX="28.0" layoutY="200.0" mnemonicParsing="false" onAction="#confirmar" text="Enviar Motard" />
-      <Label fx:id="checkLabel" alignment="CENTER" layoutX="379.0" layoutY="295.0" prefHeight="17.0" prefWidth="200.0" />
-      <Label fx:id="empresaLabel" layoutX="32.0" layoutY="84.0" prefHeight="17.0" prefWidth="177.0" text="Empresa:" />
-      <Label fx:id="origemLabel" layoutX="32.0" layoutY="121.0" prefHeight="17.0" prefWidth="177.0" text="Origem:" />
-      <Label fx:id="destinoLabel" layoutX="32.0" layoutY="157.0" prefHeight="17.0" prefWidth="177.0" text="Destino:" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="28.0" layoutY="200.0" mnemonicParsing="false" onAction="#confirmar" text="Enviar Motard">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="checkLabel" alignment="CENTER" layoutX="379.0" layoutY="295.0" prefHeight="17.0" prefWidth="200.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="empresaLabel" layoutX="32.0" layoutY="84.0" prefHeight="17.0" prefWidth="329.0" text="Empresa:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="origemLabel" layoutX="32.0" layoutY="121.0" prefHeight="17.0" prefWidth="323.0" text="Origem:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="destinoLabel" layoutX="32.0" layoutY="157.0" prefHeight="17.0" prefWidth="323.0" text="Destino:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>

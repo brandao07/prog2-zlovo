@@ -9,13 +9,22 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.SelecionaTipoFuncionarioController">
    <children>
       <ChoiceBox fx:id="myChoiceBox" layoutX="225.0" layoutY="131.0" prefWidth="150.0" />
-      <Label layoutX="78.0" layoutY="56.0" text="Seleciona o tipo de funcionário Zlovo">
+      <Label alignment="CENTER" layoutX="1.0" layoutY="56.0" prefHeight="41.0" prefWidth="600.0" text="Seleciona o tipo de funcionário Zlovo">
          <font>
-            <Font size="29.0" />
+            <Font name="Open Sans SemiBold" size="29.0" />
          </font>
       </Label>
-      <Button layoutX="273.0" layoutY="187.0" mnemonicParsing="false" onAction="#submit" text="Seguinte" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Cancelar" />
-      <Label layoutX="216.0" layoutY="318.0" textFill="#1649d7" />
+      <Button layoutX="273.0" layoutY="187.0" mnemonicParsing="false" onAction="#submit" text="Seguinte">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Cancelar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="5.0" layoutY="318.0" prefHeight="17.0" prefWidth="581.0" textFill="#1649d7">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>

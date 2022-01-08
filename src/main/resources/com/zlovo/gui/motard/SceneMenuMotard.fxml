@@ -9,12 +9,24 @@
    <children>
       <Label fx:id="usernameMotard" layoutX="26.0" layoutY="28.0" prefHeight="28.0" prefWidth="475.0" text="Bem-vindo">
          <font>
-            <Font size="23.0" />
+            <Font name="Open Sans SemiBold Italic" size="29.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
-      <Button layoutX="255.0" layoutY="218.0" mnemonicParsing="false" onAction="#listarOrdens" text="Listar Ordens" />
-      <Button layoutX="265.0" layoutY="155.0" mnemonicParsing="false" onAction="#seguinte" text="Pendente" />
-      <Label fx:id="checkDados" layoutX="368.0" layoutY="160.0" prefHeight="17.0" prefWidth="185.0" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#logout" text="Logout">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="255.0" layoutY="218.0" mnemonicParsing="false" onAction="#listarOrdens" text="Listar Ordens">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="265.0" layoutY="155.0" mnemonicParsing="false" onAction="#seguinte" text="Pendente">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="checkDados" layoutX="368.0" layoutY="160.0" prefHeight="17.0" prefWidth="221.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>

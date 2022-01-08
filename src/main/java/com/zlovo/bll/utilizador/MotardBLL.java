@@ -97,8 +97,7 @@ public class MotardBLL {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             Cliente cliente = ClienteBLL.getCliente(myListView.getSelectionModel().getSelectedItem().getEncomenda().getDetalhes().getCliente());
             assert cliente != null;
-            String dados = String.valueOf(cliente.getMorada().getLocalidade());
-            myLabel.setText("Destino: " + dados);
+            myLabel.setText("Destino: " + cliente.getMorada().getRua() + ", " + cliente.getMorada().getnPorta() + ", " + cliente.getMorada().getLocalidade());
         });
     }
 
@@ -106,8 +105,7 @@ public class MotardBLL {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             Empresa empresa = EmpresaBLL.getEmpresa(myListView.getSelectionModel().getSelectedItem().getEncomenda().getIdEmpresa());
             assert empresa != null;
-            String dados = String.valueOf(empresa.getMorada().getLocalidade());
-            myLabel.setText("Origem: " + dados);
+            myLabel.setText("Origem: " + empresa.getMorada().getRua() + ", " + empresa.getMorada().getnPorta() + ", " + empresa.getMorada().getLocalidade());
         });
     }
 
@@ -127,41 +125,41 @@ public class MotardBLL {
         });
     }
 
-    public static void updateNPortaClienteLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
-        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            Cliente cliente = ClienteBLL.getCliente(myListView.getSelectionModel().getSelectedItem().getEncomenda().getDetalhes().getCliente());
-            assert cliente != null;
-            String dados = String.valueOf(cliente.getMorada().getnPorta());
-            myLabel.setText("(Destino) Número da Porta: " + dados);
-        });
-    }
-
-    public static void updateRuaClienteLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
-        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            Cliente cliente = ClienteBLL.getCliente(myListView.getSelectionModel().getSelectedItem().getEncomenda().getDetalhes().getCliente());
-            assert cliente != null;
-            String dados = String.valueOf(cliente.getMorada().getRua());
-            myLabel.setText("(Destino) Rua : " + dados);
-        });
-    }
-
-    public static void updateRuaEmpresaLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
-        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            Empresa empresa = EmpresaBLL.getEmpresa(myListView.getSelectionModel().getSelectedItem().getEncomenda().getIdEmpresa());
-            assert empresa != null;
-            String dados = String.valueOf(empresa.getMorada().getRua());
-            myLabel.setText("(Origem) Rua: " + dados);
-        });
-    }
-
-    public static void updateNPortaEmpresaLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
-        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
-            Empresa empresa = EmpresaBLL.getEmpresa(myListView.getSelectionModel().getSelectedItem().getEncomenda().getIdEmpresa());
-            assert empresa != null;
-            String dados = String.valueOf(empresa.getMorada().getnPorta());
-            myLabel.setText("(Origem) Número da Porta: " + dados);
-        });
-    }
+//    public static void updateNPortaClienteLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
+//        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+//            Cliente cliente = ClienteBLL.getCliente(myListView.getSelectionModel().getSelectedItem().getEncomenda().getDetalhes().getCliente());
+//            assert cliente != null;
+//            String dados = String.valueOf(cliente.getMorada().getnPorta());
+//            myLabel.setText("(Destino) Número da Porta: " + dados);
+//        });
+//    }
+//
+//    public static void updateRuaClienteLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
+//        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+//            Cliente cliente = ClienteBLL.getCliente(myListView.getSelectionModel().getSelectedItem().getEncomenda().getDetalhes().getCliente());
+//            assert cliente != null;
+//            String dados = String.valueOf(cliente.getMorada().getRua());
+//            myLabel.setText("(Destino) Rua : " + dados);
+//        });
+//    }
+//
+//    public static void updateRuaEmpresaLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
+//        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+//            Empresa empresa = EmpresaBLL.getEmpresa(myListView.getSelectionModel().getSelectedItem().getEncomenda().getIdEmpresa());
+//            assert empresa != null;
+//            String dados = String.valueOf(empresa.getMorada().getRua());
+//            myLabel.setText("(Origem) Rua: " + dados);
+//        });
+//    }
+//
+//    public static void updateNPortaEmpresaLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
+//        myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
+//            Empresa empresa = EmpresaBLL.getEmpresa(myListView.getSelectionModel().getSelectedItem().getEncomenda().getIdEmpresa());
+//            assert empresa != null;
+//            String dados = String.valueOf(empresa.getMorada().getnPorta());
+//            myLabel.setText("(Origem) Número da Porta: " + dados);
+//        });
+//    }
 
     public static void updateTipoEstadoLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
@@ -180,7 +178,7 @@ public class MotardBLL {
     public static void updateDataLabel(@NotNull ListView<Trabalho> myListView, Label myLabel) {
         myListView.getSelectionModel().selectedItemProperty().addListener((observableValue, s, t1) -> {
             String dados = String.valueOf(myListView.getSelectionModel().getSelectedItem().getEncomenda().getDataCliente());
-            myLabel.setText("Data: " + dados);
+            myLabel.setText("" + dados);
         });
     }
 

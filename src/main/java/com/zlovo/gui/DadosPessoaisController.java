@@ -3,6 +3,8 @@ package com.zlovo.gui;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Morada;
 import com.zlovo.dal.Repositorio;
+import com.zlovo.dal.utilizador.Cliente;
+import com.zlovo.dal.utilizador.Empresario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -48,14 +50,17 @@ public class DadosPessoaisController implements Initializable {
             morada.setnPorta(Integer.parseInt(portaTextfield.getText()));
             SelecionaTipoUserController.utilizador.setMorada(morada);
             UtilizadorBLL.criarUtilizador(SelecionaTipoUserController.utilizador);
-            SelecionaTipoUserController.utilizador = null;
-            ControladorGlobal.chamaScene("SceneLogin.fxml", event);
+            if (SelecionaTipoUserController.utilizador instanceof Cliente) {
+                UtilizadorBLL.criarUtilizador(SelecionaTipoUserController.utilizador);
+                ControladorGlobal.chamaScene("SceneLogin.fxml", event);
+            }
+            else if(SelecionaTipoUserController.utilizador instanceof Empresario)
+                ControladorGlobal.chamaScene("SceneCriarNovaEmpresaFirst.fxml", event);
         } else
             invalidDados.setText("Campos por preencher!");
     }
 
     public void anterior(ActionEvent event) {
-        SelecionaTipoUserController.utilizador = null;
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
     }
 }

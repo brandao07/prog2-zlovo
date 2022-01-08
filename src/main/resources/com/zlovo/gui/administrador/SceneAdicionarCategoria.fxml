@@ -8,15 +8,30 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.AdicionarCategoriaController">
    <children>
-      <TextField fx:id="nomeTF" layoutX="220.0" layoutY="169.0" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Button layoutX="273.0" layoutY="226.0" mnemonicParsing="false" onAction="#AdicionarCategoria" text="Confirmar" />
-      <Label fx:id="invalidDados" layoutX="411.0" layoutY="174.0" prefHeight="17.0" prefWidth="134.0" textFill="#c91818" />
+      <TextField fx:id="nomeTF" layoutX="220.0" layoutY="169.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></TextField>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="273.0" layoutY="226.0" mnemonicParsing="false" onAction="#AdicionarCategoria" text="Confirmar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="invalidDados" layoutX="411.0" layoutY="174.0" prefHeight="17.0" prefWidth="134.0" textFill="#c91818">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
       <Label layoutX="180.0" layoutY="67.0" text="Adicionar Categoria">
          <font>
-            <Font size="29.0" />
+            <Font name="Open Sans SemiBold" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="165.0" layoutY="174.0" text="Nome:" />
+      <Label layoutX="165.0" layoutY="174.0" text="Nome:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>

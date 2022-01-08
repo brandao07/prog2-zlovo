@@ -52,8 +52,8 @@ public class EncomendaPendenteController implements Initializable {
         encomendaLabel.setText("Encomenda #" + trabalho.getEncomenda().getId());
         clienteLabel.setText("Cliente: " + cliente.getNome());
         empresaLabel.setText("Empresa: " + empresa.getNome());
-        origemLabel.setText("Origem: " + empresa.getMorada().getLocalidade());
-        destinoLabel.setText("Destino: " + cliente.getMorada().getLocalidade());
+        origemLabel.setText("Origem: " + empresa.getMorada().getRua() + ", " + empresa.getMorada().getnPorta() + ", " + empresa.getMorada().getLocalidade());
+        destinoLabel.setText("Destino: " + cliente.getMorada().getRua() + ", " + cliente.getMorada().getnPorta() + ", " + cliente.getMorada().getLocalidade());
     }
 
     public void confirmar(ActionEvent event) {

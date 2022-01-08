@@ -9,16 +9,34 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.SelecionarEncomendaController">
    <children>
       <ListView fx:id="encomendasList" layoutX="20.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="463.0" layoutY="361.0" mnemonicParsing="false" onAction="#seguinte" text="Selecionar Motards" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Label fx:id="clienteLabel" layoutX="260.0" layoutY="100.0" prefHeight="17.0" prefWidth="278.0" />
-      <Label fx:id="horarioLabel" layoutX="260.0" layoutY="137.0" prefHeight="17.0" prefWidth="278.0" />
-      <Label fx:id="dataLabel" layoutX="260.0" layoutY="176.0" prefHeight="17.0" prefWidth="278.0" />
-      <Label fx:id="tipoPagamentoLabel" layoutX="260.0" layoutY="214.0" prefHeight="17.0" prefWidth="278.0" />
-      <Label fx:id="checkDados" layoutX="20.0" layoutY="319.0" prefHeight="17.0" prefWidth="200.0" />
-      <Label layoutX="41.0" layoutY="48.0" text="Encomendas">
+      <Button layoutX="463.0" layoutY="361.0" mnemonicParsing="false" onAction="#seguinte" text="Selecionar Motards">
          <font>
-            <Font size="29.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="clienteLabel" layoutX="260.0" layoutY="100.0" prefHeight="17.0" prefWidth="278.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="horarioLabel" layoutX="260.0" layoutY="137.0" prefHeight="17.0" prefWidth="278.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="dataLabel" layoutX="260.0" layoutY="176.0" prefHeight="17.0" prefWidth="278.0" />
+      <Label fx:id="tipoPagamentoLabel" layoutX="260.0" layoutY="214.0" prefHeight="17.0" prefWidth="278.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="checkDados" layoutX="20.0" layoutY="319.0" prefHeight="17.0" prefWidth="200.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label layoutX="20.0" layoutY="50.0" text="Encomendas">
+         <font>
+            <Font name="Open Sans SemiBold" size="29.0" />
          </font>
       </Label>
    </children>

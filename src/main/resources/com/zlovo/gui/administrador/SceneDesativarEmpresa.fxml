@@ -11,19 +11,25 @@
       <ListView fx:id="empresarioList" layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
       <Label layoutX="220.0" layoutY="14.0" text="Desativar Empresa">
          <font>
-            <Font size="20.0" />
+            <Font name="Open Sans SemiBold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="268.0" layoutY="336.0" mnemonicParsing="false" onAction="#seguinte" text="Seguinte" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
+      <Button layoutX="268.0" layoutY="336.0" mnemonicParsing="false" onAction="#seguinte" text="Seguinte">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
       <Label fx:id="myLabel" alignment="CENTER" layoutY="58.0" prefHeight="17.0" prefWidth="600.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Open Sans SemiBold" size="18.0" />
          </font>
       </Label>
       <Label fx:id="checkerror" alignment="CENTER" layoutY="306.0" prefHeight="17.0" prefWidth="600.0" textFill="RED">
          <font>
-            <Font size="14.0" />
+            <Font name="Open Sans SemiBold" size="14.0" />
          </font>
       </Label>
    </children>

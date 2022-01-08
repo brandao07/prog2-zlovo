@@ -11,3 +11,6 @@ Corrigir bugs
 Melhorar Scenes
 Adicionar 1 empresa
 Grafico
+
+////
+CENAS FEITAS INTERFACE TOP XUXA + FALTA GRAFICO LINHAS

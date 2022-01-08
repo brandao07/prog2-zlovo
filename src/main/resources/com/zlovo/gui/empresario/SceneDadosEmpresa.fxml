@@ -11,21 +11,57 @@
    <children>
       <Label layoutX="234.0" layoutY="24.0" text="Dados Empresa">
          <font>
-            <Font size="20.0" />
+            <Font name="Open Sans SemiBold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Label fx:id="nomeLabel" layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="384.0" text="Nome: " />
-      <Label fx:id="telefoneLabel" layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="384.0" text="Telefone:" />
-      <Label fx:id="ruaLabel" layoutX="14.0" layoutY="172.0" prefHeight="17.0" prefWidth="384.0" text="Rua:" />
-      <Label fx:id="portaLabel" layoutX="14.0" layoutY="218.0" prefHeight="17.0" prefWidth="384.0" text="Porta:" />
-      <Label fx:id="localidadeLabel" layoutX="14.0" layoutY="261.0" prefHeight="17.0" prefWidth="384.0" text="Localidade:" />
-      <TextField fx:id="nomeTF" layoutX="420.0" layoutY="82.0" />
-      <TextField fx:id="telefoneTF" layoutX="420.0" layoutY="124.0" />
-      <TextField fx:id="ruaTF" layoutX="420.0" layoutY="167.0" />
-      <TextField fx:id="portaTF" layoutX="420.0" layoutY="214.0" />
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="nomeLabel" layoutX="14.0" layoutY="86.0" prefHeight="17.0" prefWidth="384.0" text="Nome: ">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="telefoneLabel" layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="384.0" text="Telefone:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="ruaLabel" layoutX="14.0" layoutY="172.0" prefHeight="17.0" prefWidth="384.0" text="Rua:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="portaLabel" layoutX="14.0" layoutY="218.0" prefHeight="17.0" prefWidth="384.0" text="Porta:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="localidadeLabel" layoutX="14.0" layoutY="261.0" prefHeight="17.0" prefWidth="384.0" text="Localidade:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <TextField fx:id="nomeTF" layoutX="420.0" layoutY="82.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="telefoneTF" layoutX="420.0" layoutY="124.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="ruaTF" layoutX="420.0" layoutY="167.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></TextField>
+      <TextField fx:id="portaTF" layoutX="420.0" layoutY="214.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></TextField>
       <ChoiceBox fx:id="localidadeCB" layoutX="425.0" layoutY="256.0" prefWidth="150.0" />
-      <Label fx:id="checkDados" layoutX="14.0" layoutY="316.0" prefHeight="17.0" prefWidth="140.0" textFill="#eb1c1c" />
-      <Button layoutX="258.0" layoutY="312.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+      <Label fx:id="checkDados" alignment="CENTER" layoutX="300.0" layoutY="360.0" prefHeight="17.0" prefWidth="295.0" textFill="#eb1c1c">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Button layoutX="258.0" layoutY="312.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

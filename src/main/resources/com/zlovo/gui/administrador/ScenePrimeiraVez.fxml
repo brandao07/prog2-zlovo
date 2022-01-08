@@ -4,21 +4,38 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.PrimeiraVezController">
    <children>
-      <Label layoutX="246.0" layoutY="57.0" text="Zlovo">
+      <Label layoutX="169.0" layoutY="172.0" text="username:">
          <font>
-            <Font size="46.0" />
-         </font>
-      </Label>
-      <Label layoutX="178.0" layoutY="172.0" text="username:" />
-      <Label layoutX="178.0" layoutY="218.0" text="password:" />
-      <TextField fx:id="username" layoutX="246.0" layoutY="167.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label layoutX="169.0" layoutY="218.0" text="password:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <TextField fx:id="username" layoutX="246.0" layoutY="167.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></TextField>
       <PasswordField fx:id="pass" layoutX="246.0" layoutY="214.0" />
-      <Button layoutX="274.0" layoutY="262.0" mnemonicParsing="false" onAction="#seguinte" text="Criar Master" />
-      <Label fx:id="warning" layoutX="250.0" layoutY="318.0" textFill="#e40f0f" />
+      <Button layoutX="274.0" layoutY="262.0" mnemonicParsing="false" onAction="#seguinte" text="Criar Master">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="warning" alignment="CENTER" layoutX="162.0" layoutY="318.0" prefHeight="17.0" prefWidth="301.0" textFill="#e40f0f">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <ImageView fitHeight="269.0" fitWidth="312.0" layoutX="144.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/slogan.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

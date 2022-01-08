@@ -9,14 +9,26 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.MenuCategoriasController">
    <children>
       <ListView fx:id="myListView" layoutX="200.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="quantidadeProdutosLabel" layoutX="200.0" layoutY="303.0" prefHeight="18.0" prefWidth="200.0" text="Quantidade de Produtos:" />
-      <Label fx:id="categoriaLabel" alignment="CENTER" layoutX="152.0" layoutY="14.0" prefHeight="31.0" prefWidth="295.0" text="Selecione a Categoria">
+      <Label fx:id="quantidadeProdutosLabel" layoutX="200.0" layoutY="303.0" prefHeight="18.0" prefWidth="200.0" text="Quantidade de Produtos:">
          <font>
-            <Font size="26.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="categoriaLabel" alignment="CENTER" layoutY="14.0" prefHeight="37.0" prefWidth="600.0" text="Selecione a Categoria">
+         <font>
+            <Font name="Open Sans SemiBold" size="26.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Button layoutX="250.0" layoutY="335.0" mnemonicParsing="false" onAction="#listarProdutos" text="Confirmar" />
-      <Label fx:id="checkerror" layoutX="199.0" layoutY="278.0" prefHeight="18.0" prefWidth="200.0" textFill="RED" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="250.0" layoutY="335.0" mnemonicParsing="false" onAction="#listarProdutos" text="Confirmar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="checkerror" alignment="CENTER" layoutX="174.0" layoutY="278.0" prefHeight="18.0" prefWidth="246.0" textFill="RED">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>

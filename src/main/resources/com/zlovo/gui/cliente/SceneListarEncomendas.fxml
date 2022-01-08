@@ -11,18 +11,42 @@
    <children>
       <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
       <ListView fx:id="encomendasList" layoutX="73.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label alignment="CENTER" layoutY="22.0" prefHeight="17.0" prefWidth="600.0" text="Historial Encomendas">
+      <Label alignment="CENTER" layoutX="66.0" layoutY="38.0" prefHeight="29.0" prefWidth="215.0" text="Historial Encomendas">
          <font>
-            <Font size="20.0" />
+            <Font name="Open Sans SemiBold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="checkLabel" layoutX="73.0" layoutY="281.0" prefHeight="18.0" prefWidth="200.0" textFill="#ec0505" />
-      <Label fx:id="precoLabel" layoutX="286.0" layoutY="70.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="dataLabel" layoutX="286.0" layoutY="121.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="horarioLabel" layoutX="286.0" layoutY="97.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="metodoLabel" layoutX="286.0" layoutY="209.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="estadoLabel" layoutX="286.0" layoutY="181.0" prefHeight="18.0" prefWidth="230.0" />
-      <Label fx:id="metodoPagamentoLabel" layoutX="286.0" layoutY="151.0" prefHeight="18.0" prefWidth="230.0" />
-      <Hyperlink layoutX="286.0" layoutY="246.0" onAction="#verProduto" text="Ver produtos" />
+      <Label fx:id="checkLabel" layoutX="73.0" layoutY="281.0" prefHeight="18.0" prefWidth="200.0" textFill="#ec0505">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="precoLabel" layoutX="286.0" layoutY="70.0" prefHeight="18.0" prefWidth="230.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="dataLabel" layoutX="286.0" layoutY="121.0" prefHeight="18.0" prefWidth="230.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="horarioLabel" layoutX="286.0" layoutY="97.0" prefHeight="18.0" prefWidth="230.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="metodoLabel" layoutX="286.0" layoutY="209.0" prefHeight="18.0" prefWidth="230.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="estadoLabel" layoutX="286.0" layoutY="181.0" prefHeight="18.0" prefWidth="230.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="metodoPagamentoLabel" layoutX="286.0" layoutY="151.0" prefHeight="18.0" prefWidth="230.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Hyperlink layoutX="286.0" layoutY="246.0" onAction="#verProduto" text="Ver produtos">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Hyperlink>
    </children>
 </AnchorPane>

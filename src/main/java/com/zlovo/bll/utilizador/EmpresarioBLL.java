@@ -23,10 +23,10 @@ public class EmpresarioBLL {
     }
 
     // Método que adiciona uma empresa
-    public static boolean adicionarEmpresa(Empresa empresa) {
+    public static boolean adicionarEmpresa(Empresa empresa, String empresario) {
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (Repositorio.getRepositorio().getUtilizadoresMap().get(key) instanceof Empresario)
-                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(UtilizadorBLL.getUserLog().getUsername())) {
+                if (Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername().equals(empresario)) {
                     ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().add(empresa);
                     return true;
                 }

@@ -9,23 +9,27 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.administrador.MenuCategoriaController">
    <children>
       <ListView fx:id="categoriaList" layoutX="100.0" layoutY="61.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button layoutX="346.0" layoutY="61.0" mnemonicParsing="false" onAction="#adicionar" text="Adicionar" />
-      <Button layoutX="346.0" layoutY="117.0" mnemonicParsing="false" onAction="#remover" prefHeight="26.0" prefWidth="69.0" text="Remover" />
-      <Button layoutX="346.0" layoutY="174.0" mnemonicParsing="false" onAction="#alterar" prefHeight="26.0" prefWidth="69.0" text="Alterar" />
+      <Button layoutX="346.0" layoutY="61.0" mnemonicParsing="false" onAction="#adicionar" prefHeight="27.0" prefWidth="106.0" text="Adicionar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="346.0" layoutY="117.0" mnemonicParsing="false" onAction="#remover" prefHeight="27.0" prefWidth="106.0" text="Remover">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="346.0" layoutY="174.0" mnemonicParsing="false" onAction="#alterar" prefHeight="27.0" prefWidth="106.0" text="Alterar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
       <Label layoutX="136.0" layoutY="14.0" text="Categorias">
          <font>
-            <Font size="28.0" />
+            <Font name="Open Sans SemiBold" size="28.0" />
          </font>
       </Label>
       <Label fx:id="myLabel" layoutX="70.0" layoutY="287.0" prefHeight="17.0" prefWidth="264.0" textFill="#0a5ed3">
          <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label layoutX="449.0" layoutY="122.0" prefHeight="20.0" prefWidth="100.0">
-         <font>
-            <Font size="14.0" />
+            <Font name="Open Sans SemiBold" size="19.0" />
          </font>
       </Label>
       <Label fx:id="checkerror" layoutX="333.0" layoutY="221.0" prefHeight="20.0" prefWidth="183.0" textFill="RED">

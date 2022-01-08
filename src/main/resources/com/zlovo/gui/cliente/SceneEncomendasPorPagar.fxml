@@ -9,19 +9,43 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.EncomendasPorPagarController">
    <children>
-      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
       <Label layoutX="50.0" layoutY="22.0" text="Encomendas">
          <font>
-            <Font size="20.0" />
+            <Font name="Open Sans SemiBold" size="20.0" />
          </font>
       </Label>
       <ListView fx:id="encomendasList" layoutX="14.0" layoutY="55.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="checkLabel" layoutX="15.0" layoutY="316.0" prefHeight="17.0" prefWidth="309.0" />
-      <Label fx:id="dataLabel" layoutX="230.0" layoutY="122.0" prefHeight="17.0" prefWidth="325.0" />
-      <Label fx:id="horarioLabel" layoutX="230.0" layoutY="155.0" prefHeight="17.0" prefWidth="325.0" />
-      <Hyperlink layoutX="230.0" layoutY="232.0" onAction="#verProdutos" prefHeight="23.0" prefWidth="85.0" text="Ver Produtos" />
-      <Label fx:id="precoLabel" layoutX="230.0" layoutY="192.0" prefHeight="17.0" prefWidth="325.0" />
-      <Button layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#seguinte" text="Pagar" />
-      <Button layoutX="105.0" layoutY="273.0" mnemonicParsing="false" onAction="#anular" text="Anular" />
+      <Label fx:id="checkLabel" layoutX="15.0" layoutY="316.0" prefHeight="17.0" prefWidth="309.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="dataLabel" layoutX="230.0" layoutY="122.0" prefHeight="17.0" prefWidth="325.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="horarioLabel" layoutX="230.0" layoutY="155.0" prefHeight="17.0" prefWidth="325.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Hyperlink layoutX="230.0" layoutY="232.0" onAction="#verProdutos" prefHeight="24.0" prefWidth="98.0" text="Ver Produtos">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Hyperlink>
+      <Label fx:id="precoLabel" layoutX="230.0" layoutY="192.0" prefHeight="17.0" prefWidth="325.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Button layoutX="26.0" layoutY="272.0" mnemonicParsing="false" onAction="#seguinte" text="Pagar">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="105.0" layoutY="273.0" mnemonicParsing="false" onAction="#anular" text="Anular">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
    </children>
 </AnchorPane>

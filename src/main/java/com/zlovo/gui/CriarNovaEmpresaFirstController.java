@@ -1,11 +1,10 @@
-package com.zlovo.gui.empresario;
+package com.zlovo.gui;
 
 import com.zlovo.bll.empresa.EmpresaBLL;
 import com.zlovo.bll.utilizador.UtilizadorBLL;
 import com.zlovo.dal.Morada;
 import com.zlovo.dal.Repositorio;
 import com.zlovo.dal.empresa.Empresa;
-import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +15,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CriarNovaEmpresaController implements Initializable {
+public class CriarNovaEmpresaFirstController implements Initializable {
     @FXML
     private TextField nomeTF;
     @FXML
@@ -49,12 +48,13 @@ public class CriarNovaEmpresaController implements Initializable {
             morada.setRua(ruaTF.getText());
             morada.setnPorta(Integer.parseInt(portaTF.getText()));
             empresa.setMorada(morada);
-            EmpresaBLL.criarEmpresa(empresa, UtilizadorBLL.getUserLog().getUsername());
-            ControladorGlobal.chamaScene("empresario/SceneMenuEmpresario.fxml", event);
+            UtilizadorBLL.criarUtilizador(SelecionaTipoUserController.utilizador);
+            EmpresaBLL.criarEmpresa(empresa, SelecionaTipoUserController.utilizador.getUsername());
+            ControladorGlobal.chamaScene("SceneLogin.fxml", event);
         } else checkDados.setText("Campos inválidos!");
     }
 
     public void cancelar(ActionEvent event) {
-        ControladorGlobal.chamaScene("empresario/SceneMenuEmpresario.fxml", event);
+        ControladorGlobal.chamaScene("SceneDadosPessoais.fxml", event);
     }
 }

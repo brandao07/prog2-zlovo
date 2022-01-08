@@ -26,11 +26,11 @@ public class EmpresaBLL {
     }
 
     // Método que cria empresa
-    public static void criarEmpresa(@NotNull Empresa empresa) {
+    public static void criarEmpresa(@NotNull Empresa empresa, String empresario) {
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
-        empresa.setEmpresarioID(UtilizadorBLL.getUserLog().getUsername());
-        if (!EmpresarioBLL.adicionarEmpresa(empresa))
+        empresa.setEmpresarioID(empresario);
+        if (!EmpresarioBLL.adicionarEmpresa(empresa, empresario))
             return;
         if (!Repositorio.getRepositorio().getLocalidadesEmpresasMap().containsKey(empresa.getMorada().getLocalidade())) {
             ArrayList<Empresa> empresas = new ArrayList<>();

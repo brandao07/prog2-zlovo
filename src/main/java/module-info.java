@@ -10,6 +10,7 @@ module com.zlovo {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires org.jetbrains.annotations;
+    requires java.desktop;
 
     opens com.zlovo to javafx.fxml;
     exports com.zlovo;

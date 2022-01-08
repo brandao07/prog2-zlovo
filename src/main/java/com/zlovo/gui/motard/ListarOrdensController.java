@@ -37,14 +37,7 @@ public class ListarOrdensController implements Initializable {
     @FXML
     private Label estadoLabel;
     @FXML
-    private Label ruaClienteLabel;
-    @FXML
-    private Label portaClienteLabel;
-    @FXML
-    private Label ruaEmpresaLabel;
-    @FXML
-    private Label portaEmpresaLabel;
-
+    private Label clienteLabel;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         trabalhosList.getItems().addAll(MotardBLL.getTrabalhosFinalizados((Motard) UtilizadorBLL.getUserLog()));
@@ -58,13 +51,9 @@ public class ListarOrdensController implements Initializable {
             MotardBLL.updateDestinoLabel(trabalhosList, destinoLabel);
             MotardBLL.updateOrigemLabel(trabalhosList, origemLabel);
             MotardBLL.updateEmpresaLabel(trabalhosList, empresaLabel);
-            MotardBLL.updateNPortaClienteLabel(trabalhosList, portaClienteLabel);
-            MotardBLL.updateNPortaEmpresaLabel(trabalhosList, portaEmpresaLabel);
-            MotardBLL.updateRuaClienteLabel(trabalhosList, ruaClienteLabel);
-            MotardBLL.updateRuaEmpresaLabel(trabalhosList, ruaEmpresaLabel);
             MotardBLL.updateTipoEstadoLabel(trabalhosList, estadoLabel);
             MotardBLL.updateDataLabel(trabalhosList, dataLabel);
-
+            MotardBLL.updateClienteLabel(trabalhosList, clienteLabel);
         } catch (Exception e) {
             e.printStackTrace();
         }

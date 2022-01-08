@@ -10,14 +10,26 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.SelecionarHorarioController">
    <children>
       <ChoiceBox fx:id="tipoHorarioCB" layoutX="225.0" layoutY="138.0" prefWidth="150.0" />
-      <Label layoutX="166.0" layoutY="143.0" text="Horário:" />
-      <DatePicker fx:id="date" layoutX="225.0" layoutY="187.0" />
-      <Label layoutX="174.0" layoutY="192.0" prefHeight="17.0" prefWidth="49.0" text="Data:" />
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Button layoutX="230.0" layoutY="253.0" mnemonicParsing="false" onAction="#seguinte" text="Confirmar Encomenda" />
-      <Label layoutX="150.0" layoutY="34.0" text="Selecionar Horário Entrega">
+      <Label layoutX="166.0" layoutY="143.0" text="Horário:">
          <font>
-            <Font size="30.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <DatePicker fx:id="date" layoutX="225.0" layoutY="187.0" />
+      <Label layoutX="174.0" layoutY="192.0" prefHeight="17.0" prefWidth="49.0" text="Data:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="230.0" layoutY="253.0" mnemonicParsing="false" onAction="#seguinte" text="Confirmar Encomenda">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label layoutX="123.0" layoutY="32.0" text="Selecionar Horário Entrega">
+         <font>
+            <Font name="Open Sans SemiBold" size="30.0" />
          </font>
       </Label>
    </children>

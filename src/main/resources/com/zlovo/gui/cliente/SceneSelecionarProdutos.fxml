@@ -10,33 +10,54 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.cliente.SelecionarProdutosController">
    <children>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Button layoutX="246.0" layoutY="154.0" mnemonicParsing="false" onAction="#adicionarCarrinho" text="Adicionar ao Carrinho" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="246.0" layoutY="154.0" mnemonicParsing="false" onAction="#adicionarCarrinho" text="Adicionar ao Carrinho">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
       <Label layoutX="48.0" layoutY="14.0" text="Lista Produtos">
          <font>
-            <Font size="22.0" />
+            <Font name="Open Sans SemiBold" size="22.0" />
          </font>
       </Label>
       <ListView fx:id="produtosList" layoutX="14.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label fx:id="checkDados" alignment="CENTER" layoutX="213.0" layoutY="125.0" prefHeight="17.0" prefWidth="200.0" textFill="#f80101" />
-      <Label layoutX="239.0" layoutY="63.0" prefHeight="17.0" prefWidth="148.0" text="Insira uma quantidade:">
+      <Label fx:id="checkDados" alignment="CENTER" layoutX="213.0" layoutY="125.0" prefHeight="17.0" prefWidth="200.0" textFill="#f80101">
          <font>
-            <Font size="13.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label layoutX="226.0" layoutY="63.0" prefHeight="17.0" prefWidth="148.0" text="Insira uma quantidade:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
          </font>
       </Label>
       <Spinner fx:id="quantidadeSpinner" layoutX="233.0" layoutY="87.0" />
-      <Hyperlink layoutX="490.0" layoutY="350.0" onAction="#carrinho" prefHeight="36.0" prefWidth="96.0" text="Carrinho">
+      <Hyperlink layoutX="462.0" layoutY="350.0" onAction="#carrinho" prefHeight="40.0" prefWidth="124.0" text="Carrinho">
          <font>
-            <Font size="21.0" />
+            <Font name="Open Sans SemiBold" size="21.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="precoLabel" layoutX="14.0" layoutY="262.0" prefHeight="17.0" prefWidth="160.0" />
-      <Label fx:id="dimensaoLabel" layoutX="14.0" layoutY="285.0" prefHeight="17.0" prefWidth="160.0" />
-      <Label fx:id="pesoLabel" layoutX="14.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0" />
-      <Label fx:id="unidadeLabel" layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="160.0" />
-      <Label fx:id="checkLabel" layoutX="233.0" layoutY="200.0" prefHeight="17.0" prefWidth="277.0" textFill="#0c81da">
+      <Label fx:id="precoLabel" layoutX="14.0" layoutY="262.0" prefHeight="17.0" prefWidth="160.0">
          <font>
-            <Font size="18.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="dimensaoLabel" layoutX="14.0" layoutY="285.0" prefHeight="17.0" prefWidth="160.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="pesoLabel" layoutX="14.0" layoutY="309.0" prefHeight="17.0" prefWidth="160.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="unidadeLabel" layoutX="14.0" layoutY="333.0" prefHeight="17.0" prefWidth="160.0">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="checkLabel" alignment="CENTER" layoutX="233.0" layoutY="200.0" prefHeight="17.0" prefWidth="277.0" textFill="#0c81da">
+         <font>
+            <Font name="Open Sans SemiBold" size="18.0" />
          </font>
       </Label>
    </children>

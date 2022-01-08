@@ -7,6 +7,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,6 +30,8 @@ public class ZlovoApplication extends Application {
         else
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("gui/administrador/ScenePrimeiraVez.fxml")));
         Scene scene = new Scene(root);
+        Image icon = new Image(Objects.requireNonNull(getClass().getResourceAsStream("images/icon.png")));
+        stage.getIcons().add(icon);
         stage.setTitle("Zlovo");
         stage.setScene(scene);
         stage.show();

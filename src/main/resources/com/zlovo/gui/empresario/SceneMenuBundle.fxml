@@ -8,18 +8,39 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zlovo.gui.empresario.MenuBundleController">
    <children>
-      <Button layoutX="147.0" layoutY="94.0" mnemonicParsing="false" onAction="#criarBundle" prefHeight="26.0" prefWidth="107.0" text="Criar Bundle" />
-      <Button layoutX="149.0" layoutY="208.0" mnemonicParsing="false" onAction="#removerBundle" text="Remover Bundle" />
-      <Button layoutX="147.0" layoutY="154.0" mnemonicParsing="false" onAction="#editarBundle" prefHeight="26.0" prefWidth="107.0" text="Alterar Bundle" />
-      <ListView fx:id="bundleList" layoutX="267.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" />
-      <Label layoutX="201.0" layoutY="14.0" text="Menu Bundle">
+      <Button layoutX="87.0" layoutY="94.0" mnemonicParsing="false" onAction="#criarBundle" prefHeight="27.0" prefWidth="121.0" text="Criar Bundle">
          <font>
-            <Font size="28.0" />
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="87.0" layoutY="207.0" mnemonicParsing="false" onAction="#removerBundle" text="Remover Bundle">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Button layoutX="87.0" layoutY="154.0" mnemonicParsing="false" onAction="#editarBundle" prefHeight="27.0" prefWidth="121.0" text="Alterar Bundle">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <ListView fx:id="bundleList" layoutX="267.0" layoutY="67.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="277.0" layoutY="21.0" text="Menu Bundle">
+         <font>
+            <Font name="Open Sans SemiBold" size="28.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior" />
-      <Label fx:id="quantidadeLabel" layoutX="267.0" layoutY="296.0" prefHeight="18.0" prefWidth="200.0" text="Quantidade de Produtos:" />
-      <Label fx:id="precoLabel" layoutX="267.0" layoutY="323.0" prefHeight="18.0" prefWidth="200.0" text="Preço:" />
-      <Label fx:id="checkDados" layoutX="267.0" layoutY="272.0" prefHeight="18.0" prefWidth="200.0" textFill="#ea0505" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#anterior" text="Anterior">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Button>
+      <Label fx:id="quantidadeLabel" layoutX="267.0" layoutY="296.0" prefHeight="18.0" prefWidth="200.0" text="Quantidade de Produtos:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="precoLabel" layoutX="267.0" layoutY="323.0" prefHeight="18.0" prefWidth="200.0" text="Preço:">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
+      <Label fx:id="checkDados" layoutX="267.0" layoutY="272.0" prefHeight="18.0" prefWidth="316.0" textFill="#ea0505">
+         <font>
+            <Font name="Open Sans SemiBold" size="13.0" />
+         </font></Label>
    </children>
 </AnchorPane>
