@@ -87,6 +87,7 @@ public class ProdutoBLL {
         Repositorio.getRepositorio().setNumProdutos(produto.getId());
         produto.setIdEmpresa(EmpresaBLL.getEmpresaLog().getId());
         EmpresaBLL.adicionaProduto(produto);
+        Repositorio.getRepositorio().setNumProdutosChart(Repositorio.getRepositorio().getNumProdutosChart() + 1);
     }
 
     public static boolean checkProdutoNome(String nome, String categoria) {

@@ -100,6 +100,7 @@ public class EncomendaBLL {
         Repositorio.getRepositorio().getEncomendasMap().put(encomenda.getId(), encomenda);
         Repositorio.getRepositorio().setNumEncomendas(encomenda.getId());
         ((Cliente) UtilizadorBLL.getUserLog()).getHistorial().add(encomenda);
+        Repositorio.getRepositorio().setNumEncomendasChart(Repositorio.getRepositorio().getNumEncomendasChart() + 1);
     }
 
     public static @NotNull ArrayList<Encomenda> getPorConfirmarEncomendas() {

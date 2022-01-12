@@ -24,6 +24,7 @@ public class UtilizadorBLL {
         utilizador.setIdUtilizador(Repositorio.getRepositorio().getNumUtilizadores() + 1);
         Repositorio.getRepositorio().getUtilizadoresMap().put(utilizador.getIdUtilizador(), utilizador);
         Repositorio.getRepositorio().setNumUtilizadores(utilizador.getIdUtilizador());
+        Repositorio.getRepositorio().setNumUtilizadoresChart(Repositorio.getRepositorio().getNumUtilizadoresChart() + 1);
     }
 
     // Método que verifica se existe um utilizador com given username já registado
@@ -51,6 +52,7 @@ public class UtilizadorBLL {
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (username.equals(Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername())) {
                 Repositorio.getRepositorio().getUtilizadoresMap().remove(key);
+                Repositorio.getRepositorio().setNumUtilizadoresChart(Repositorio.getRepositorio().getNumUtilizadoresChart() - 1);
                 return true;
             }
         return false;

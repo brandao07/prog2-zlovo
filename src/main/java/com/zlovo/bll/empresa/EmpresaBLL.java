@@ -10,6 +10,7 @@ import com.zlovo.dal.utilizador.Empresario;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -30,6 +31,7 @@ public class EmpresaBLL {
         empresa.setId(Repositorio.getRepositorio().getNumEmpresas() + 1);
         Repositorio.getRepositorio().setNumEmpresas(empresa.getId());
         empresa.setEmpresarioID(empresario);
+        Repositorio.getRepositorio().setNumEmpresasChart(Repositorio.getRepositorio().getNumEmpresasChart() + 1);
         if (!EmpresarioBLL.adicionarEmpresa(empresa, empresario))
             return;
         if (!Repositorio.getRepositorio().getLocalidadesEmpresasMap().containsKey(empresa.getMorada().getLocalidade())) {
@@ -66,17 +68,30 @@ public class EmpresaBLL {
                     for (Empresa e : ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList())
                         if (e.equals(empresa)) {
                             ((Empresario) Repositorio.getRepositorio().getUtilizadoresMap().get(key)).getEmpresasList().remove(empresa);
+                            Repositorio.getRepositorio().setNumEmpresasChart(Repositorio.getRepositorio().getNumEmpresasChart() - 1);
                             return;
                         }
     }
 
     // Método que remove a empresa do mapa LocalidadeEmpresa e tambem do mapa CategoriaEmpresa
     public static void removerEmpresaALL(String empresario) {
-        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
-            Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
+//        for (String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+//            Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
 
         for (String key : Repositorio.getRepositorio().getCategoriasEmpresasMap().keySet())
             Repositorio.getRepositorio().getCategoriasEmpresasMap().get(key).removeIf(keyEmpresa -> keyEmpresa.getEmpresarioID().equals(empresario));
+
+        for(String key : Repositorio.getRepositorio().getLocalidadesEmpresasMap().keySet())
+            try {
+                for (Empresa e : Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key))
+                    if (e.getEmpresarioID().equals(empresario)){
+                        Repositorio.getRepositorio().getLocalidadesEmpresasMap().get(key).remove(e);
+                        Repositorio.getRepositorio().setNumEmpresasChart(Repositorio.getRepositorio().getNumEmpresasChart() - 1);
+                    }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
     }
 
     // Método que altera os dados de uma empresa

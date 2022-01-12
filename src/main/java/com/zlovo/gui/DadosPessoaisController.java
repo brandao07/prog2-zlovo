@@ -49,7 +49,6 @@ public class DadosPessoaisController implements Initializable {
             morada.setRua(ruaTextfield.getText());
             morada.setnPorta(Integer.parseInt(portaTextfield.getText()));
             SelecionaTipoUserController.utilizador.setMorada(morada);
-            UtilizadorBLL.criarUtilizador(SelecionaTipoUserController.utilizador);
             if (SelecionaTipoUserController.utilizador instanceof Cliente) {
                 UtilizadorBLL.criarUtilizador(SelecionaTipoUserController.utilizador);
                 ControladorGlobal.chamaScene("SceneLogin.fxml", event);

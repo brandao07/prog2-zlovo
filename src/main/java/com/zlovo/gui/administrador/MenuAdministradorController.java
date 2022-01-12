@@ -5,7 +5,6 @@ import com.zlovo.gui.ControladorGlobal;
 import javafx.event.ActionEvent;
 
 public class MenuAdministradorController {
-    // TODO continuacao dos butoes grafico linhas
     public void criarUser(ActionEvent event) {
         ControladorGlobal.chamaScene("administrador/SceneSelecionaTipoFuncionario.fxml", event);
     }
@@ -29,5 +28,9 @@ public class MenuAdministradorController {
     public void logout(ActionEvent event) {
         UtilizadorBLL.setUserLog(null);
         ControladorGlobal.chamaScene("SceneLogin.fxml", event);
+    }
+
+    public void consultarSistema(ActionEvent event){
+        ControladorGlobal.chamaScene("administrador/SceneConsultarSistema.fxml", event);
     }
 }

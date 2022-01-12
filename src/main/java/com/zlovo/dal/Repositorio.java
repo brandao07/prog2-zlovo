@@ -16,6 +16,10 @@ public class Repositorio implements Serializable {
     private final Map<Integer, Encomenda> encomendasMap = new HashMap<>();
     private final Set<String> localidadeSet = new HashSet<>();
     private final Set<String> categoriaSet = new HashSet<>();
+    private int numEmpresasChart = 0;
+    private int numProdutosChart = 0;
+    private int numEncomendasChart = 0;
+    private int numUtilizadoresChart = 0;
     private int numEmpresas = 0;
     private int numProdutos = 0;
     private int numUtilizadores = 0;
@@ -31,6 +35,38 @@ public class Repositorio implements Serializable {
         if (_repo == null) _repo = new Repositorio();
         lock.unlock();
         return _repo;
+    }
+
+    public int getNumEmpresasChart() {
+        return numEmpresasChart;
+    }
+
+    public void setNumEmpresasChart(int numEmpresasChart) {
+        this.numEmpresasChart = numEmpresasChart;
+    }
+
+    public int getNumProdutosChart() {
+        return numProdutosChart;
+    }
+
+    public void setNumProdutosChart(int numProdutosChart) {
+        this.numProdutosChart = numProdutosChart;
+    }
+
+    public int getNumEncomendasChart() {
+        return numEncomendasChart;
+    }
+
+    public void setNumEncomendasChart(int numEncomendasChart) {
+        this.numEncomendasChart = numEncomendasChart;
+    }
+
+    public int getNumUtilizadoresChart() {
+        return numUtilizadoresChart;
+    }
+
+    public void setNumUtilizadoresChart(int numUtilizadoresChart) {
+        this.numUtilizadoresChart = numUtilizadoresChart;
     }
 
     // Ler o ficheiro

@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
 public class ZlovoApplication extends Application {
