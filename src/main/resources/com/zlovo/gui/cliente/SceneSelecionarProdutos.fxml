@@ -55,7 +55,7 @@
          <font>
             <Font name="Open Sans SemiBold" size="13.0" />
          </font></Label>
-      <Label fx:id="checkLabel" alignment="CENTER" layoutX="233.0" layoutY="200.0" prefHeight="17.0" prefWidth="277.0" textFill="#0c81da">
+      <Label fx:id="checkLabel" alignment="CENTER" layoutX="215.0" layoutY="207.0" prefHeight="25.0" prefWidth="382.0" textFill="#0c81da">
          <font>
             <Font name="Open Sans SemiBold" size="18.0" />
          </font>

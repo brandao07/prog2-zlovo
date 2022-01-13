@@ -7,6 +7,7 @@ import com.zlovo.dal.empresa.Produto;
 import com.zlovo.dal.encomenda.Encomenda;
 import com.zlovo.dal.encomenda.Trabalho;
 import com.zlovo.dal.encomenda.enumerations.TipoEstado;
+import com.zlovo.dal.encomenda.enumerations.TipoEstadoEntrega;
 import com.zlovo.dal.utilizador.Cliente;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -114,7 +115,7 @@ public class EncomendaBLL {
     public static @NotNull ArrayList<Encomenda> getConfirmarEncomendas() {
         ArrayList<Encomenda> encomendas = new ArrayList<>();
         for (int key : Repositorio.getRepositorio().getEncomendasMap().keySet())
-            if (Repositorio.getRepositorio().getEncomendasMap().get(key).getDetalhes().getTipoEstado().equals(TipoEstado.CONFIRMADA))
+            if (Repositorio.getRepositorio().getEncomendasMap().get(key).getDetalhes().getTipoEstado().equals(TipoEstado.CONFIRMADA) & Repositorio.getRepositorio().getEncomendasMap().get(key).getDetalhes().getEstadoEntrega().equals(TipoEstadoEntrega.A_PERPARAR))
                 encomendas.add(Repositorio.getRepositorio().getEncomendasMap().get(key));
         return encomendas;
     }

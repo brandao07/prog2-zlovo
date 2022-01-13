@@ -32,15 +32,15 @@
          <font>
             <Font name="Open Sans SemiBold" size="13.0" />
          </font></Label>
-      <Label fx:id="metodoLabel" layoutX="286.0" layoutY="209.0" prefHeight="18.0" prefWidth="230.0">
+      <Label fx:id="metodoLabel" layoutX="286.0" layoutY="209.0" prefHeight="18.0" prefWidth="301.0">
          <font>
             <Font name="Open Sans SemiBold" size="13.0" />
          </font></Label>
-      <Label fx:id="estadoLabel" layoutX="286.0" layoutY="181.0" prefHeight="18.0" prefWidth="230.0">
+      <Label fx:id="estadoLabel" layoutX="286.0" layoutY="181.0" prefHeight="18.0" prefWidth="301.0">
          <font>
             <Font name="Open Sans SemiBold" size="13.0" />
          </font></Label>
-      <Label fx:id="metodoPagamentoLabel" layoutX="286.0" layoutY="151.0" prefHeight="18.0" prefWidth="230.0">
+      <Label fx:id="metodoPagamentoLabel" layoutX="286.0" layoutY="151.0" prefHeight="18.0" prefWidth="301.0">
          <font>
             <Font name="Open Sans SemiBold" size="13.0" />
          </font></Label>
