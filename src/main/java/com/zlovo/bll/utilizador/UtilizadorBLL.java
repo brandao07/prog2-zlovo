@@ -48,14 +48,13 @@ public class UtilizadorBLL {
     }
 
     // Método que remove utilizador com given username
-    public static boolean removeUtilizador(String username) {
+    public static void removeUtilizador(String username) {
         for (int key : Repositorio.getRepositorio().getUtilizadoresMap().keySet())
             if (username.equals(Repositorio.getRepositorio().getUtilizadoresMap().get(key).getUsername())) {
                 Repositorio.getRepositorio().getUtilizadoresMap().remove(key);
                 Repositorio.getRepositorio().setNumUtilizadoresChart(Repositorio.getRepositorio().getNumUtilizadoresChart() - 1);
-                return true;
+                return;
             }
-        return false;
     }
 
     // Método que lista todos os utilizadores
