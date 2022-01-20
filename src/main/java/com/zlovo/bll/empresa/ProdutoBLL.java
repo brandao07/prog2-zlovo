@@ -100,10 +100,10 @@ public class ProdutoBLL {
         return false;
     }
 
-    public static @Nullable Produto getProduto(String categoria, @NotNull Empresa empresa, Produto produto) {
-        for (Produto p : empresa.getProdutosMap().get(categoria))
-            if (produto.getNome().equals(p.getNome()))
-                return p;
-        return null;
-    }
+//    public static @Nullable Produto getProduto(String categoria, @NotNull Empresa empresa, Produto produto) {
+//        for (Produto p : empresa.getProdutosMap().get(categoria))
+//            if (produto.getNome().equals(p.getNome()))
+//                return p;
+//        return null;
+//    }
 }
